@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
 import type { Profile, PreferredFormat } from "@/types/database";
@@ -129,9 +129,8 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
             </div>
           ))}
           {DAYS.map((day) => (
-            <>
+            <Fragment key={day}>
               <div
-                key={day}
                 className="py-1 text-left font-medium text-zinc-700 dark:text-zinc-300"
               >
                 {t(`day.${day}`)}
@@ -153,7 +152,7 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
                   </button>
                 );
               })}
-            </>
+            </Fragment>
           ))}
         </div>
       </div>

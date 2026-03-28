@@ -10,10 +10,12 @@ const LEVELS: SkillLevel[] = ["beginner", "intermediate", "advanced"];
 const INTENTIONS: SkillIntention[] = ["learn", "teach", "collaborate"];
 
 function SkillForm({
+  userId,
   skill,
   onSaved,
   onCancel,
 }: {
+  userId: string;
   skill?: UserSkill;
   onSaved: () => void;
   onCancel: () => void;
@@ -47,6 +49,7 @@ function SkillForm({
         .eq("id", skill.id);
     } else {
       await supabase.from("user_skills").insert({
+        user_id: userId,
         skill_name: skillName.trim(),
         level,
         intention,
@@ -143,7 +146,7 @@ function SkillForm({
   );
 }
 
-export default function SkillList({ skills }: { skills: UserSkill[] }) {
+export default function SkillList({ userId, skills }: { userId: string; skills: UserSkill[] }) {
   const t = useTranslations("profile");
   const supabase = createClient();
   const router = useRouter();
@@ -168,6 +171,7 @@ export default function SkillList({ skills }: { skills: UserSkill[] }) {
         editingId === skill.id ? (
           <SkillForm
             key={skill.id}
+            userId={userId}
             skill={skill}
             onSaved={handleSaved}
             onCancel={() => setEditingId(null)}
@@ -210,7 +214,7 @@ export default function SkillList({ skills }: { skills: UserSkill[] }) {
       )}
 
       {adding ? (
-        <SkillForm onSaved={handleSaved} onCancel={() => setAdding(false)} />
+        <SkillForm userId={userId} onSaved={handleSaved} onCancel={() => setAdding(false)} />
       ) : (
         <button
           onClick={() => setAdding(true)}

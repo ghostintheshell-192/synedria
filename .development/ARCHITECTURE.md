@@ -60,10 +60,19 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/app/[locale]/auth/callback
 - `route.ts`
 
+### src/app/[locale]/profile
+- `page.tsx`
+
 ### src/components
 - `LoginButton.tsx`
+- `LogoutButton.tsx`
+
+### src/components/profile
+- `ProfileForm.tsx`
+- `SkillList.tsx`
 
 ### src/i18n
+- `navigation.ts`
 - `request.ts`
 - `routing.ts`
 
@@ -71,6 +80,9 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `client.ts`
 - `middleware.ts`
 - `server.ts`
+
+### src/types
+- `database.ts`
 
 ---
 

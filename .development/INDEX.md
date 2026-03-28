@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-03-28 19:02*
+*Auto-generated: 2026-03-28 19:08*
 
 ---
 
@@ -19,8 +19,8 @@
 
 ### (root)/ (4 files)
 
-- [INDEX.md](INDEX.md) (2KB, 2026-03-28) **RECENT**
 - [ARCHITECTURE.md](ARCHITECTURE.md) (1KB, 2026-03-28) **RECENT**
+- [INDEX.md](INDEX.md) (2KB, 2026-03-28) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (1KB, 2026-03-25) **RECENT**
 - [README.md](README.md) (2KB, 2026-03-25) **RECENT**
 
@@ -42,9 +42,9 @@
 
 ### reference/decisions/ (3 files)
 
-- [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (2KB, 2026-03-28) **RECENT**
-- [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (1KB, 2026-03-28) **RECENT**
 - [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (1KB, 2026-03-28) **RECENT**
+- [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (1KB, 2026-03-28) **RECENT**
+- [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (2KB, 2026-03-28) **RECENT**
 
 ### reference/technical/ (1 files)
 
@@ -64,11 +64,11 @@
 
 ## Recently Modified (last 7 days)
 
-1. [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (today)
-2. [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (today)
+1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
+2. [INDEX.md](INDEX.md) (today)
 3. [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (today)
-4. [INDEX.md](INDEX.md) (today)
-5. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
+4. [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (today)
+5. [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (today)
 6. [database-schema.md](reference/technical/database-schema.md) (today)
 7. [02-user-profile.md](specs/planned/02-user-profile.md) (today)
 8. [05-group-page.md](specs/planned/05-group-page.md) (today)

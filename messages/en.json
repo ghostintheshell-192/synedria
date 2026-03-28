@@ -6,5 +6,64 @@
   "metadata": {
     "title": "Synedria — Intentional Study Groups",
     "description": "Find and create small study groups based on shared interests and goals, with a preference for in-person meetings."
+  },
+  "auth": {
+    "signInGithub": "Sign in with GitHub",
+    "signOut": "Sign out",
+    "viewProfile": "Your Profile"
+  },
+  "profile": {
+    "pageTitle": "Your Profile",
+    "basicInfo": "Basic Info",
+    "skills": "Skills",
+    "displayName": "Display name",
+    "city": "City",
+    "cityPlaceholder": "e.g. Navigli area, Milan",
+    "preferredFormat": "Preferred format",
+    "selectFormat": "Select a format",
+    "format": {
+      "in_person": "In person",
+      "hybrid": "Hybrid",
+      "online": "Online"
+    },
+    "availability": "Availability",
+    "timeSlot": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening"
+    },
+    "day": {
+      "monday": "Mon",
+      "tuesday": "Tue",
+      "wednesday": "Wed",
+      "thursday": "Thu",
+      "friday": "Fri",
+      "saturday": "Sat",
+      "sunday": "Sun"
+    },
+    "save": "Save",
+    "saving": "Saving...",
+    "saved": "Saved!",
+    "skillName": "Skill",
+    "skillNamePlaceholder": "e.g. Python, DevOps, Machine Learning",
+    "level": "Level",
+    "skillLevel": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "intention": "Intention",
+    "skillIntention": {
+      "learn": "Want to learn",
+      "teach": "Want to teach",
+      "collaborate": "Want to collaborate"
+    },
+    "goal": "Goal",
+    "goalPlaceholder": "e.g. get AWS certification by June",
+    "addSkill": "Add skill",
+    "updateSkill": "Update",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel"
   }
 }

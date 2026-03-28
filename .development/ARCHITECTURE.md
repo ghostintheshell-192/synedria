@@ -50,9 +50,16 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 > Run `.development/scripts/generate-architecture.sh` to update.
 
 
-### src/app
+### src
+- `middleware.ts`
+
+### src/app/[locale]
 - `layout.tsx`
 - `page.tsx`
+
+### src/i18n
+- `request.ts`
+- `routing.ts`
 
 ---
 

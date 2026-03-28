@@ -1,5 +1,5 @@
 -- Synedria MVP: Initial database schema
--- All tables use RLS. Policies are defined per-table.
+-- Structure: enums → functions → tables (with basic policies) → cross-table policies
 
 -- =============================================================================
 -- ENUMS
@@ -27,7 +27,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- =============================================================================
--- PROFILES
+-- PROFILES (table + self-referencing policies only)
 -- =============================================================================
 
 CREATE TABLE profiles (
@@ -51,16 +51,6 @@ CREATE POLICY "Users can read own profile"
   ON profiles FOR SELECT
   USING (auth.uid() = id);
 
-CREATE POLICY "Users can read profiles of group co-members"
-  ON profiles FOR SELECT
-  USING (
-    EXISTS (
-      SELECT 1 FROM group_members gm1
-      JOIN group_members gm2 ON gm1.group_id = gm2.group_id
-      WHERE gm1.user_id = auth.uid() AND gm2.user_id = profiles.id
-    )
-  );
-
 CREATE POLICY "Public profiles readable by anyone"
   ON profiles FOR SELECT
   USING (is_public_profile = true);
@@ -78,7 +68,7 @@ CREATE POLICY "Users can delete own profile"
   USING (auth.uid() = id);
 
 -- =============================================================================
--- USER SKILLS
+-- USER SKILLS (table + self-referencing policies only)
 -- =============================================================================
 
 CREATE TABLE user_skills (
@@ -99,16 +89,6 @@ ALTER TABLE user_skills ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Users can read own skills"
   ON user_skills FOR SELECT
   USING (auth.uid() = user_id);
-
-CREATE POLICY "Users can read skills of group co-members"
-  ON user_skills FOR SELECT
-  USING (
-    EXISTS (
-      SELECT 1 FROM group_members gm1
-      JOIN group_members gm2 ON gm1.group_id = gm2.group_id
-      WHERE gm1.user_id = auth.uid() AND gm2.user_id = user_skills.user_id
-    )
-  );
 
 CREATE POLICY "Users can insert own skills"
   ON user_skills FOR INSERT
@@ -167,15 +147,6 @@ CREATE POLICY "Authenticated users can create groups"
   ON groups FOR INSERT
   WITH CHECK (auth.uid() = created_by);
 
-CREATE POLICY "Referent can update group"
-  ON groups FOR UPDATE
-  USING (
-    EXISTS (
-      SELECT 1 FROM group_members
-      WHERE group_id = groups.id AND user_id = auth.uid() AND role = 'referent'
-    )
-  );
-
 -- =============================================================================
 -- GROUP MEMBERS
 -- =============================================================================
@@ -202,15 +173,6 @@ CREATE POLICY "Group membership is publicly readable"
 CREATE POLICY "Members can insert via join flow"
   ON group_members FOR INSERT
   WITH CHECK (auth.uid() = user_id);
-
-CREATE POLICY "Referent can update roles"
-  ON group_members FOR UPDATE
-  USING (
-    EXISTS (
-      SELECT 1 FROM group_members gm
-      WHERE gm.group_id = group_members.group_id AND gm.user_id = auth.uid() AND gm.role = 'referent'
-    )
-  );
 
 CREATE POLICY "Members can remove themselves"
   ON group_members FOR DELETE
@@ -241,27 +203,9 @@ CREATE POLICY "Applicants can read own requests"
   ON join_requests FOR SELECT
   USING (auth.uid() = applicant_id);
 
-CREATE POLICY "Referent can read requests for their groups"
-  ON join_requests FOR SELECT
-  USING (
-    EXISTS (
-      SELECT 1 FROM group_members
-      WHERE group_id = join_requests.group_id AND user_id = auth.uid() AND role = 'referent'
-    )
-  );
-
 CREATE POLICY "Authenticated users can create requests"
   ON join_requests FOR INSERT
   WITH CHECK (auth.uid() = applicant_id);
-
-CREATE POLICY "Referent can update request status"
-  ON join_requests FOR UPDATE
-  USING (
-    EXISTS (
-      SELECT 1 FROM group_members
-      WHERE group_id = join_requests.group_id AND user_id = auth.uid() AND role = 'referent'
-    )
-  );
 
 -- =============================================================================
 -- CHECK-INS
@@ -291,16 +235,6 @@ CREATE POLICY "Check-ins are publicly readable"
   ON check_ins FOR SELECT
   USING (true);
 
-CREATE POLICY "Group members can create check-ins"
-  ON check_ins FOR INSERT
-  WITH CHECK (
-    auth.uid() = created_by
-    AND EXISTS (
-      SELECT 1 FROM group_members
-      WHERE group_id = check_ins.group_id AND user_id = auth.uid()
-    )
-  );
-
 CREATE POLICY "Creator can update within 48h"
   ON check_ins FOR UPDATE
   USING (
@@ -324,6 +258,113 @@ CREATE POLICY "Attendance is publicly readable"
   ON check_in_attendees FOR SELECT
   USING (true);
 
+-- =============================================================================
+-- PROGRESS UPDATES
+-- =============================================================================
+
+CREATE TABLE progress_updates (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  group_id uuid NOT NULL REFERENCES groups(id) ON DELETE CASCADE,
+  user_id uuid NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  content text NOT NULL,
+  is_public boolean NOT NULL DEFAULT false,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE INDEX idx_progress_updates_group ON progress_updates(group_id, created_at DESC);
+CREATE INDEX idx_progress_updates_user ON progress_updates(user_id);
+
+ALTER TABLE progress_updates ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Public updates readable by anyone"
+  ON progress_updates FOR SELECT
+  USING (is_public = true);
+
+CREATE POLICY "Owner can update own progress"
+  ON progress_updates FOR UPDATE
+  USING (auth.uid() = user_id);
+
+CREATE POLICY "Owner can delete own progress"
+  ON progress_updates FOR DELETE
+  USING (auth.uid() = user_id);
+
+-- =============================================================================
+-- CROSS-TABLE POLICIES (depend on group_members, defined after all tables)
+-- =============================================================================
+
+-- Profiles: visible to group co-members
+CREATE POLICY "Users can read profiles of group co-members"
+  ON profiles FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM group_members gm1
+      JOIN group_members gm2 ON gm1.group_id = gm2.group_id
+      WHERE gm1.user_id = auth.uid() AND gm2.user_id = profiles.id
+    )
+  );
+
+-- User skills: visible to group co-members
+CREATE POLICY "Users can read skills of group co-members"
+  ON user_skills FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM group_members gm1
+      JOIN group_members gm2 ON gm1.group_id = gm2.group_id
+      WHERE gm1.user_id = auth.uid() AND gm2.user_id = user_skills.user_id
+    )
+  );
+
+-- Groups: referent can update
+CREATE POLICY "Referent can update group"
+  ON groups FOR UPDATE
+  USING (
+    EXISTS (
+      SELECT 1 FROM group_members
+      WHERE group_id = groups.id AND user_id = auth.uid() AND role = 'referent'
+    )
+  );
+
+-- Group members: referent can update roles
+CREATE POLICY "Referent can update roles"
+  ON group_members FOR UPDATE
+  USING (
+    EXISTS (
+      SELECT 1 FROM group_members gm
+      WHERE gm.group_id = group_members.group_id AND gm.user_id = auth.uid() AND gm.role = 'referent'
+    )
+  );
+
+-- Join requests: referent can read and update
+CREATE POLICY "Referent can read requests for their groups"
+  ON join_requests FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM group_members
+      WHERE group_id = join_requests.group_id AND user_id = auth.uid() AND role = 'referent'
+    )
+  );
+
+CREATE POLICY "Referent can update request status"
+  ON join_requests FOR UPDATE
+  USING (
+    EXISTS (
+      SELECT 1 FROM group_members
+      WHERE group_id = join_requests.group_id AND user_id = auth.uid() AND role = 'referent'
+    )
+  );
+
+-- Check-ins: group members can create
+CREATE POLICY "Group members can create check-ins"
+  ON check_ins FOR INSERT
+  WITH CHECK (
+    auth.uid() = created_by
+    AND EXISTS (
+      SELECT 1 FROM group_members
+      WHERE group_id = check_ins.group_id AND user_id = auth.uid()
+    )
+  );
+
+-- Check-in attendees: creator of check-in can manage
 CREATE POLICY "Check-in creator can manage attendees"
   ON check_in_attendees FOR INSERT
   WITH CHECK (
@@ -344,24 +385,7 @@ CREATE POLICY "Check-in creator can remove attendees"
     )
   );
 
--- =============================================================================
--- PROGRESS UPDATES
--- =============================================================================
-
-CREATE TABLE progress_updates (
-  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  group_id uuid NOT NULL REFERENCES groups(id) ON DELETE CASCADE,
-  user_id uuid NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
-  content text NOT NULL,
-  is_public boolean NOT NULL DEFAULT false,
-  created_at timestamptz NOT NULL DEFAULT now()
-);
-
-CREATE INDEX idx_progress_updates_group ON progress_updates(group_id, created_at DESC);
-CREATE INDEX idx_progress_updates_user ON progress_updates(user_id);
-
-ALTER TABLE progress_updates ENABLE ROW LEVEL SECURITY;
-
+-- Progress updates: group members can read and insert
 CREATE POLICY "Members can read group progress"
   ON progress_updates FOR SELECT
   USING (
@@ -370,10 +394,6 @@ CREATE POLICY "Members can read group progress"
       WHERE group_id = progress_updates.group_id AND user_id = auth.uid()
     )
   );
-
-CREATE POLICY "Public updates readable by anyone"
-  ON progress_updates FOR SELECT
-  USING (is_public = true);
 
 CREATE POLICY "Members can insert progress"
   ON progress_updates FOR INSERT
@@ -384,14 +404,6 @@ CREATE POLICY "Members can insert progress"
       WHERE group_id = progress_updates.group_id AND user_id = auth.uid()
     )
   );
-
-CREATE POLICY "Owner can update own progress"
-  ON progress_updates FOR UPDATE
-  USING (auth.uid() = user_id);
-
-CREATE POLICY "Owner can delete own progress"
-  ON progress_updates FOR DELETE
-  USING (auth.uid() = user_id);
 
 -- =============================================================================
 -- AUTO-CREATE PROFILE ON SIGNUP

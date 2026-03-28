@@ -66,6 +66,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/components
 - `LoginButton.tsx`
 - `LogoutButton.tsx`
+- `OnboardingBanner.tsx`
 
 ### src/components/profile
 - `ProfileForm.tsx`
@@ -75,6 +76,9 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `navigation.ts`
 - `request.ts`
 - `routing.ts`
+
+### src/lib
+- `profile.ts`
 
 ### src/lib/supabase
 - `client.ts`

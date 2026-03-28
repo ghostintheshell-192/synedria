@@ -64,6 +64,23 @@
     "updateSkill": "Update",
     "edit": "Edit",
     "delete": "Delete",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "visibilityComplete": "Your profile is complete. You are visible in search results.",
+    "visibilityIncomplete": "You won't appear in search results until you complete:",
+    "missing": {
+      "skills": "Add at least one skill",
+      "city": "Set your city",
+      "availability": "Set your availability"
+    }
+  },
+  "onboarding": {
+    "title": "Complete your profile",
+    "description": "So people studying the same things as you can find you.",
+    "dismiss": "Dismiss",
+    "missing": {
+      "skills": "Add at least one skill",
+      "city": "Set your city",
+      "availability": "Set your availability"
+    }
   }
 }

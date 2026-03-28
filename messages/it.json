@@ -64,6 +64,23 @@
     "updateSkill": "Aggiorna",
     "edit": "Modifica",
     "delete": "Elimina",
-    "cancel": "Annulla"
+    "cancel": "Annulla",
+    "visibilityComplete": "Il tuo profilo è completo. Sei visibile nei risultati di ricerca.",
+    "visibilityIncomplete": "Non comparirai nei risultati di ricerca finché non completi:",
+    "missing": {
+      "skills": "Aggiungi almeno una competenza",
+      "city": "Imposta la tua città",
+      "availability": "Imposta la tua disponibilità"
+    }
+  },
+  "onboarding": {
+    "title": "Completa il tuo profilo",
+    "description": "Così potrai essere trovato da chi studia le tue stesse cose.",
+    "dismiss": "Chiudi",
+    "missing": {
+      "skills": "Aggiungi almeno una competenza",
+      "city": "Imposta la tua città",
+      "availability": "Imposta la tua disponibilità"
+    }
   }
 }

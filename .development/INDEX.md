@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-03-28 19:08*
+*Auto-generated: 2026-03-28 22:35*
 
 ---
 
@@ -70,10 +70,10 @@
 4. [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (today)
 5. [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (today)
 6. [database-schema.md](reference/technical/database-schema.md) (today)
-7. [02-user-profile.md](specs/planned/02-user-profile.md) (today)
-8. [05-group-page.md](specs/planned/05-group-page.md) (today)
-9. [07-join-request.md](specs/planned/07-join-request.md) (today)
-10. [04-group-creation.md](specs/planned/04-group-creation.md) (today)
+7. [02-user-profile.md](specs/planned/02-user-profile.md) (1d ago)
+8. [05-group-page.md](specs/planned/05-group-page.md) (1d ago)
+9. [07-join-request.md](specs/planned/07-join-request.md) (1d ago)
+10. [04-group-creation.md](specs/planned/04-group-creation.md) (1d ago)
 
 ---
 

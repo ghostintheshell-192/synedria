@@ -70,7 +70,7 @@ export default async function ProfilePage({
         <h2 className="mb-4 text-xl font-semibold text-zinc-800 dark:text-zinc-200">
           {t("skills")}
         </h2>
-        <SkillList skills={skills ?? []} />
+        <SkillList userId={user.id} skills={skills ?? []} />
       </section>
     </div>
   );

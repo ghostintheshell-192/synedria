@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-03-28 18:33*
+*Auto-generated: 2026-03-28 19:02*
 
 ---
 
@@ -40,6 +40,12 @@
 
 - [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25) **RECENT**
 
+### reference/decisions/ (3 files)
+
+- [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (2KB, 2026-03-28) **RECENT**
+- [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (1KB, 2026-03-28) **RECENT**
+- [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (1KB, 2026-03-28) **RECENT**
+
 ### reference/technical/ (1 files)
 
 - [database-schema.md](reference/technical/database-schema.md) (17KB, 2026-03-28) **RECENT**
@@ -58,16 +64,16 @@
 
 ## Recently Modified (last 7 days)
 
-1. [INDEX.md](INDEX.md) (today)
-2. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-3. [database-schema.md](reference/technical/database-schema.md) (today)
-4. [02-user-profile.md](specs/planned/02-user-profile.md) (today)
-5. [05-group-page.md](specs/planned/05-group-page.md) (today)
-6. [07-join-request.md](specs/planned/07-join-request.md) (today)
-7. [04-group-creation.md](specs/planned/04-group-creation.md) (today)
-8. [01-auth.md](specs/planned/01-auth.md) (today)
-9. [09-i18n.md](specs/planned/09-i18n.md) (today)
-10. [08-check-in.md](specs/planned/08-check-in.md) (today)
+1. [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (today)
+2. [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (today)
+3. [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (today)
+4. [INDEX.md](INDEX.md) (today)
+5. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
+6. [database-schema.md](reference/technical/database-schema.md) (today)
+7. [02-user-profile.md](specs/planned/02-user-profile.md) (today)
+8. [05-group-page.md](specs/planned/05-group-page.md) (today)
+9. [07-join-request.md](specs/planned/07-join-request.md) (today)
+10. [04-group-creation.md](specs/planned/04-group-creation.md) (today)
 
 ---
 

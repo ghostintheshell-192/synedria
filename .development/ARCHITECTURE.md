@@ -57,9 +57,20 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `layout.tsx`
 - `page.tsx`
 
+### src/app/[locale]/auth/callback
+- `route.ts`
+
+### src/components
+- `LoginButton.tsx`
+
 ### src/i18n
 - `request.ts`
 - `routing.ts`
+
+### src/lib/supabase
+- `client.ts`
+- `middleware.ts`
+- `server.ts`
 
 ---
 

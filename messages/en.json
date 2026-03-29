@@ -148,6 +148,19 @@
     "groupFull": "This group is full.",
     "groupClosed": "This group is not accepting new members."
   },
+  "checkIn": {
+    "recordMeeting": "Record meeting",
+    "date": "Date",
+    "duration": "Duration",
+    "location": "Location",
+    "locationPlaceholder": "e.g. Sormani Library, online",
+    "attendees": "Attendees",
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "duplicateError": "A check-in already exists for this date.",
+    "genericError": "Error saving. Please try again."
+  },
   "referent": {
     "pendingRequests": "Pending requests ({count})",
     "unknownUser": "User",

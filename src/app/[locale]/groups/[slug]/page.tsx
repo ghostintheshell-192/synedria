@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import PendingRequests from "@/components/groups/PendingRequests";
+import CheckInForm from "@/components/groups/CheckInForm";
 
 type GroupRow = {
   id: string;
@@ -387,6 +388,13 @@ export default async function GroupPage({
               </li>
             ))}
           </ul>
+        </section>
+      )}
+
+      {/* Check-in form (members only) */}
+      {isMember && (
+        <section className="mb-8">
+          <CheckInForm groupId={group.id} members={members ?? []} />
         </section>
       )}
 

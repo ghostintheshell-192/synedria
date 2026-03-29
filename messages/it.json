@@ -148,6 +148,19 @@
     "groupFull": "Il gruppo è al completo.",
     "groupClosed": "Il gruppo non accetta nuovi membri."
   },
+  "checkIn": {
+    "recordMeeting": "Registra incontro",
+    "date": "Data",
+    "duration": "Durata",
+    "location": "Luogo",
+    "locationPlaceholder": "es. Biblioteca Sormani, online",
+    "attendees": "Presenti",
+    "save": "Salva",
+    "saving": "Salvataggio...",
+    "cancel": "Annulla",
+    "duplicateError": "Esiste già un check-in per questa data.",
+    "genericError": "Errore nel salvataggio. Riprova."
+  },
   "referent": {
     "pendingRequests": "Richieste in attesa ({count})",
     "unknownUser": "Utente",

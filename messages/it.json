@@ -108,6 +108,21 @@
     "expectedAttendancePlaceholder": "es. ogni incontro, flessibile",
     "description": "Descrizione aggiuntiva"
   },
+  "search": {
+    "pageTitle": "Cerca gruppi",
+    "skillPlaceholder": "Argomento o competenza...",
+    "cityPlaceholder": "Città...",
+    "allFormats": "Tutti",
+    "noResults": "Nessun gruppo trovato con questi filtri.",
+    "noGroups": "Non ci sono ancora gruppi.",
+    "broaden": "Prova ad allargare i filtri di ricerca.",
+    "fewResults": "Pochi risultati? Potresti crearne uno tu!",
+    "createCta": "Crea un gruppo",
+    "activeThisWeek": "Attivo questa settimana",
+    "activeThisMonth": "Attivo questo mese",
+    "inactive": "Inattivo",
+    "noActivity": "Nessun incontro"
+  },
   "groupPage": {
     "statusOpen": "Aperto",
     "statusClosed": "Chiuso",

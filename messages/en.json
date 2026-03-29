@@ -108,6 +108,21 @@
     "expectedAttendancePlaceholder": "e.g. every meeting, flexible",
     "description": "Additional description"
   },
+  "search": {
+    "pageTitle": "Search groups",
+    "skillPlaceholder": "Topic or skill...",
+    "cityPlaceholder": "City...",
+    "allFormats": "All",
+    "noResults": "No groups found with these filters.",
+    "noGroups": "No groups yet.",
+    "broaden": "Try broadening your search filters.",
+    "fewResults": "Few results? You could create one!",
+    "createCta": "Create a group",
+    "activeThisWeek": "Active this week",
+    "activeThisMonth": "Active this month",
+    "inactive": "Inactive",
+    "noActivity": "No meetings yet"
+  },
   "groupPage": {
     "statusOpen": "Open",
     "statusClosed": "Closed",

@@ -16,6 +16,7 @@ export default async function Home({
   const t = await getTranslations("home");
   const tAuth = await getTranslations("auth");
   const tGroups = await getTranslations("groups");
+  const tSearch = await getTranslations("search");
 
   const supabase = await createClient();
   const {
@@ -57,10 +58,16 @@ export default async function Home({
               <OnboardingBanner missingFields={missingFields} />
             )}
             <div className="flex flex-col items-center gap-3">
+              <Link
+                href="/search"
+                className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+              >
+                {tSearch("pageTitle")}
+              </Link>
               {missingFields.length === 0 && (
                 <Link
                   href="/groups/create"
-                  className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+                  className="text-sm text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
                 >
                   {tGroups("createButton")}
                 </Link>

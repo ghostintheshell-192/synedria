@@ -324,6 +324,18 @@ CREATE POLICY "Referent can update group"
     )
   );
 
+-- Group members: referent can add members (via join request approval)
+CREATE POLICY "Referent can add members"
+  ON group_members FOR INSERT
+  WITH CHECK (
+    EXISTS (
+      SELECT 1 FROM group_members gm
+      WHERE gm.group_id = group_members.group_id
+        AND gm.user_id = auth.uid()
+        AND gm.role = 'referent'
+    )
+  );
+
 -- Group members: referent can update roles
 CREATE POLICY "Referent can update roles"
   ON group_members FOR UPDATE

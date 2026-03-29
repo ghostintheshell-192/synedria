@@ -9,6 +9,7 @@
   },
   "auth": {
     "signInGithub": "Sign in with GitHub",
+    "signInGoogle": "Sign in with Google",
     "signOut": "Sign out",
     "viewProfile": "Your Profile"
   },
@@ -141,9 +142,33 @@
     "meetingLog": "Meetings",
     "attendees": "{count} attendees",
     "askToJoin": "Ask to join",
+    "joinDirectly": "Join",
+    "requestPending": "Request pending approval",
     "loginToJoin": "Sign in to join this group.",
     "groupFull": "This group is full.",
     "groupClosed": "This group is not accepting new members."
+  },
+  "referent": {
+    "pendingRequests": "Pending requests ({count})",
+    "unknownUser": "User",
+    "objective": "Objective",
+    "message": "Message",
+    "approve": "Approve",
+    "reject": "Reject"
+  },
+  "joinRequest": {
+    "pageTitle": "Join group",
+    "requestTitle": "Ask to join",
+    "joinTitle": "Join group",
+    "forGroup": "For group: {name}",
+    "introMessage": "Introduction (optional)",
+    "introPlaceholder": "Briefly introduce yourself to the group referent...",
+    "personalObjective": "Your personal objective",
+    "objectivePlaceholder": "Why do you want to join this group? What's your goal?",
+    "requestButton": "Send request",
+    "joinButton": "Join",
+    "submitting": "Sending...",
+    "requestPending": "Request pending"
   },
   "onboarding": {
     "title": "Complete your profile",

@@ -9,6 +9,7 @@
   },
   "auth": {
     "signInGithub": "Accedi con GitHub",
+    "signInGoogle": "Accedi con Google",
     "signOut": "Esci",
     "viewProfile": "Il tuo profilo"
   },
@@ -141,9 +142,33 @@
     "meetingLog": "Incontri",
     "attendees": "{count} partecipanti",
     "askToJoin": "Chiedi di unirti",
+    "joinDirectly": "Unisciti",
+    "requestPending": "Richiesta in attesa di approvazione",
     "loginToJoin": "Accedi per unirti a questo gruppo.",
     "groupFull": "Il gruppo è al completo.",
     "groupClosed": "Il gruppo non accetta nuovi membri."
+  },
+  "referent": {
+    "pendingRequests": "Richieste in attesa ({count})",
+    "unknownUser": "Utente",
+    "objective": "Obiettivo",
+    "message": "Messaggio",
+    "approve": "Approva",
+    "reject": "Rifiuta"
+  },
+  "joinRequest": {
+    "pageTitle": "Unisciti al gruppo",
+    "requestTitle": "Chiedi di unirti",
+    "joinTitle": "Unisciti al gruppo",
+    "forGroup": "Per il gruppo: {name}",
+    "introMessage": "Presentazione (opzionale)",
+    "introPlaceholder": "Presentati brevemente al referente del gruppo...",
+    "personalObjective": "Il tuo obiettivo personale",
+    "objectivePlaceholder": "Perché vuoi unirti a questo gruppo? Qual è il tuo obiettivo?",
+    "requestButton": "Invia richiesta",
+    "joinButton": "Unisciti",
+    "submitting": "Invio...",
+    "requestPending": "Richiesta in attesa"
   },
   "onboarding": {
     "title": "Completa il tuo profilo",

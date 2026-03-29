@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import PendingRequests from "@/components/groups/PendingRequests";
 
 type GroupRow = {
   id: string;
@@ -133,9 +134,50 @@ export default async function GroupPage({
     ? members?.find((m) => m.user_id === user.id)
     : null;
   const isMember = !!currentMember;
+  const isReferent = currentMember?.role === "referent";
   const memberCount = members?.length ?? 0;
   const isFull = memberCount >= 8;
   const isOpen = group.status === "open";
+  const isOpenAccess = group.entry_mode === "open";
+
+  // Fetch pending requests (referent only)
+  type JoinRequestRow = {
+    id: string;
+    applicant_id: string;
+    intro_message: string | null;
+    personal_objective: string;
+    created_at: string;
+    profiles: {
+      display_name: string;
+      avatar_url: string | null;
+      city: string | null;
+    };
+  };
+
+  let pendingRequests: JoinRequestRow[] = [];
+  if (isReferent) {
+    const { data } = await supabase
+      .from("join_requests")
+      .select("id, applicant_id, intro_message, personal_objective, created_at, profiles:applicant_id(display_name, avatar_url, city)")
+      .eq("group_id", group.id)
+      .eq("status", "pending")
+      .order("created_at", { ascending: true })
+      .returns<JoinRequestRow[]>();
+    pendingRequests = data ?? [];
+  }
+
+  // Check for pending request (applicant)
+  let hasPendingRequest = false;
+  if (user && !isMember) {
+    const { data: pending } = await supabase
+      .from("join_requests")
+      .select("id")
+      .eq("group_id", group.id)
+      .eq("applicant_id", user.id)
+      .eq("status", "pending")
+      .single();
+    hasPendingRequest = !!pending;
+  }
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
@@ -255,6 +297,15 @@ export default async function GroupPage({
         </section>
       )}
 
+      {/* Pending requests (referent only) */}
+      {isReferent && (
+        <PendingRequests
+          requests={pendingRequests}
+          groupId={group.id}
+          groupSlug={group.slug}
+        />
+      )}
+
       {/* Members */}
       {members && members.length > 0 && (
         <section className="mb-8">
@@ -263,6 +314,7 @@ export default async function GroupPage({
           </h2>
           <ul className="space-y-3">
             {members.map((member) => {
+              if (!member.profiles) return null;
               const showDetails = isMember || member.profiles.is_public_profile;
               return (
                 <li
@@ -340,13 +392,18 @@ export default async function GroupPage({
 
       {/* Actions */}
       <div className="flex gap-3">
-        {!isMember && isOpen && !isFull && user && (
+        {!isMember && isOpen && !isFull && user && !hasPendingRequest && (
           <Link
             href={`/groups/${group.slug}/join`}
             className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
           >
-            {t("askToJoin")}
+            {isOpenAccess ? t("joinDirectly") : t("askToJoin")}
           </Link>
+        )}
+        {!isMember && hasPendingRequest && (
+          <p className="text-sm text-amber-600 dark:text-amber-400">
+            {t("requestPending")}
+          </p>
         )}
         {!isMember && isOpen && !isFull && !user && (
           <p className="text-sm text-zinc-500 dark:text-zinc-400">

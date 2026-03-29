@@ -60,6 +60,9 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/app/[locale]/auth/callback
 - `route.ts`
 
+### src/app/[locale]/groups/create
+- `page.tsx`
+
 ### src/app/[locale]/profile
 - `page.tsx`
 
@@ -67,6 +70,9 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `LoginButton.tsx`
 - `LogoutButton.tsx`
 - `OnboardingBanner.tsx`
+
+### src/components/groups
+- `GroupCreateForm.tsx`
 
 ### src/components/profile
 - `ProfileForm.tsx`
@@ -79,6 +85,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 
 ### src/lib
 - `profile.ts`
+- `slug.ts`
 
 ### src/lib/supabase
 - `client.ts`

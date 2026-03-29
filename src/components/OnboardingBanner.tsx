@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { MissingField } from "@/lib/profile";
@@ -11,10 +11,15 @@ export default function OnboardingBanner({
   missingFields: MissingField[];
 }) {
   const t = useTranslations("onboarding");
-  const [dismissed, setDismissed] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return sessionStorage.getItem("onboarding-dismissed") === "true";
-  });
+
+  const dismissed = useSyncExternalStore(
+    (callback) => {
+      window.addEventListener("storage", callback);
+      return () => window.removeEventListener("storage", callback);
+    },
+    () => sessionStorage.getItem("onboarding-dismissed") === "true",
+    () => false
+  );
 
   if (dismissed || missingFields.length === 0) {
     return null;
@@ -22,7 +27,7 @@ export default function OnboardingBanner({
 
   function handleDismiss() {
     sessionStorage.setItem("onboarding-dismissed", "true");
-    setDismissed(true);
+    window.dispatchEvent(new Event("storage"));
   }
 
   return (

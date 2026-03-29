@@ -63,6 +63,9 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/app/[locale]/groups/create
 - `page.tsx`
 
+### src/app/[locale]/groups/[slug]
+- `page.tsx`
+
 ### src/app/[locale]/profile
 - `page.tsx`
 

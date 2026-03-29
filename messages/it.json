@@ -108,6 +108,28 @@
     "expectedAttendancePlaceholder": "es. ogni incontro, flessibile",
     "description": "Descrizione aggiuntiva"
   },
+  "groupPage": {
+    "statusOpen": "Aperto",
+    "statusClosed": "Chiuso",
+    "memberCount": "{count}/8 membri",
+    "objective": "Obiettivo",
+    "roadmap": "Vedi roadmap",
+    "howItWorks": "Come funziona",
+    "studyMode": "Modalità di studio",
+    "climate": "Clima",
+    "expectedAttendance": "Frequenza attesa",
+    "meetingPlace": "Luogo di incontro",
+    "description": "Descrizione",
+    "members": "Membri",
+    "privateMember": "Membro",
+    "referent": "referente",
+    "meetingLog": "Incontri",
+    "attendees": "{count} partecipanti",
+    "askToJoin": "Chiedi di unirti",
+    "loginToJoin": "Accedi per unirti a questo gruppo.",
+    "groupFull": "Il gruppo è al completo.",
+    "groupClosed": "Il gruppo non accetta nuovi membri."
+  },
   "onboarding": {
     "title": "Completa il tuo profilo",
     "description": "Così potrai essere trovato da chi studia le tue stesse cose.",

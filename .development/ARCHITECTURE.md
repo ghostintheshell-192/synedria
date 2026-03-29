@@ -50,9 +50,96 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 > Run `.development/scripts/generate-architecture.sh` to update.
 
 
-### src/app
+### src
+- `middleware.ts`
+
+### src/app/[locale]
 - `layout.tsx`
 - `page.tsx`
+
+### src/app/[locale]/auth/callback
+- `route.ts`
+
+### src/app/[locale]/contact
+- `page.tsx`
+
+### src/app/[locale]/cookies
+- `page.tsx`
+
+### src/app/[locale]/groups/create
+- `page.tsx`
+
+### src/app/[locale]/groups/[slug]
+- `page.tsx`
+
+### src/app/[locale]/groups/[slug]/join
+- `page.tsx`
+
+### src/app/[locale]/groups/[slug]/manage
+- `route.ts`
+
+### src/app/[locale]/login
+- `page.tsx`
+
+### src/app/[locale]/my-groups
+- `page.tsx`
+
+### src/app/[locale]/privacy
+- `page.tsx`
+
+### src/app/[locale]/profile
+- `page.tsx`
+
+### src/app/[locale]/search
+- `page.tsx`
+
+### src/components
+- `LoginButton.tsx`
+- `LogoutButton.tsx`
+- `OnboardingBanner.tsx`
+
+### src/components/dashboard
+- `Dashboard.tsx`
+
+### src/components/groups
+- `CheckInForm.tsx`
+- `GroupCard.tsx`
+- `GroupCreateForm.tsx`
+- `JoinRequestForm.tsx`
+- `PendingRequests.tsx`
+
+### src/components/landing
+- `LandingPage.tsx`
+
+### src/components/layout
+- `Footer.tsx`
+- `Header.tsx`
+- `NotificationBadge.tsx`
+
+### src/components/profile
+- `ProfileForm.tsx`
+- `SkillList.tsx`
+
+### src/components/search
+- `SearchFilters.tsx`
+
+### src/i18n
+- `navigation.ts`
+- `request.ts`
+- `routing.ts`
+
+### src/lib
+- `dashboard.ts`
+- `profile.ts`
+- `slug.ts`
+
+### src/lib/supabase
+- `client.ts`
+- `middleware.ts`
+- `server.ts`
+
+### src/types
+- `database.ts`
 
 ---
 

@@ -1,0 +1,260 @@
+{
+  "home": {
+    "title": "Synedria",
+    "subtitle": "Imparare insieme."
+  },
+  "metadata": {
+    "title": "Synedria — Gruppi di studio intenzionali",
+    "description": "Trova e crea piccoli gruppi di studio basati su interessi e obiettivi condivisi, con preferenza per gli incontri dal vivo."
+  },
+  "header": {
+    "search": "Cerca gruppi",
+    "myGroups": "I miei gruppi",
+    "profile": "Profilo",
+    "signIn": "Accedi",
+    "menu": "Menu"
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "cookies": "Cookie",
+    "contact": "Contatti"
+  },
+  "landing": {
+    "hero": "Trova il tuo gruppo di studio",
+    "heroSub": "Synedria ti aiuta a formare piccoli gruppi di studio basati su interessi e obiettivi condivisi, con preferenza per gli incontri dal vivo.",
+    "searchCta": "Cerca gruppi",
+    "signInCta": "Accedi per iniziare",
+    "step1Title": "Crea il tuo profilo",
+    "step1Desc": "Indica le tue competenze, la tua città e quando sei disponibile.",
+    "step2Title": "Trova un gruppo",
+    "step2Desc": "Cerca gruppi per argomento, città e formato. Oppure creane uno tu.",
+    "step3Title": "Impara insieme",
+    "step3Desc": "Incontratevi, registrate i progressi, crescete insieme."
+  },
+  "dashboard": {
+    "welcome": "Ciao, {name}!",
+    "pendingTitle": "Richieste da gestire",
+    "pendingGroup": "{count} richieste in {group}",
+    "candidaturesTitle": "Le tue candidature",
+    "candidaturePending": "In attesa",
+    "candidatureApproved": "Approvata",
+    "candidatureRejected": "Rifiutata",
+    "candidatureExpired": "Scaduta",
+    "noCandidatures": "Nessuna candidatura in corso.",
+    "activeGroupsTitle": "I tuoi gruppi",
+    "noActiveGroups": "Non fai parte di nessun gruppo.",
+    "viewAll": "Vedi tutti",
+    "createGroupCta": "Crea un gruppo"
+  },
+  "myGroups": {
+    "pageTitle": "I miei gruppi",
+    "active": "Attivi",
+    "history": "Storico",
+    "noActive": "Non fai parte di nessun gruppo attivo.",
+    "noHistory": "Nessun gruppo nello storico.",
+    "role": "Referente"
+  },
+  "login": {
+    "pageTitle": "Accedi",
+    "subtitle": "Accedi per creare il tuo profilo, unirti a gruppi e iniziare a imparare insieme."
+  },
+  "privacy": {
+    "pageTitle": "Privacy Policy",
+    "content": "Synedria raccoglie e tratta i dati personali nel rispetto del Regolamento Europeo 2016/679 (GDPR). I dati raccolti (nome, email, avatar tramite provider OAuth, città, disponibilità, competenze) sono utilizzati esclusivamente per il funzionamento della piattaforma. I dati non vengono ceduti a terzi. Puoi richiedere la cancellazione del tuo account e di tutti i dati associati in qualsiasi momento dalla pagina del tuo profilo. Per domande relative alla privacy, contattaci tramite la pagina contatti."
+  },
+  "cookies": {
+    "pageTitle": "Cookie Policy",
+    "content": "Synedria utilizza esclusivamente cookie tecnici necessari al funzionamento della piattaforma (gestione della sessione di autenticazione). Non utilizziamo cookie di profilazione, tracciamento o pubblicitari. Non utilizziamo servizi di analytics di terze parti."
+  },
+  "contact": {
+    "pageTitle": "Contatti",
+    "content": "Per assistenza, segnalazioni o informazioni, puoi scriverci a:",
+    "email": "contatto@synedria.app"
+  },
+  "auth": {
+    "signInGithub": "Accedi con GitHub",
+    "signInGoogle": "Accedi con Google",
+    "signOut": "Esci",
+    "viewProfile": "Il tuo profilo"
+  },
+  "profile": {
+    "pageTitle": "Il tuo profilo",
+    "basicInfo": "Informazioni base",
+    "skills": "Competenze",
+    "displayName": "Nome visualizzato",
+    "city": "Città",
+    "cityPlaceholder": "es. zona Navigli, Milano",
+    "preferredFormat": "Formato preferito",
+    "selectFormat": "Seleziona un formato",
+    "format": {
+      "in_person": "Di persona",
+      "hybrid": "Ibrido",
+      "online": "Online"
+    },
+    "availability": "Disponibilità",
+    "timeSlot": {
+      "morning": "Mattina",
+      "afternoon": "Pomeriggio",
+      "evening": "Sera"
+    },
+    "day": {
+      "monday": "Lun",
+      "tuesday": "Mar",
+      "wednesday": "Mer",
+      "thursday": "Gio",
+      "friday": "Ven",
+      "saturday": "Sab",
+      "sunday": "Dom"
+    },
+    "save": "Salva",
+    "saving": "Salvataggio...",
+    "saved": "Salvato!",
+    "skillName": "Competenza",
+    "skillNamePlaceholder": "es. Python, DevOps, Machine Learning",
+    "level": "Livello",
+    "skillLevel": {
+      "beginner": "Principiante",
+      "intermediate": "Intermedio",
+      "advanced": "Avanzato"
+    },
+    "intention": "Intenzione",
+    "skillIntention": {
+      "learn": "Voglio imparare",
+      "teach": "Voglio insegnare",
+      "collaborate": "Voglio collaborare"
+    },
+    "goal": "Obiettivo",
+    "goalPlaceholder": "es. ottenere la certificazione AWS entro giugno",
+    "addSkill": "Aggiungi competenza",
+    "updateSkill": "Aggiorna",
+    "edit": "Modifica",
+    "delete": "Elimina",
+    "cancel": "Annulla",
+    "visibilityComplete": "Il tuo profilo è completo. Sei visibile nei risultati di ricerca.",
+    "visibilityIncomplete": "Non comparirai nei risultati di ricerca finché non completi:",
+    "missing": {
+      "skills": "Aggiungi almeno una competenza",
+      "city": "Imposta la tua città",
+      "availability": "Imposta la tua disponibilità"
+    }
+  },
+  "groups": {
+    "createTitle": "Crea un gruppo",
+    "createHint": "Dimensione consigliata: 2-5 membri (massimo 8).",
+    "createButton": "Crea gruppo",
+    "creating": "Creazione...",
+    "createError": "Errore nella creazione del gruppo. Riprova.",
+    "groupName": "Nome del gruppo",
+    "skillTag": "Argomento / competenza",
+    "skillTagPlaceholder": "es. DevOps, Python, Machine Learning",
+    "objective": "Obiettivo",
+    "objectivePlaceholder": "es. preparare la certificazione AWS Solutions Architect",
+    "entryMode": "Modalità di accesso",
+    "entryModeOption": {
+      "approval": "Con approvazione del referente",
+      "open": "Accesso libero"
+    },
+    "progressMode": "Modalità di progresso",
+    "progressModeOption": {
+      "accumulation": "Per accumulo",
+      "deadline": "Con scadenza",
+      "both": "Entrambi"
+    },
+    "deadline": "Scadenza",
+    "optionalFields": "Campi opzionali",
+    "roadmapUrl": "Link alla roadmap",
+    "meetingPlace": "Luogo di incontro ricorrente",
+    "meetingPlacePlaceholder": "es. Biblioteca Sormani, Milano",
+    "studyMode": "Modalità di studio",
+    "studyModePlaceholder": "es. progetti pratici, Q&A a turni",
+    "climate": "Clima",
+    "climatePlaceholder": "es. abbastanza informale, focus assoluto",
+    "expectedAttendance": "Frequenza attesa",
+    "expectedAttendancePlaceholder": "es. ogni incontro, flessibile",
+    "description": "Descrizione aggiuntiva"
+  },
+  "search": {
+    "pageTitle": "Cerca gruppi",
+    "skillPlaceholder": "Argomento o competenza...",
+    "cityPlaceholder": "Città...",
+    "allFormats": "Tutti",
+    "noResults": "Nessun gruppo trovato con questi filtri.",
+    "noGroups": "Non ci sono ancora gruppi.",
+    "broaden": "Prova ad allargare i filtri di ricerca.",
+    "fewResults": "Pochi risultati? Potresti crearne uno tu!",
+    "createCta": "Crea un gruppo",
+    "activeThisWeek": "Attivo questa settimana",
+    "activeThisMonth": "Attivo questo mese",
+    "inactive": "Inattivo",
+    "noActivity": "Nessun incontro"
+  },
+  "groupPage": {
+    "statusOpen": "Aperto",
+    "statusClosed": "Chiuso",
+    "memberCount": "{count}/8 membri",
+    "objective": "Obiettivo",
+    "roadmap": "Vedi roadmap",
+    "howItWorks": "Come funziona",
+    "studyMode": "Modalità di studio",
+    "climate": "Clima",
+    "expectedAttendance": "Frequenza attesa",
+    "meetingPlace": "Luogo di incontro",
+    "description": "Descrizione",
+    "members": "Membri",
+    "privateMember": "Membro",
+    "referent": "referente",
+    "meetingLog": "Incontri",
+    "attendees": "{count} partecipanti",
+    "askToJoin": "Chiedi di unirti",
+    "joinDirectly": "Unisciti",
+    "requestPending": "Richiesta in attesa di approvazione",
+    "loginToJoin": "Accedi per unirti a questo gruppo.",
+    "groupFull": "Il gruppo è al completo.",
+    "groupClosed": "Il gruppo non accetta nuovi membri."
+  },
+  "checkIn": {
+    "recordMeeting": "Registra incontro",
+    "date": "Data",
+    "duration": "Durata",
+    "location": "Luogo",
+    "locationPlaceholder": "es. Biblioteca Sormani, online",
+    "attendees": "Presenti",
+    "save": "Salva",
+    "saving": "Salvataggio...",
+    "cancel": "Annulla",
+    "duplicateError": "Esiste già un check-in per questa data.",
+    "genericError": "Errore nel salvataggio. Riprova."
+  },
+  "referent": {
+    "pendingRequests": "Richieste in attesa ({count})",
+    "unknownUser": "Utente",
+    "objective": "Obiettivo",
+    "message": "Messaggio",
+    "approve": "Approva",
+    "reject": "Rifiuta"
+  },
+  "joinRequest": {
+    "pageTitle": "Unisciti al gruppo",
+    "requestTitle": "Chiedi di unirti",
+    "joinTitle": "Unisciti al gruppo",
+    "forGroup": "Per il gruppo: {name}",
+    "introMessage": "Presentazione (opzionale)",
+    "introPlaceholder": "Presentati brevemente al referente del gruppo...",
+    "personalObjective": "Il tuo obiettivo personale",
+    "objectivePlaceholder": "Perché vuoi unirti a questo gruppo? Qual è il tuo obiettivo?",
+    "requestButton": "Invia richiesta",
+    "joinButton": "Unisciti",
+    "submitting": "Invio...",
+    "requestPending": "Richiesta in attesa"
+  },
+  "onboarding": {
+    "title": "Completa il tuo profilo",
+    "description": "Così potrai essere trovato da chi studia le tue stesse cose.",
+    "dismiss": "Chiudi",
+    "missing": {
+      "skills": "Aggiungi almeno una competenza",
+      "city": "Imposta la tua città",
+      "availability": "Imposta la tua disponibilità"
+    }
+  }
+}

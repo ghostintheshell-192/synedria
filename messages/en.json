@@ -73,6 +73,41 @@
       "availability": "Set your availability"
     }
   },
+  "groups": {
+    "createTitle": "Create a group",
+    "createHint": "Recommended size: 2-5 members (maximum 8).",
+    "createButton": "Create group",
+    "creating": "Creating...",
+    "createError": "Error creating the group. Please try again.",
+    "groupName": "Group name",
+    "skillTag": "Topic / skill",
+    "skillTagPlaceholder": "e.g. DevOps, Python, Machine Learning",
+    "objective": "Objective",
+    "objectivePlaceholder": "e.g. prepare for AWS Solutions Architect certification",
+    "entryMode": "Entry mode",
+    "entryModeOption": {
+      "approval": "Referent approval required",
+      "open": "Open access"
+    },
+    "progressMode": "Progress tracking",
+    "progressModeOption": {
+      "accumulation": "By accumulation",
+      "deadline": "With deadline",
+      "both": "Both"
+    },
+    "deadline": "Deadline",
+    "optionalFields": "Optional fields",
+    "roadmapUrl": "Roadmap link",
+    "meetingPlace": "Recurring meeting place",
+    "meetingPlacePlaceholder": "e.g. Sormani Library, Milan",
+    "studyMode": "Study mode",
+    "studyModePlaceholder": "e.g. practical projects, Q&A taking turns",
+    "climate": "Climate",
+    "climatePlaceholder": "e.g. fairly informal, absolute focus",
+    "expectedAttendance": "Expected attendance",
+    "expectedAttendancePlaceholder": "e.g. every meeting, flexible",
+    "description": "Additional description"
+  },
   "onboarding": {
     "title": "Complete your profile",
     "description": "So people studying the same things as you can find you.",

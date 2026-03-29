@@ -73,6 +73,41 @@
       "availability": "Imposta la tua disponibilità"
     }
   },
+  "groups": {
+    "createTitle": "Crea un gruppo",
+    "createHint": "Dimensione consigliata: 2-5 membri (massimo 8).",
+    "createButton": "Crea gruppo",
+    "creating": "Creazione...",
+    "createError": "Errore nella creazione del gruppo. Riprova.",
+    "groupName": "Nome del gruppo",
+    "skillTag": "Argomento / competenza",
+    "skillTagPlaceholder": "es. DevOps, Python, Machine Learning",
+    "objective": "Obiettivo",
+    "objectivePlaceholder": "es. preparare la certificazione AWS Solutions Architect",
+    "entryMode": "Modalità di accesso",
+    "entryModeOption": {
+      "approval": "Con approvazione del referente",
+      "open": "Accesso libero"
+    },
+    "progressMode": "Modalità di progresso",
+    "progressModeOption": {
+      "accumulation": "Per accumulo",
+      "deadline": "Con scadenza",
+      "both": "Entrambi"
+    },
+    "deadline": "Scadenza",
+    "optionalFields": "Campi opzionali",
+    "roadmapUrl": "Link alla roadmap",
+    "meetingPlace": "Luogo di incontro ricorrente",
+    "meetingPlacePlaceholder": "es. Biblioteca Sormani, Milano",
+    "studyMode": "Modalità di studio",
+    "studyModePlaceholder": "es. progetti pratici, Q&A a turni",
+    "climate": "Clima",
+    "climatePlaceholder": "es. abbastanza informale, focus assoluto",
+    "expectedAttendance": "Frequenza attesa",
+    "expectedAttendancePlaceholder": "es. ogni incontro, flessibile",
+    "description": "Descrizione aggiuntiva"
+  },
   "onboarding": {
     "title": "Completa il tuo profilo",
     "description": "Così potrai essere trovato da chi studia le tue stesse cose.",

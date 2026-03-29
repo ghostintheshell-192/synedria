@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-03-28 23:43*
+*Auto-generated: 2026-03-29 15:57*
 
 ---
 
@@ -19,7 +19,7 @@
 
 ### (root)/ (4 files)
 
-- [ARCHITECTURE.md](ARCHITECTURE.md) (2KB, 2026-03-28) **RECENT**
+- [ARCHITECTURE.md](ARCHITECTURE.md) (2KB, 2026-03-29) **RECENT**
 - [INDEX.md](INDEX.md) (2KB, 2026-03-28) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (1KB, 2026-03-25) **RECENT**
 - [README.md](README.md) (2KB, 2026-03-25) **RECENT**
@@ -69,7 +69,7 @@
 3. [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (today)
 4. [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (today)
 5. [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (today)
-6. [database-schema.md](reference/technical/database-schema.md) (today)
+6. [database-schema.md](reference/technical/database-schema.md) (1d ago)
 7. [02-user-profile.md](specs/planned/02-user-profile.md) (1d ago)
 8. [05-group-page.md](specs/planned/05-group-page.md) (1d ago)
 9. [07-join-request.md](specs/planned/07-join-request.md) (1d ago)

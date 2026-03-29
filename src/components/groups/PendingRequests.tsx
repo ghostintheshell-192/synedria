@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 type JoinRequest = {
   id: string;
@@ -27,13 +27,14 @@ export default function PendingRequests({
   groupSlug: string;
 }) {
   const t = useTranslations("referent");
+  const locale = useLocale();
   const router = useRouter();
   const [processing, setProcessing] = useState<string | null>(null);
 
   async function handleAction(requestId: string, action: "approve" | "reject") {
     setProcessing(requestId);
 
-    await fetch(`/it/groups/${groupSlug}/manage`, {
+    await fetch(`/${locale}/groups/${groupSlug}/manage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action, requestId, groupId }),

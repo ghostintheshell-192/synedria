@@ -7,6 +7,70 @@
     "title": "Synedria — Intentional Study Groups",
     "description": "Find and create small study groups based on shared interests and goals, with a preference for in-person meetings."
   },
+  "header": {
+    "search": "Search groups",
+    "myGroups": "My groups",
+    "profile": "Profile",
+    "signIn": "Sign in",
+    "menu": "Menu"
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "contact": "Contact"
+  },
+  "landing": {
+    "hero": "Find your study group",
+    "heroSub": "Synedria helps you form small study groups based on shared interests and goals, with a preference for in-person meetings.",
+    "searchCta": "Search groups",
+    "signInCta": "Sign in to get started",
+    "step1Title": "Create your profile",
+    "step1Desc": "Add your skills, city, and availability.",
+    "step2Title": "Find a group",
+    "step2Desc": "Search groups by topic, city, and format. Or create your own.",
+    "step3Title": "Learn together",
+    "step3Desc": "Meet up, track progress, grow together."
+  },
+  "dashboard": {
+    "welcome": "Hi, {name}!",
+    "pendingTitle": "Requests to manage",
+    "pendingGroup": "{count} requests in {group}",
+    "candidaturesTitle": "Your candidatures",
+    "candidaturePending": "Pending",
+    "candidatureApproved": "Approved",
+    "candidatureRejected": "Rejected",
+    "candidatureExpired": "Expired",
+    "noCandidatures": "No pending candidatures.",
+    "activeGroupsTitle": "Your groups",
+    "noActiveGroups": "You're not in any group yet.",
+    "viewAll": "View all",
+    "createGroupCta": "Create a group"
+  },
+  "myGroups": {
+    "pageTitle": "My groups",
+    "active": "Active",
+    "history": "History",
+    "noActive": "You're not in any active group.",
+    "noHistory": "No groups in history.",
+    "role": "Referent"
+  },
+  "login": {
+    "pageTitle": "Sign in",
+    "subtitle": "Sign in to create your profile, join groups, and start learning together."
+  },
+  "privacy": {
+    "pageTitle": "Privacy Policy",
+    "content": "Synedria collects and processes personal data in compliance with the European Regulation 2016/679 (GDPR). Collected data (name, email, avatar via OAuth provider, city, availability, skills) is used exclusively for the platform's operation. Data is not shared with third parties. You can request deletion of your account and all associated data at any time from your profile page. For privacy-related questions, contact us through the contact page."
+  },
+  "cookies": {
+    "pageTitle": "Cookie Policy",
+    "content": "Synedria uses only technical cookies necessary for the platform's operation (authentication session management). We do not use profiling, tracking, or advertising cookies. We do not use third-party analytics services."
+  },
+  "contact": {
+    "pageTitle": "Contact",
+    "content": "For support, reports, or information, you can write to us at:",
+    "email": "contatto@synedria.app"
+  },
   "auth": {
     "signInGithub": "Sign in with GitHub",
     "signInGoogle": "Sign in with Google",

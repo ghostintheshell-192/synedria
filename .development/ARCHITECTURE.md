@@ -66,7 +66,16 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/app/[locale]/groups/[slug]
 - `page.tsx`
 
+### src/app/[locale]/groups/[slug]/join
+- `page.tsx`
+
+### src/app/[locale]/groups/[slug]/manage
+- `route.ts`
+
 ### src/app/[locale]/profile
+- `page.tsx`
+
+### src/app/[locale]/search
 - `page.tsx`
 
 ### src/components
@@ -76,10 +85,15 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 
 ### src/components/groups
 - `GroupCreateForm.tsx`
+- `JoinRequestForm.tsx`
+- `PendingRequests.tsx`
 
 ### src/components/profile
 - `ProfileForm.tsx`
 - `SkillList.tsx`
+
+### src/components/search
+- `SearchFilters.tsx`
 
 ### src/i18n
 - `navigation.ts`

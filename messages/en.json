@@ -108,6 +108,28 @@
     "expectedAttendancePlaceholder": "e.g. every meeting, flexible",
     "description": "Additional description"
   },
+  "groupPage": {
+    "statusOpen": "Open",
+    "statusClosed": "Closed",
+    "memberCount": "{count}/8 members",
+    "objective": "Objective",
+    "roadmap": "View roadmap",
+    "howItWorks": "How it works",
+    "studyMode": "Study mode",
+    "climate": "Climate",
+    "expectedAttendance": "Expected attendance",
+    "meetingPlace": "Meeting place",
+    "description": "Description",
+    "members": "Members",
+    "privateMember": "Member",
+    "referent": "referent",
+    "meetingLog": "Meetings",
+    "attendees": "{count} attendees",
+    "askToJoin": "Ask to join",
+    "loginToJoin": "Sign in to join this group.",
+    "groupFull": "This group is full.",
+    "groupClosed": "This group is not accepting new members."
+  },
   "onboarding": {
     "title": "Complete your profile",
     "description": "So people studying the same things as you can find you.",

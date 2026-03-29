@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
 import type { Profile, PreferredFormat } from "@/types/database";
@@ -22,6 +23,7 @@ const FORMATS: PreferredFormat[] = ["in_person", "hybrid", "online"];
 export default function ProfileForm({ profile }: { profile: Profile }) {
   const t = useTranslations("profile");
   const supabase = createClient();
+  const router = useRouter();
 
   const [displayName, setDisplayName] = useState(profile.display_name);
   const [city, setCity] = useState(profile.city ?? "");
@@ -66,6 +68,7 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
 
     setSaving(false);
     setSaved(true);
+    router.refresh();
     setTimeout(() => setSaved(false), 2000);
   }
 

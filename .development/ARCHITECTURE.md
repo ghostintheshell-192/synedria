@@ -60,6 +60,12 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/app/[locale]/auth/callback
 - `route.ts`
 
+### src/app/[locale]/contact
+- `page.tsx`
+
+### src/app/[locale]/cookies
+- `page.tsx`
+
 ### src/app/[locale]/groups/create
 - `page.tsx`
 
@@ -72,6 +78,15 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/app/[locale]/groups/[slug]/manage
 - `route.ts`
 
+### src/app/[locale]/login
+- `page.tsx`
+
+### src/app/[locale]/my-groups
+- `page.tsx`
+
+### src/app/[locale]/privacy
+- `page.tsx`
+
 ### src/app/[locale]/profile
 - `page.tsx`
 
@@ -83,10 +98,23 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `LogoutButton.tsx`
 - `OnboardingBanner.tsx`
 
+### src/components/dashboard
+- `Dashboard.tsx`
+
 ### src/components/groups
+- `CheckInForm.tsx`
+- `GroupCard.tsx`
 - `GroupCreateForm.tsx`
 - `JoinRequestForm.tsx`
 - `PendingRequests.tsx`
+
+### src/components/landing
+- `LandingPage.tsx`
+
+### src/components/layout
+- `Footer.tsx`
+- `Header.tsx`
+- `NotificationBadge.tsx`
 
 ### src/components/profile
 - `ProfileForm.tsx`
@@ -101,6 +129,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `routing.ts`
 
 ### src/lib
+- `dashboard.ts`
 - `profile.ts`
 - `slug.ts`
 

@@ -1,17 +1,18 @@
 "use client";
 
 import { createClient } from "@/lib/supabase/client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function LoginButton() {
   const supabase = createClient();
   const t = useTranslations("auth");
+  const locale = useLocale();
 
   async function handleLogin(provider: "github" | "google") {
     await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: window.location.origin + "/it/auth/callback",
+        redirectTo: window.location.origin + `/${locale}/auth/callback`,
       },
     });
   }

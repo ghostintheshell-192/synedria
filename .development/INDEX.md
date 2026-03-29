@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-03-29 19:22*
+*Auto-generated: 2026-03-29 20:17*
 
 ---
 
@@ -19,8 +19,8 @@
 
 ### (root)/ (4 files)
 
-- [INDEX.md](INDEX.md) (2KB, 2026-03-29) **RECENT**
 - [ARCHITECTURE.md](ARCHITECTURE.md) (2KB, 2026-03-29) **RECENT**
+- [INDEX.md](INDEX.md) (2KB, 2026-03-29) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (1KB, 2026-03-25) **RECENT**
 - [README.md](README.md) (2KB, 2026-03-25) **RECENT**
 
@@ -64,8 +64,8 @@
 
 ## Recently Modified (last 7 days)
 
-1. [INDEX.md](INDEX.md) (today)
-2. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
+1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
+2. [INDEX.md](INDEX.md) (today)
 3. [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (1d ago)
 4. [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (1d ago)
 5. [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (1d ago)

@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-03-29 20:17*
+*Auto-generated: 2026-03-30 21:33*
 
 ---
 
@@ -19,22 +19,22 @@
 
 ### (root)/ (4 files)
 
-- [ARCHITECTURE.md](ARCHITECTURE.md) (2KB, 2026-03-29) **RECENT**
-- [INDEX.md](INDEX.md) (2KB, 2026-03-29) **RECENT**
+- [ARCHITECTURE.md](ARCHITECTURE.md) (2KB, 2026-03-30) **RECENT**
+- [INDEX.md](INDEX.md) (2KB, 2026-03-30) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (1KB, 2026-03-25) **RECENT**
 - [README.md](README.md) (2KB, 2026-03-25) **RECENT**
 
 ### specs/planned/ (9 files)
 
-- [02-user-profile.md](specs/planned/02-user-profile.md) (5KB, 2026-03-27) **RECENT**
-- [05-group-page.md](specs/planned/05-group-page.md) (5KB, 2026-03-27) **RECENT**
-- [07-join-request.md](specs/planned/07-join-request.md) (6KB, 2026-03-27) **RECENT**
-- [04-group-creation.md](specs/planned/04-group-creation.md) (5KB, 2026-03-27) **RECENT**
-- [01-auth.md](specs/planned/01-auth.md) (5KB, 2026-03-27) **RECENT**
-- [09-i18n.md](specs/planned/09-i18n.md) (5KB, 2026-03-27) **RECENT**
-- [08-check-in.md](specs/planned/08-check-in.md) (5KB, 2026-03-27) **RECENT**
-- [06-search-discovery.md](specs/planned/06-search-discovery.md) (5KB, 2026-03-27) **RECENT**
-- [03-onboarding.md](specs/planned/03-onboarding.md) (4KB, 2026-03-27) **RECENT**
+- [01-auth.md](specs/planned/01-auth.md) (5KB, 2026-03-30) **RECENT**
+- [02-user-profile.md](specs/planned/02-user-profile.md) (5KB, 2026-03-30) **RECENT**
+- [03-onboarding.md](specs/planned/03-onboarding.md) (4KB, 2026-03-30) **RECENT**
+- [04-group-creation.md](specs/planned/04-group-creation.md) (5KB, 2026-03-30) **RECENT**
+- [05-group-page.md](specs/planned/05-group-page.md) (5KB, 2026-03-30) **RECENT**
+- [06-search-discovery.md](specs/planned/06-search-discovery.md) (5KB, 2026-03-30) **RECENT**
+- [07-join-request.md](specs/planned/07-join-request.md) (6KB, 2026-03-30) **RECENT**
+- [08-check-in.md](specs/planned/08-check-in.md) (5KB, 2026-03-30) **RECENT**
+- [09-i18n.md](specs/planned/09-i18n.md) (5KB, 2026-03-30) **RECENT**
 
 ### tech-debt/ (1 files)
 
@@ -66,14 +66,14 @@
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
 2. [INDEX.md](INDEX.md) (today)
-3. [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (1d ago)
-4. [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (1d ago)
-5. [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (1d ago)
-6. [database-schema.md](reference/technical/database-schema.md) (1d ago)
-7. [02-user-profile.md](specs/planned/02-user-profile.md) (1d ago)
-8. [05-group-page.md](specs/planned/05-group-page.md) (1d ago)
-9. [07-join-request.md](specs/planned/07-join-request.md) (1d ago)
-10. [04-group-creation.md](specs/planned/04-group-creation.md) (1d ago)
+3. [01-auth.md](specs/planned/01-auth.md) (today)
+4. [02-user-profile.md](specs/planned/02-user-profile.md) (today)
+5. [03-onboarding.md](specs/planned/03-onboarding.md) (today)
+6. [04-group-creation.md](specs/planned/04-group-creation.md) (today)
+7. [05-group-page.md](specs/planned/05-group-page.md) (today)
+8. [06-search-discovery.md](specs/planned/06-search-discovery.md) (today)
+9. [07-join-request.md](specs/planned/07-join-request.md) (today)
+10. [08-check-in.md](specs/planned/08-check-in.md) (today)
 
 ---
 

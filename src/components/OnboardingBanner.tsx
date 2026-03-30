@@ -31,13 +31,13 @@ export default function OnboardingBanner({
   }
 
   return (
-    <div className="rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-700 dark:bg-zinc-800">
+    <div className="rounded-lg border border-stone-200 bg-white p-5 dark:border-stone-700 dark:bg-stone-800">
       <div className="flex items-start justify-between">
         <div>
-          <p className="font-medium text-zinc-900 dark:text-zinc-100">
+          <p className="font-medium text-stone-900 dark:text-stone-100">
             {t("title")}
           </p>
-          <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
             {t("description")}
           </p>
           <ul className="mt-3 space-y-1">
@@ -45,7 +45,7 @@ export default function OnboardingBanner({
               <li key={field} className="text-sm">
                 <Link
                   href="/profile"
-                  className="text-zinc-700 underline hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100"
+                  className="text-stone-700 underline hover:text-stone-900 dark:text-stone-300 dark:hover:text-stone-100"
                 >
                   {t(`missing.${field}`)}
                 </Link>
@@ -55,7 +55,7 @@ export default function OnboardingBanner({
         </div>
         <button
           onClick={handleDismiss}
-          className="ml-4 text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300"
+          className="ml-4 text-stone-400 hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-300"
           aria-label={t("dismiss")}
         >
           ✕

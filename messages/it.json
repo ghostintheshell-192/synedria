@@ -44,6 +44,7 @@
     "activeGroupsTitle": "I tuoi gruppi",
     "noActiveGroups": "Non fai parte di nessun gruppo.",
     "viewAll": "Vedi tutti",
+    "searchGroupsCta": "Cerca gruppi",
     "createGroupCta": "Crea un gruppo"
   },
   "myGroups": {
@@ -205,6 +206,7 @@
     "referent": "referente",
     "meetingLog": "Incontri",
     "attendees": "{count} partecipanti",
+    "deletedUser": "Utente cancellato",
     "askToJoin": "Chiedi di unirti",
     "joinDirectly": "Unisciti",
     "requestPending": "Richiesta in attesa di approvazione",

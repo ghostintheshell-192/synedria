@@ -107,7 +107,7 @@ export default function CheckInForm({
     return (
       <button
         onClick={() => setOpen(true)}
-        className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+        className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
       >
         {t("recordMeeting")}
       </button>
@@ -117,9 +117,9 @@ export default function CheckInForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 rounded-md border border-zinc-200 p-4 dark:border-zinc-700"
+      className="space-y-4 rounded-md border border-stone-200 p-4 dark:border-stone-700"
     >
-      <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">
+      <h3 className="font-semibold text-stone-900 dark:text-stone-100">
         {t("recordMeeting")}
       </h3>
 
@@ -129,7 +129,7 @@ export default function CheckInForm({
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
             {t("date")}
           </label>
           <input
@@ -138,17 +138,17 @@ export default function CheckInForm({
             onChange={(e) => setMeetingDate(e.target.value)}
             min={minDate}
             max={today}
-            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
           />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
             {t("duration")}
           </label>
           <select
             value={duration}
             onChange={(e) => setDuration(Number(e.target.value))}
-            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
           >
             {DURATION_OPTIONS.map((d) => (
               <option key={d} value={d}>
@@ -162,7 +162,7 @@ export default function CheckInForm({
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("location")}
         </label>
         <input
@@ -170,12 +170,12 @@ export default function CheckInForm({
           value={location}
           onChange={(e) => setLocation(e.target.value)}
           placeholder={t("locationPlaceholder")}
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-2 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("attendees")}
         </label>
         <div className="space-y-2">
@@ -187,7 +187,7 @@ export default function CheckInForm({
                 onChange={() => toggleAttendee(member.user_id)}
                 className="rounded"
               />
-              <span className="text-sm text-zinc-700 dark:text-zinc-300">
+              <span className="text-sm text-stone-700 dark:text-stone-300">
                 {member.profiles?.display_name ?? "Member"}
               </span>
             </label>
@@ -199,14 +199,14 @@ export default function CheckInForm({
         <button
           type="submit"
           disabled={saving}
-          className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+          className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 disabled:opacity-50 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
         >
           {saving ? t("saving") : t("save")}
         </button>
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="rounded-md border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-300 dark:hover:bg-zinc-800"
+          className="rounded-md border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-100 dark:border-stone-600 dark:text-stone-300 dark:hover:bg-stone-800"
         >
           {t("cancel")}
         </button>

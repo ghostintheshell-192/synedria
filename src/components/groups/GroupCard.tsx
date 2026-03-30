@@ -26,36 +26,36 @@ export default async function GroupCard({
   return (
     <Link
       href={`/groups/${slug}`}
-      className="block rounded-lg border border-zinc-200 p-4 transition-colors hover:border-zinc-400 dark:border-zinc-700 dark:hover:border-zinc-500"
+      className="group block rounded-lg border border-stone-200 p-4 transition-colors hover:border-amber-400 hover:bg-amber-100 dark:border-stone-700 dark:hover:border-amber-600 dark:hover:bg-amber-500"
     >
       <div className="flex items-start justify-between">
         <div>
-          <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">
+          <h3 className="font-semibold text-stone-900 dark:text-stone-100 dark:group-hover:text-stone-900">
             {name}
           </h3>
           <div className="mt-2 flex flex-wrap gap-2">
-            <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+            <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-400 dark:group-hover:bg-amber-200 dark:group-hover:text-stone-700">
               {skillTag}
             </span>
-            <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+            <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-400 dark:group-hover:bg-amber-200 dark:group-hover:text-stone-700">
               {city}
             </span>
-            <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+            <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-400 dark:group-hover:bg-amber-200 dark:group-hover:text-stone-700">
               {tProfile(`format.${preferredFormat}`)}
             </span>
           </div>
         </div>
         <div className="text-right">
-          <span className="text-sm text-zinc-500 dark:text-zinc-400">
+          <span className="text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
             {memberCount}/8
           </span>
           {role === "referent" && (
-            <p className="text-xs text-zinc-400 dark:text-zinc-500">
+            <p className="text-xs text-stone-400 dark:text-stone-500 dark:group-hover:text-stone-600">
               {tMyGroups("role")}
             </p>
           )}
           {status === "closed" && (
-            <p className="text-xs text-zinc-400 dark:text-zinc-500">
+            <p className="text-xs text-stone-400 dark:text-stone-500 dark:group-hover:text-stone-600">
               Closed
             </p>
           )}

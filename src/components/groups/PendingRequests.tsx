@@ -48,7 +48,7 @@ export default function PendingRequests({
 
   return (
     <section className="mb-8">
-      <h2 className="mb-3 text-lg font-semibold text-zinc-800 dark:text-zinc-200">
+      <h2 className="mb-3 text-lg font-semibold text-stone-800 dark:text-stone-200">
         {t("pendingRequests", { count: requests.length })}
       </h2>
       <ul className="space-y-3">
@@ -59,25 +59,25 @@ export default function PendingRequests({
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="font-medium text-zinc-900 dark:text-zinc-100">
+                <p className="font-medium text-stone-900 dark:text-stone-100">
                   {req.profiles?.display_name ?? t("unknownUser")}
                 </p>
                 {req.profiles?.city && (
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                  <p className="text-sm text-stone-500 dark:text-stone-400">
                     {req.profiles.city}
                   </p>
                 )}
               </div>
-              <span className="text-xs text-zinc-400">
+              <span className="text-xs text-stone-400">
                 {new Date(req.created_at).toLocaleDateString()}
               </span>
             </div>
-            <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
+            <p className="mt-2 text-sm text-stone-700 dark:text-stone-300">
               <span className="font-medium">{t("objective")}:</span>{" "}
               {req.personal_objective}
             </p>
             {req.intro_message && (
-              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+              <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
                 <span className="font-medium">{t("message")}:</span>{" "}
                 {req.intro_message}
               </p>
@@ -93,7 +93,7 @@ export default function PendingRequests({
               <button
                 onClick={() => handleAction(req.id, "reject")}
                 disabled={processing === req.id}
-                className="rounded-md border border-zinc-300 px-3 py-1 text-sm font-medium text-zinc-700 hover:bg-zinc-100 disabled:opacity-50 dark:border-zinc-600 dark:text-zinc-300 dark:hover:bg-zinc-800"
+                className="rounded-md border border-stone-300 px-3 py-1 text-sm font-medium text-stone-700 hover:bg-stone-100 disabled:opacity-50 dark:border-stone-600 dark:text-stone-300 dark:hover:bg-stone-800"
               >
                 {t("reject")}
               </button>

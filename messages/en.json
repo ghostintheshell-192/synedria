@@ -44,6 +44,7 @@
     "activeGroupsTitle": "Your groups",
     "noActiveGroups": "You're not in any group yet.",
     "viewAll": "View all",
+    "searchGroupsCta": "Find groups",
     "createGroupCta": "Create a group"
   },
   "myGroups": {
@@ -205,6 +206,7 @@
     "referent": "referent",
     "meetingLog": "Meetings",
     "attendees": "{count} attendees",
+    "deletedUser": "Deleted user",
     "askToJoin": "Ask to join",
     "joinDirectly": "Join",
     "requestPending": "Request pending approval",

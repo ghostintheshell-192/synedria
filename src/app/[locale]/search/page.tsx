@@ -53,6 +53,7 @@ export default async function SearchPage({
   const searchParams = await searchParamsPromise;
   const t = await getTranslations("search");
   const tProfile = await getTranslations("profile");
+  const tGroupPage = await getTranslations("groupPage");
 
   const supabase = await createClient();
 
@@ -60,7 +61,7 @@ export default async function SearchPage({
   let query = supabase
     .from("groups")
     .select("id, name, slug, skill_tag, objective, city, preferred_format, status")
-    .eq("status", "open")
+    .order("status", { ascending: true }) // open before closed (enum order: open=1, closed=2)
     .order("created_at", { ascending: false });
 
   if (searchParams.skill) {
@@ -134,7 +135,11 @@ export default async function SearchPage({
               <li key={group.id}>
                 <Link
                   href={`/groups/${group.slug}`}
-                  className="block rounded-lg border border-zinc-200 p-4 transition-colors hover:border-zinc-400 dark:border-zinc-700 dark:hover:border-zinc-500"
+                  className={`block rounded-lg border p-4 transition-colors ${
+                    group.status === "closed"
+                      ? "border-zinc-200 opacity-60 hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700"
+                      : "border-zinc-200 hover:border-zinc-400 dark:border-zinc-700 dark:hover:border-zinc-500"
+                  }`}
                 >
                   <div className="flex items-start justify-between">
                     <div>
@@ -150,6 +155,11 @@ export default async function SearchPage({
                     </span>
                   </div>
                   <div className="mt-3 flex flex-wrap gap-2">
+                    {group.status === "closed" && (
+                      <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-700 dark:text-zinc-400">
+                        {tGroupPage("statusClosed")}
+                      </span>
+                    )}
                     <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
                       {group.skill_tag}
                     </span>
@@ -167,7 +177,7 @@ export default async function SearchPage({
               </li>
             ))}
           </ul>
-          {results.length < 3 && (
+          {results.filter((g) => g.status === "open").length < 3 && (
             <div className="mt-6 text-center">
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
                 {t("fewResults")}

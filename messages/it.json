@@ -205,6 +205,7 @@
     "referent": "referente",
     "meetingLog": "Incontri",
     "attendees": "{count} partecipanti",
+    "deletedUser": "Utente cancellato",
     "askToJoin": "Chiedi di unirti",
     "joinDirectly": "Unisciti",
     "requestPending": "Richiesta in attesa di approvazione",

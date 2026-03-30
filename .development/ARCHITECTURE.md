@@ -51,7 +51,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 
 
 ### src
-- `middleware.ts`
+- `proxy.ts`
 
 ### src/app/[locale]
 - `layout.tsx`

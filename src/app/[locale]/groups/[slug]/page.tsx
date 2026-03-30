@@ -41,12 +41,22 @@ type MemberRow = {
   };
 };
 
+type AttendeeRow = {
+  id: string;
+  check_in_id: string;
+  user_id: string | null;
+  profiles: {
+    display_name: string;
+    avatar_url: string | null;
+  } | null;
+};
+
 type CheckInRow = {
   id: string;
   meeting_date: string;
   location: string | null;
   duration: number | null;
-  attendee_count: number;
+  attendees: AttendeeRow[];
 };
 
 export async function generateMetadata({
@@ -114,15 +124,18 @@ export default async function GroupPage({
     .order("meeting_date", { ascending: false })
     .limit(10);
 
-  // Get attendee counts for check-ins
-  const checkInsWithCounts: CheckInRow[] = [];
-  if (checkIns) {
+  // Fetch all attendees for these check-ins in one query
+  const checkInsWithAttendees: CheckInRow[] = [];
+  if (checkIns && checkIns.length > 0) {
+    const { data: allAttendees } = await supabase
+      .from("check_in_attendees")
+      .select("id, check_in_id, user_id, profiles(display_name, avatar_url)")
+      .in("check_in_id", checkIns.map((ci) => ci.id))
+      .returns<AttendeeRow[]>();
+
     for (const ci of checkIns) {
-      const { count } = await supabase
-        .from("check_in_attendees")
-        .select("*", { count: "exact", head: true })
-        .eq("check_in_id", ci.id);
-      checkInsWithCounts.push({ ...ci, attendee_count: count ?? 0 });
+      const attendees = allAttendees?.filter((a) => a.check_in_id === ci.id) ?? [];
+      checkInsWithAttendees.push({ ...ci, attendees });
     }
   }
 
@@ -360,31 +373,46 @@ export default async function GroupPage({
       )}
 
       {/* Meeting log */}
-      {checkInsWithCounts.length > 0 && (
+      {checkInsWithAttendees.length > 0 && (
         <section className="mb-8">
           <h2 className="mb-3 text-lg font-semibold text-zinc-800 dark:text-zinc-200">
             {t("meetingLog")}
           </h2>
           <ul className="space-y-2">
-            {checkInsWithCounts.map((ci) => (
+            {checkInsWithAttendees.map((ci) => (
               <li
                 key={ci.id}
-                className="flex items-center justify-between rounded-md border border-zinc-200 px-4 py-2 text-sm dark:border-zinc-700"
+                className="rounded-md border border-zinc-200 px-4 py-3 text-sm dark:border-zinc-700"
               >
-                <span className="text-zinc-900 dark:text-zinc-100">
-                  {new Date(ci.meeting_date).toLocaleDateString()}
-                </span>
-                <div className="flex gap-4 text-zinc-500 dark:text-zinc-400">
-                  {ci.location && <span>{ci.location}</span>}
-                  {ci.duration && (
-                    <span>
-                      {Math.floor(ci.duration / 60)}h{ci.duration % 60 > 0 ? ` ${ci.duration % 60}m` : ""}
-                    </span>
-                  )}
-                  <span>
-                    {t("attendees", { count: ci.attendee_count })}
+                <div className="flex items-center justify-between">
+                  <span className="text-zinc-900 dark:text-zinc-100">
+                    {new Date(ci.meeting_date).toLocaleDateString()}
                   </span>
+                  <div className="flex gap-4 text-zinc-500 dark:text-zinc-400">
+                    {ci.location && <span>{ci.location}</span>}
+                    {ci.duration && (
+                      <span>
+                        {Math.floor(ci.duration / 60)}h{ci.duration % 60 > 0 ? ` ${ci.duration % 60}m` : ""}
+                      </span>
+                    )}
+                  </div>
                 </div>
+                {ci.attendees.length > 0 && (
+                  <div className="mt-2 flex flex-wrap gap-1">
+                    {ci.attendees.map((a) => (
+                      <span
+                        key={a.id}
+                        className={`rounded-full px-2 py-0.5 text-xs ${
+                          a.profiles
+                            ? "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
+                            : "bg-zinc-100 text-zinc-400 italic dark:bg-zinc-800 dark:text-zinc-500"
+                        }`}
+                      >
+                        {a.profiles?.display_name ?? t("deletedUser")}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </li>
             ))}
           </ul>

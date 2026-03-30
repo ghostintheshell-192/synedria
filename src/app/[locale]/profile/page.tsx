@@ -58,7 +58,7 @@ export default async function ProfilePage({
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">
-      <h1 className="mb-4 text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+      <h1 className="mb-4 text-3xl font-bold text-stone-900 dark:text-stone-50">
         {t("pageTitle")}
       </h1>
 
@@ -80,14 +80,14 @@ export default async function ProfilePage({
       </div>
 
       <section className="mb-10">
-        <h2 className="mb-4 text-xl font-semibold text-zinc-800 dark:text-zinc-200">
+        <h2 className="mb-4 text-xl font-semibold text-stone-800 dark:text-stone-200">
           {t("basicInfo")}
         </h2>
         <ProfileForm profile={profile} />
       </section>
 
       <section>
-        <h2 className="mb-4 text-xl font-semibold text-zinc-800 dark:text-zinc-200">
+        <h2 className="mb-4 text-xl font-semibold text-stone-800 dark:text-stone-200">
           {t("skills")}
         </h2>
         <SkillList userId={user.id} skills={skills ?? []} />

@@ -105,7 +105,7 @@ export default async function SearchPage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="mb-6 text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+      <h1 className="mb-6 text-3xl font-bold text-stone-900 dark:text-stone-50">
         {t("pageTitle")}
       </h1>
 
@@ -114,16 +114,16 @@ export default async function SearchPage({
       </Suspense>
 
       {results.length === 0 ? (
-        <div className="rounded-lg border border-dashed border-zinc-300 p-8 text-center dark:border-zinc-700">
-          <p className="text-zinc-500 dark:text-zinc-400">
+        <div className="rounded-lg border border-dashed border-stone-300 p-8 text-center dark:border-stone-700">
+          <p className="text-stone-500 dark:text-stone-400">
             {hasFilters ? t("noResults") : t("noGroups")}
           </p>
-          <p className="mt-2 text-sm text-zinc-400 dark:text-zinc-500">
+          <p className="mt-2 text-sm text-stone-400 dark:text-stone-500">
             {t("broaden")}
           </p>
           <Link
             href="/groups/create"
-            className="mt-4 inline-block rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+            className="mt-4 inline-block rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
           >
             {t("createCta")}
           </Link>
@@ -135,41 +135,41 @@ export default async function SearchPage({
               <li key={group.id}>
                 <Link
                   href={`/groups/${group.slug}`}
-                  className={`block rounded-lg border p-4 transition-colors ${
+                  className={`group block rounded-lg border p-4 transition-colors ${
                     group.status === "closed"
-                      ? "border-zinc-200 opacity-60 hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700"
-                      : "border-zinc-200 hover:border-zinc-400 dark:border-zinc-700 dark:hover:border-zinc-500"
+                      ? "border-stone-200 opacity-60 hover:border-stone-300 dark:border-stone-800 dark:hover:border-stone-700"
+                      : "border-stone-200 hover:border-amber-400 hover:bg-amber-100 dark:border-stone-700 dark:hover:border-amber-600 dark:hover:bg-amber-500"
                   }`}
                 >
                   <div className="flex items-start justify-between">
                     <div>
-                      <h2 className="font-semibold text-zinc-900 dark:text-zinc-100">
+                      <h2 className="font-semibold text-stone-900 dark:text-stone-100 dark:group-hover:text-stone-900">
                         {group.name}
                       </h2>
-                      <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                      <p className="mt-1 text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
                         {group.objective}
                       </p>
                     </div>
-                    <span className="ml-4 whitespace-nowrap text-sm text-zinc-500 dark:text-zinc-400">
+                    <span className="ml-4 whitespace-nowrap text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
                       {group.member_count}/8
                     </span>
                   </div>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {group.status === "closed" && (
-                      <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-700 dark:text-zinc-400">
+                      <span className="rounded-full bg-stone-200 px-2 py-0.5 text-xs text-stone-500 dark:bg-stone-700 dark:text-stone-400">
                         {tGroupPage("statusClosed")}
                       </span>
                     )}
-                    <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+                    <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-400 dark:group-hover:bg-amber-200 dark:group-hover:text-stone-700">
                       {group.skill_tag}
                     </span>
-                    <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+                    <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-400 dark:group-hover:bg-amber-200 dark:group-hover:text-stone-700">
                       {group.city}
                     </span>
-                    <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+                    <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-400 dark:group-hover:bg-amber-200 dark:group-hover:text-stone-700">
                       {tProfile(`format.${group.preferred_format}`)}
                     </span>
-                    <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+                    <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-400 dark:group-hover:bg-amber-200 dark:group-hover:text-stone-700">
                       {getActivityLabel(group.last_check_in, t)}
                     </span>
                   </div>
@@ -179,12 +179,12 @@ export default async function SearchPage({
           </ul>
           {results.filter((g) => g.status === "open").length < 3 && (
             <div className="mt-6 text-center">
-              <p className="text-sm text-zinc-400 dark:text-zinc-500">
+              <p className="text-sm text-stone-400 dark:text-stone-500">
                 {t("fewResults")}
               </p>
               <Link
                 href="/groups/create"
-                className="mt-2 inline-block text-sm text-zinc-600 underline hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200"
+                className="mt-2 inline-block text-sm text-stone-600 underline hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-200"
               >
                 {t("createCta")}
               </Link>

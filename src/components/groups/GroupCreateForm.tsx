@@ -108,10 +108,10 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+      <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">
         {t("createTitle")}
       </h1>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+      <p className="text-sm text-stone-500 dark:text-stone-400">
         {t("createHint")}
       </p>
 
@@ -121,7 +121,7 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
 
       {/* Required fields */}
       <div>
-        <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("groupName")} *
         </label>
         <input
@@ -129,12 +129,12 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("skillTag")} *
         </label>
         <input
@@ -143,12 +143,12 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
           onChange={(e) => setSkillTag(e.target.value)}
           placeholder={t("skillTagPlaceholder")}
           required
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("objective")} *
         </label>
         <textarea
@@ -157,12 +157,12 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
           placeholder={t("objectivePlaceholder")}
           required
           rows={3}
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {tProfile("city")} *
         </label>
         <input
@@ -171,13 +171,13 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
           onChange={(e) => setCity(e.target.value)}
           placeholder={tProfile("cityPlaceholder")}
           required
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
             {tProfile("preferredFormat")}
           </label>
           <select
@@ -185,7 +185,7 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
             onChange={(e) =>
               setPreferredFormat(e.target.value as PreferredFormat)
             }
-            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
           >
             {FORMATS.map((f) => (
               <option key={f} value={f}>
@@ -196,13 +196,13 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
         </div>
 
         <div>
-          <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
             {t("entryMode")}
           </label>
           <select
             value={entryMode}
             onChange={(e) => setEntryMode(e.target.value as GroupEntryMode)}
-            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
           >
             {ENTRY_MODES.map((m) => (
               <option key={m} value={m}>
@@ -214,13 +214,13 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("progressMode")}
         </label>
         <select
           value={progressMode}
           onChange={(e) => setProgressMode(e.target.value as ProgressMode)}
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         >
           {PROGRESS_MODES.map((m) => (
             <option key={m} value={m}>
@@ -232,26 +232,26 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
 
       {(progressMode === "deadline" || progressMode === "both") && (
         <div>
-          <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
             {t("deadline")}
           </label>
           <input
             type="date"
             value={deadline}
             onChange={(e) => setDeadline(e.target.value)}
-            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
           />
         </div>
       )}
 
       {/* Optional fields */}
-      <details className="rounded-md border border-zinc-200 p-4 dark:border-zinc-700">
-        <summary className="cursor-pointer text-sm font-medium text-zinc-700 dark:text-zinc-300">
+      <details className="rounded-md border border-stone-200 p-4 dark:border-stone-700">
+        <summary className="cursor-pointer text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("optionalFields")}
         </summary>
         <div className="mt-4 space-y-4">
           <div>
-            <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+            <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
               {t("roadmapUrl")}
             </label>
             <input
@@ -259,12 +259,12 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
               value={roadmapUrl}
               onChange={(e) => setRoadmapUrl(e.target.value)}
               placeholder="https://roadmap.sh/devops"
-              className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+              className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+            <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
               {t("meetingPlace")}
             </label>
             <input
@@ -272,12 +272,12 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
               value={meetingPlace}
               onChange={(e) => setMeetingPlace(e.target.value)}
               placeholder={t("meetingPlacePlaceholder")}
-              className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+              className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+            <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
               {t("studyMode")}
             </label>
             <input
@@ -285,12 +285,12 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
               value={studyMode}
               onChange={(e) => setStudyMode(e.target.value)}
               placeholder={t("studyModePlaceholder")}
-              className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+              className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+            <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
               {t("climate")}
             </label>
             <input
@@ -298,12 +298,12 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
               value={climate}
               onChange={(e) => setClimate(e.target.value)}
               placeholder={t("climatePlaceholder")}
-              className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+              className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+            <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
               {t("expectedAttendance")}
             </label>
             <input
@@ -311,19 +311,19 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
               value={expectedAttendance}
               onChange={(e) => setExpectedAttendance(e.target.value)}
               placeholder={t("expectedAttendancePlaceholder")}
-              className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+              className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+            <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
               {t("description")}
             </label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={3}
-              className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+              className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
             />
           </div>
         </div>
@@ -332,7 +332,7 @@ export default function GroupCreateForm({ userId }: { userId: string }) {
       <button
         type="submit"
         disabled={saving}
-        className="w-full rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+        className="w-full rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 disabled:opacity-50 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
       >
         {saving ? t("creating") : t("createButton")}
       </button>

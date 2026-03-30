@@ -199,17 +199,17 @@ export default async function GroupPage({
       <div className="mb-8">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+            <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">
               {group.name}
             </h1>
             <div className="mt-2 flex flex-wrap gap-2">
-              <span className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+              <span className="rounded-full bg-stone-100 px-3 py-1 text-sm text-stone-700 dark:bg-stone-800 dark:text-stone-300">
                 {group.skill_tag}
               </span>
-              <span className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+              <span className="rounded-full bg-stone-100 px-3 py-1 text-sm text-stone-700 dark:bg-stone-800 dark:text-stone-300">
                 {group.city}
               </span>
-              <span className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+              <span className="rounded-full bg-stone-100 px-3 py-1 text-sm text-stone-700 dark:bg-stone-800 dark:text-stone-300">
                 {tProfile(`format.${group.preferred_format}`)}
               </span>
             </div>
@@ -219,12 +219,12 @@ export default async function GroupPage({
               className={`inline-block rounded-full px-3 py-1 text-sm font-medium ${
                 isOpen
                   ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                  : "bg-zinc-200 text-zinc-600 dark:bg-zinc-700 dark:text-zinc-400"
+                  : "bg-stone-200 text-stone-600 dark:bg-stone-700 dark:text-stone-400"
               }`}
             >
               {t(isOpen ? "statusOpen" : "statusClosed")}
             </span>
-            <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+            <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
               {t("memberCount", { count: memberCount, max: 8 })}
             </p>
           </div>
@@ -233,16 +233,16 @@ export default async function GroupPage({
 
       {/* Objective */}
       <section className="mb-8">
-        <h2 className="mb-2 text-lg font-semibold text-zinc-800 dark:text-zinc-200">
+        <h2 className="mb-2 text-lg font-semibold text-stone-800 dark:text-stone-200">
           {t("objective")}
         </h2>
-        <p className="text-zinc-600 dark:text-zinc-400">{group.objective}</p>
+        <p className="text-stone-600 dark:text-stone-400">{group.objective}</p>
         {group.roadmap_url && (
           <a
             href={group.roadmap_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-block text-sm text-zinc-500 underline hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+            className="mt-2 inline-block text-sm text-stone-500 underline hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-200"
           >
             {t("roadmap")}
           </a>
@@ -251,47 +251,47 @@ export default async function GroupPage({
 
       {/* Group details */}
       {(group.study_mode || group.climate || group.expected_attendance || group.meeting_place) && (
-        <section className="mb-8 rounded-md border border-zinc-200 p-4 dark:border-zinc-700">
-          <h2 className="mb-3 text-lg font-semibold text-zinc-800 dark:text-zinc-200">
+        <section className="mb-8 rounded-md border border-stone-200 p-4 dark:border-stone-700">
+          <h2 className="mb-3 text-lg font-semibold text-stone-800 dark:text-stone-200">
             {t("howItWorks")}
           </h2>
           <dl className="space-y-2 text-sm">
             {group.study_mode && (
               <div>
-                <dt className="font-medium text-zinc-700 dark:text-zinc-300">
+                <dt className="font-medium text-stone-700 dark:text-stone-300">
                   {t("studyMode")}
                 </dt>
-                <dd className="text-zinc-500 dark:text-zinc-400">
+                <dd className="text-stone-500 dark:text-stone-400">
                   {group.study_mode}
                 </dd>
               </div>
             )}
             {group.climate && (
               <div>
-                <dt className="font-medium text-zinc-700 dark:text-zinc-300">
+                <dt className="font-medium text-stone-700 dark:text-stone-300">
                   {t("climate")}
                 </dt>
-                <dd className="text-zinc-500 dark:text-zinc-400">
+                <dd className="text-stone-500 dark:text-stone-400">
                   {group.climate}
                 </dd>
               </div>
             )}
             {group.expected_attendance && (
               <div>
-                <dt className="font-medium text-zinc-700 dark:text-zinc-300">
+                <dt className="font-medium text-stone-700 dark:text-stone-300">
                   {t("expectedAttendance")}
                 </dt>
-                <dd className="text-zinc-500 dark:text-zinc-400">
+                <dd className="text-stone-500 dark:text-stone-400">
                   {group.expected_attendance}
                 </dd>
               </div>
             )}
             {group.meeting_place && (
               <div>
-                <dt className="font-medium text-zinc-700 dark:text-zinc-300">
+                <dt className="font-medium text-stone-700 dark:text-stone-300">
                   {t("meetingPlace")}
                 </dt>
-                <dd className="text-zinc-500 dark:text-zinc-400">
+                <dd className="text-stone-500 dark:text-stone-400">
                   {group.meeting_place}
                 </dd>
               </div>
@@ -302,10 +302,10 @@ export default async function GroupPage({
 
       {group.description && (
         <section className="mb-8">
-          <h2 className="mb-2 text-lg font-semibold text-zinc-800 dark:text-zinc-200">
+          <h2 className="mb-2 text-lg font-semibold text-stone-800 dark:text-stone-200">
             {t("description")}
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 whitespace-pre-line">
+          <p className="text-stone-600 dark:text-stone-400 whitespace-pre-line">
             {group.description}
           </p>
         </section>
@@ -323,7 +323,7 @@ export default async function GroupPage({
       {/* Members */}
       {members && members.length > 0 && (
         <section className="mb-8">
-          <h2 className="mb-3 text-lg font-semibold text-zinc-800 dark:text-zinc-200">
+          <h2 className="mb-3 text-lg font-semibold text-stone-800 dark:text-stone-200">
             {t("members")}
           </h2>
           <ul className="space-y-3">
@@ -333,7 +333,7 @@ export default async function GroupPage({
               return (
                 <li
                   key={member.id}
-                  className="flex items-center gap-3 rounded-md border border-zinc-200 p-3 dark:border-zinc-700"
+                  className="flex items-center gap-3 rounded-md border border-stone-200 p-3 dark:border-stone-700"
                 >
                   {member.profiles.avatar_url && showDetails ? (
                     <Image
@@ -344,23 +344,23 @@ export default async function GroupPage({
                       className="rounded-full"
                     />
                   ) : (
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-200 text-zinc-500 dark:bg-zinc-700 dark:text-zinc-400">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-200 text-stone-500 dark:bg-stone-700 dark:text-stone-400">
                       ?
                     </div>
                   )}
                   <div>
-                    <p className="font-medium text-zinc-900 dark:text-zinc-100">
+                    <p className="font-medium text-stone-900 dark:text-stone-100">
                       {showDetails
                         ? member.profiles.display_name
                         : t("privateMember")}
                       {member.role === "referent" && (
-                        <span className="ml-2 text-xs text-zinc-500 dark:text-zinc-400">
+                        <span className="ml-2 text-xs text-stone-500 dark:text-stone-400">
                           {t("referent")}
                         </span>
                       )}
                     </p>
                     {isMember && member.personal_objective && (
-                      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                      <p className="text-sm text-stone-500 dark:text-stone-400">
                         {member.personal_objective}
                       </p>
                     )}
@@ -375,20 +375,20 @@ export default async function GroupPage({
       {/* Meeting log */}
       {checkInsWithAttendees.length > 0 && (
         <section className="mb-8">
-          <h2 className="mb-3 text-lg font-semibold text-zinc-800 dark:text-zinc-200">
+          <h2 className="mb-3 text-lg font-semibold text-stone-800 dark:text-stone-200">
             {t("meetingLog")}
           </h2>
           <ul className="space-y-2">
             {checkInsWithAttendees.map((ci) => (
               <li
                 key={ci.id}
-                className="rounded-md border border-zinc-200 px-4 py-3 text-sm dark:border-zinc-700"
+                className="rounded-md border border-stone-200 px-4 py-3 text-sm dark:border-stone-700"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-zinc-900 dark:text-zinc-100">
+                  <span className="text-stone-900 dark:text-stone-100">
                     {new Date(ci.meeting_date).toLocaleDateString()}
                   </span>
-                  <div className="flex gap-4 text-zinc-500 dark:text-zinc-400">
+                  <div className="flex gap-4 text-stone-500 dark:text-stone-400">
                     {ci.location && <span>{ci.location}</span>}
                     {ci.duration && (
                       <span>
@@ -404,8 +404,8 @@ export default async function GroupPage({
                         key={a.id}
                         className={`rounded-full px-2 py-0.5 text-xs ${
                           a.profiles
-                            ? "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
-                            : "bg-zinc-100 text-zinc-400 italic dark:bg-zinc-800 dark:text-zinc-500"
+                            ? "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400"
+                            : "bg-stone-100 text-stone-400 italic dark:bg-stone-800 dark:text-stone-500"
                         }`}
                       >
                         {a.profiles?.display_name ?? t("deletedUser")}
@@ -431,7 +431,7 @@ export default async function GroupPage({
         {!isMember && isOpen && !isFull && user && !hasPendingRequest && (
           <Link
             href={`/groups/${group.slug}/join`}
-            className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+            className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
           >
             {isOpenAccess ? t("joinDirectly") : t("askToJoin")}
           </Link>
@@ -442,17 +442,17 @@ export default async function GroupPage({
           </p>
         )}
         {!isMember && isOpen && !isFull && !user && (
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-sm text-stone-500 dark:text-stone-400">
             {t("loginToJoin")}
           </p>
         )}
         {!isMember && isFull && (
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-sm text-stone-500 dark:text-stone-400">
             {t("groupFull")}
           </p>
         )}
         {!isMember && !isOpen && (
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-sm text-stone-500 dark:text-stone-400">
             {t("groupClosed")}
           </p>
         )}

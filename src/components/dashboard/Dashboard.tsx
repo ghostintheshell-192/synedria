@@ -26,7 +26,7 @@ export default async function Dashboard({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
-      <h1 className="mb-6 text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+      <h1 className="mb-6 text-2xl font-bold text-stone-900 dark:text-stone-50">
         {t("welcome", { name: displayName })}
       </h1>
 
@@ -39,7 +39,7 @@ export default async function Dashboard({
       {/* Pending requests for referents */}
       {pendingRequests.length > 0 && (
         <section className="mb-6">
-          <h2 className="mb-3 text-lg font-semibold text-zinc-800 dark:text-zinc-200">
+          <h2 className="mb-3 text-lg font-semibold text-stone-800 dark:text-stone-200">
             {t("pendingTitle")}
           </h2>
           <ul className="space-y-2">
@@ -65,18 +65,18 @@ export default async function Dashboard({
       {/* My candidatures */}
       {candidatures.length > 0 && (
         <section className="mb-6">
-          <h2 className="mb-3 text-lg font-semibold text-zinc-800 dark:text-zinc-200">
+          <h2 className="mb-3 text-lg font-semibold text-stone-800 dark:text-stone-200">
             {t("candidaturesTitle")}
           </h2>
           <ul className="space-y-2">
             {candidatures.map((c) => (
               <li
                 key={c.id}
-                className="flex items-center justify-between rounded-md border border-zinc-200 px-4 py-3 text-sm dark:border-zinc-700"
+                className="flex items-center justify-between rounded-md border border-stone-200 px-4 py-3 text-sm dark:border-stone-700"
               >
                 <Link
                   href={`/groups/${c.group.slug}`}
-                  className="font-medium text-zinc-900 hover:underline dark:text-zinc-100"
+                  className="font-medium text-stone-900 hover:underline dark:text-stone-100"
                 >
                   {c.group.name}
                 </Link>
@@ -86,7 +86,7 @@ export default async function Dashboard({
                       ? "text-amber-600 dark:text-amber-400"
                       : c.status === "approved"
                         ? "text-green-600 dark:text-green-400"
-                        : "text-zinc-400"
+                        : "text-stone-400"
                   }`}
                 >
                   {t(`candidature${c.status.charAt(0).toUpperCase() + c.status.slice(1)}` as "candidaturePending")}
@@ -100,12 +100,12 @@ export default async function Dashboard({
       {/* Active groups */}
       <section className="mb-6">
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200">
+          <h2 className="text-lg font-semibold text-stone-800 dark:text-stone-200">
             {t("activeGroupsTitle")}
           </h2>
           <Link
             href="/my-groups"
-            className="text-sm text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+            className="text-sm text-stone-500 hover:text-amber-700 dark:text-stone-400 dark:hover:text-amber-500"
           >
             {t("viewAll")}
           </Link>
@@ -126,16 +126,24 @@ export default async function Dashboard({
             ))}
           </div>
         ) : (
-          <div className="rounded-lg border border-dashed border-zinc-300 p-6 text-center dark:border-zinc-700">
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <div className="rounded-lg border border-dashed border-stone-300 p-6 text-center dark:border-stone-700">
+            <p className="text-sm text-stone-500 dark:text-stone-400">
               {t("noActiveGroups")}
             </p>
-            <Link
-              href="/groups/create"
-              className="mt-3 inline-block rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
-            >
-              {t("createGroupCta")}
-            </Link>
+            <div className="mt-3 flex flex-wrap justify-center gap-3">
+              <Link
+                href="/search"
+                className="rounded-md border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:border-amber-400 hover:text-amber-700 dark:border-stone-600 dark:text-stone-300 dark:hover:border-amber-600 dark:hover:text-amber-500"
+              >
+                {t("searchGroupsCta")}
+              </Link>
+              <Link
+                href="/groups/create"
+                className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 dark:bg-amber-500 dark:hover:bg-amber-400"
+              >
+                {t("createGroupCta")}
+              </Link>
+            </div>
           </div>
         )}
       </section>

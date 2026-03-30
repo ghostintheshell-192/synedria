@@ -32,10 +32,10 @@ export default async function LoginPage({
 
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center px-4">
-      <h1 className="mb-2 text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+      <h1 className="mb-2 text-2xl font-bold text-stone-900 dark:text-stone-50">
         {t("pageTitle")}
       </h1>
-      <p className="mb-8 max-w-md text-center text-sm text-zinc-500 dark:text-zinc-400">
+      <p className="mb-8 max-w-md text-center text-sm text-stone-500 dark:text-stone-400">
         {t("subtitle")}
       </p>
       <LoginButton />

@@ -39,7 +39,7 @@ export default function SearchFilters() {
             }
           }}
           onBlur={(e) => updateFilter("skill", e.currentTarget.value)}
-          className="flex-1 rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="flex-1 rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
         <input
           type="text"
@@ -51,7 +51,7 @@ export default function SearchFilters() {
             }
           }}
           onBlur={(e) => updateFilter("city", e.currentTarget.value)}
-          className="flex-1 rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="flex-1 rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>
       <div className="flex gap-2">
@@ -59,8 +59,8 @@ export default function SearchFilters() {
           onClick={() => updateFilter("format", "")}
           className={`rounded-full px-3 py-1 text-sm ${
             !format
-              ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
-              : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700"
+              ? "bg-amber-600 text-stone-900 dark:bg-amber-500 dark:text-stone-900"
+              : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-amber-500 dark:hover:text-stone-900"
           }`}
         >
           {t("allFormats")}
@@ -71,8 +71,8 @@ export default function SearchFilters() {
             onClick={() => updateFilter("format", f)}
             className={`rounded-full px-3 py-1 text-sm ${
               format === f
-                ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
-                : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700"
+                ? "bg-amber-600 text-stone-900 dark:bg-amber-500 dark:text-stone-900"
+                : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-amber-500 dark:hover:text-stone-900"
             }`}
           >
             {tProfile(`format.${f}`)}

@@ -75,19 +75,19 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
   return (
     <div className="space-y-6">
       <div>
-        <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("displayName")}
         </label>
         <input
           type="text"
           value={displayName}
           onChange={(e) => setDisplayName(e.target.value)}
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("city")}
         </label>
         <input
@@ -95,18 +95,18 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
           value={city}
           onChange={(e) => setCity(e.target.value)}
           placeholder={t("cityPlaceholder")}
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("preferredFormat")}
         </label>
         <select
           value={preferredFormat}
           onChange={(e) => setPreferredFormat(e.target.value as PreferredFormat)}
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         >
           <option value="">{t("selectFormat")}</option>
           {FORMATS.map((f) => (
@@ -118,7 +118,7 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
       </div>
 
       <div>
-        <label className="mb-3 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-3 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("availability")}
         </label>
         <div className="grid grid-cols-4 gap-1 text-center text-sm">
@@ -126,7 +126,7 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
           {TIME_SLOTS.map((slot) => (
             <div
               key={slot}
-              className="font-medium text-zinc-500 dark:text-zinc-400"
+              className="font-medium text-stone-500 dark:text-stone-400"
             >
               {t(`timeSlot.${slot}`)}
             </div>
@@ -134,7 +134,7 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
           {DAYS.map((day) => (
             <Fragment key={day}>
               <div
-                className="py-1 text-left font-medium text-zinc-700 dark:text-zinc-300"
+                className="py-1 text-left font-medium text-stone-700 dark:text-stone-300"
               >
                 {t(`day.${day}`)}
               </div>
@@ -147,8 +147,8 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
                     onClick={() => toggleSlot(day, slot)}
                     className={`rounded py-1 transition-colors ${
                       active
-                        ? "bg-zinc-800 text-white dark:bg-zinc-200 dark:text-zinc-900"
-                        : "bg-zinc-100 text-zinc-400 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-500 dark:hover:bg-zinc-600"
+                        ? "bg-stone-800 text-white dark:bg-stone-200 dark:text-stone-900"
+                        : "bg-stone-100 text-stone-400 hover:bg-stone-200 dark:bg-stone-700 dark:text-stone-500 dark:hover:bg-stone-600"
                     }`}
                   >
                     {active ? "✓" : "·"}
@@ -163,7 +163,7 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
       <button
         onClick={handleSave}
         disabled={saving}
-        className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+        className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 disabled:opacity-50 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
       >
         {saving ? t("saving") : saved ? t("saved") : t("save")}
       </button>

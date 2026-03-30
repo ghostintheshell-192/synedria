@@ -55,16 +55,16 @@ export default function JoinRequestForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+      <h1 className="text-2xl font-bold text-stone-900 dark:text-stone-50">
         {isOpenAccess ? t("joinTitle") : t("requestTitle")}
       </h1>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+      <p className="text-sm text-stone-500 dark:text-stone-400">
         {t("forGroup", { name: groupName })}
       </p>
 
       {!isOpenAccess && (
         <div>
-          <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
             {t("introMessage")}
           </label>
           <textarea
@@ -73,16 +73,16 @@ export default function JoinRequestForm({
             placeholder={t("introPlaceholder")}
             maxLength={500}
             rows={3}
-            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
           />
-          <p className="mt-1 text-xs text-zinc-400">
+          <p className="mt-1 text-xs text-stone-400">
             {introMessage.length}/500
           </p>
         </div>
       )}
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("personalObjective")} *
         </label>
         <textarea
@@ -91,14 +91,14 @@ export default function JoinRequestForm({
           placeholder={t("objectivePlaceholder")}
           required
           rows={3}
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>
 
       <button
         type="submit"
         disabled={saving}
-        className="w-full rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+        className="w-full rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 disabled:opacity-50 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
       >
         {saving
           ? t("submitting")

@@ -41,12 +41,12 @@ export default async function MyGroupsPage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="mb-8 text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+      <h1 className="mb-8 text-3xl font-bold text-stone-900 dark:text-stone-50">
         {t("pageTitle")}
       </h1>
 
       <section className="mb-10">
-        <h2 className="mb-4 text-xl font-semibold text-zinc-800 dark:text-zinc-200">
+        <h2 className="mb-4 text-xl font-semibold text-stone-800 dark:text-stone-200">
           {t("active")}
         </h2>
         {active.length > 0 ? (
@@ -65,7 +65,7 @@ export default async function MyGroupsPage({
             ))}
           </div>
         ) : (
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-sm text-stone-500 dark:text-stone-400">
             {t("noActive")}
           </p>
         )}
@@ -73,7 +73,7 @@ export default async function MyGroupsPage({
 
       {history.length > 0 && (
         <section>
-          <h2 className="mb-4 text-xl font-semibold text-zinc-800 dark:text-zinc-200">
+          <h2 className="mb-4 text-xl font-semibold text-stone-800 dark:text-stone-200">
             {t("history")}
           </h2>
           <div className="space-y-3">

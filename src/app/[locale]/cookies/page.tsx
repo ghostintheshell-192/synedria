@@ -22,7 +22,7 @@ export default async function CookiesPage() {
         {t("lastUpdated")}
       </p>
 
-      <div className="space-y-8 text-stone-600 leading-relaxed dark:text-stone-400">
+      <div className="space-y-8 text-justify text-stone-600 leading-relaxed dark:text-stone-400">
         <section>
           <h2 className="mb-2 text-lg font-semibold text-stone-800 dark:text-stone-200">{t("introTitle")}</h2>
           <p>{t("intro")}</p>

@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-04-07 22:14*
+*Auto-generated: 2026-04-07 22:38*
 
 ---
 
@@ -40,8 +40,9 @@
 
 - [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25)
 
-### reference/decisions/ (4 files)
+### reference/decisions/ (5 files)
 
+- [ADR-005-single-referent-per-group.md](reference/decisions/ADR-005-single-referent-per-group.md) (1KB, 2026-04-07) **RECENT**
 - [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (1KB, 2026-04-07) **RECENT**
 - [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (1KB, 2026-03-30)
 - [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (1KB, 2026-03-30)
@@ -65,9 +66,10 @@
 
 ## Recently Modified (last 7 days)
 
-1. [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (today)
+1. [ADR-005-single-referent-per-group.md](reference/decisions/ADR-005-single-referent-per-group.md) (today)
 2. [INDEX.md](INDEX.md) (today)
-3. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
+3. [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (today)
+4. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
 
 ---
 

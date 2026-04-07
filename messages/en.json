@@ -100,10 +100,8 @@
     "cookieListTitle": "Cookies used",
     "cookieSession": "Supabase session cookie — manages authentication and keeps the user session active. Duration: until session expiry or logout. Type: technical, first-party.",
     "cookieLocale": "Language preference cookie — stores the user's chosen language (Italian or English). Duration: 1 year. Type: technical, first-party.",
-    "noTrackingTitle": "Cookies not used",
-    "noTracking": "Synedria does NOT use profiling, tracking, advertising, or analytics cookies. We do not use third-party services that install tracking cookies (such as Google Analytics, Facebook Pixel, etc.).",
-    "bannerTitle": "Why you don't see a cookie banner",
-    "banner": "Since we only use necessary technical cookies, we are not required to display a cookie consent banner under European regulations (ePrivacy Directive) and the guidelines of the Italian Data Protection Authority.",
+    "noTrackingTitle": "Third-party cookies",
+    "noTracking": "Synedria currently does not use profiling, advertising, or analytics cookies. We do not integrate third-party services that install tracking cookies. Should any services requiring additional cookies be introduced in the future, this page will be updated and, where required by law, user consent will be requested.",
     "controlTitle": "How to manage cookies",
     "control": "You can delete or block cookies through your browser settings. Please note that disabling technical cookies may prevent the platform from functioning properly (for example, you won't be able to stay logged in)."
   },

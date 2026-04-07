@@ -47,11 +47,6 @@ export default async function CookiesPage() {
         </section>
 
         <section>
-          <h2 className="mb-2 text-lg font-semibold text-stone-800 dark:text-stone-200">{t("bannerTitle")}</h2>
-          <p>{t("banner")}</p>
-        </section>
-
-        <section>
           <h2 className="mb-2 text-lg font-semibold text-stone-800 dark:text-stone-200">{t("controlTitle")}</h2>
           <p>{t("control")}</p>
         </section>

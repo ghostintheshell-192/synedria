@@ -100,10 +100,8 @@
     "cookieListTitle": "Cookie utilizzati",
     "cookieSession": "Cookie di sessione Supabase — gestiscono l'autenticazione e mantengono attiva la sessione dell'utente. Durata: fino alla scadenza della sessione o al logout. Tipo: tecnico, prima parte.",
     "cookieLocale": "Cookie di preferenza lingua — memorizza la lingua scelta dall'utente (italiano o inglese). Durata: 1 anno. Tipo: tecnico, prima parte.",
-    "noTrackingTitle": "Cookie non utilizzati",
-    "noTracking": "Synedria NON utilizza cookie di profilazione, tracciamento, pubblicitari o di analytics. Non utilizziamo servizi di terze parti che installano cookie di tracciamento (come Google Analytics, Facebook Pixel, ecc.).",
-    "bannerTitle": "Perché non vedi un cookie banner",
-    "banner": "Poiché utilizziamo solo cookie tecnici necessari, non siamo tenuti a mostrare un banner di consenso ai cookie ai sensi della normativa europea (Direttiva ePrivacy) e delle linee guida del Garante per la protezione dei dati personali.",
+    "noTrackingTitle": "Cookie di terze parti",
+    "noTracking": "Al momento Synedria non utilizza cookie di profilazione, pubblicitari o di analytics. Non integriamo servizi di terze parti che installano cookie di tracciamento. Qualora in futuro venissero introdotti servizi che richiedono cookie aggiuntivi, questa pagina verrà aggiornata e, dove richiesto dalla normativa, verrà richiesto il consenso dell'utente.",
     "controlTitle": "Come gestire i cookie",
     "control": "Puoi eliminare o bloccare i cookie tramite le impostazioni del tuo browser. Tieni presente che disabilitare i cookie tecnici potrebbe impedire il funzionamento della piattaforma (ad esempio, non potrai rimanere autenticato)."
   },

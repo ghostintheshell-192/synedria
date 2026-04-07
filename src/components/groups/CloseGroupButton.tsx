@@ -28,7 +28,7 @@ export default function CloseGroupButton({ groupId }: { groupId: string }) {
     return (
       <button
         onClick={() => setShowConfirm(true)}
-        className="text-sm text-red-600 underline hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
+        className="block text-sm text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
       >
         {t("closeGroup")}
       </button>

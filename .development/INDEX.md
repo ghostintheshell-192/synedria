@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-04-07 23:41*
+*Auto-generated: 2026-04-08 00:00*
 
 ---
 
@@ -24,8 +24,9 @@
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (1KB, 2026-03-25)
 - [README.md](README.md) (2KB, 2026-03-25)
 
-### specs/backlog/ (2 files)
+### specs/backlog/ (3 files)
 
+- [mobile-optimization.md](specs/backlog/mobile-optimization.md) (1KB, 2026-04-08) **RECENT**
 - [back-navigation.md](specs/backlog/back-navigation.md) (1KB, 2026-04-07) **RECENT**
 - [referent-transfer.md](specs/backlog/referent-transfer.md) (1KB, 2026-04-07) **RECENT**
 
@@ -71,12 +72,13 @@
 
 ## Recently Modified (last 7 days)
 
-1. [INDEX.md](INDEX.md) (today)
-2. [back-navigation.md](specs/backlog/back-navigation.md) (today)
-3. [referent-transfer.md](specs/backlog/referent-transfer.md) (today)
-4. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-5. [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (today)
-6. [ADR-005-single-referent-per-group.md](reference/decisions/ADR-005-single-referent-per-group.md) (today)
+1. [mobile-optimization.md](specs/backlog/mobile-optimization.md) (today)
+2. [INDEX.md](INDEX.md) (today)
+3. [back-navigation.md](specs/backlog/back-navigation.md) (today)
+4. [referent-transfer.md](specs/backlog/referent-transfer.md) (today)
+5. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
+6. [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (today)
+7. [ADR-005-single-referent-per-group.md](reference/decisions/ADR-005-single-referent-per-group.md) (today)
 
 ---
 

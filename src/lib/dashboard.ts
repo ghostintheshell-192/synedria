@@ -40,17 +40,24 @@ export async function getPendingRequestsForReferent(
 
   if (!referentGroups || referentGroups.length === 0) return [];
 
+  const groupIds = referentGroups.map((gm) => gm.group_id);
+
+  const { data: pendingRows } = await supabase
+    .from("join_requests")
+    .select("group_id")
+    .in("group_id", groupIds)
+    .eq("status", "pending");
+
+  const pendingCountByGroup = new Map<string, number>();
+  for (const row of pendingRows ?? []) {
+    pendingCountByGroup.set(row.group_id, (pendingCountByGroup.get(row.group_id) ?? 0) + 1);
+  }
+
   const results: PendingRequestGroup[] = [];
-
   for (const gm of referentGroups) {
-    const group = gm.groups as unknown as { name: string; slug: string };
-    const { count } = await supabase
-      .from("join_requests")
-      .select("*", { count: "exact", head: true })
-      .eq("group_id", gm.group_id)
-      .eq("status", "pending");
-
-    if (count && count > 0) {
+    const count = pendingCountByGroup.get(gm.group_id) ?? 0;
+    if (count > 0) {
+      const group = gm.groups as unknown as { name: string; slug: string };
       results.push({
         groupName: group.name,
         groupSlug: group.slug,
@@ -92,11 +99,24 @@ export async function getMyActiveGroups(
     .select("role, groups(id, name, slug, skill_tag, city, preferred_format, status)")
     .eq("user_id", userId);
 
-  if (!data) return [];
+  if (!data || data.length === 0) return [];
 
-  const results: ActiveGroup[] = [];
+  const groupIds = data.map((m) => {
+    const group = m.groups as unknown as { id: string };
+    return group.id;
+  });
 
-  for (const membership of data) {
+  const { data: memberRows } = await supabase
+    .from("group_members")
+    .select("group_id")
+    .in("group_id", groupIds);
+
+  const memberCountByGroup = new Map<string, number>();
+  for (const row of memberRows ?? []) {
+    memberCountByGroup.set(row.group_id, (memberCountByGroup.get(row.group_id) ?? 0) + 1);
+  }
+
+  return data.map((membership) => {
     const group = membership.groups as unknown as {
       id: string;
       name: string;
@@ -107,17 +127,10 @@ export async function getMyActiveGroups(
       status: string;
     };
 
-    const { count } = await supabase
-      .from("group_members")
-      .select("*", { count: "exact", head: true })
-      .eq("group_id", group.id);
-
-    results.push({
+    return {
       ...group,
       role: membership.role,
-      member_count: count ?? 0,
-    });
-  }
-
-  return results;
+      member_count: memberCountByGroup.get(group.id) ?? 0,
+    };
+  });
 }

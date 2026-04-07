@@ -114,6 +114,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/components/layout
 - `Footer.tsx`
 - `Header.tsx`
+- `MobileMenu.tsx`
 - `NotificationBadge.tsx`
 
 ### src/components/profile

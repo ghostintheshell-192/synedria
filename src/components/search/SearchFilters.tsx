@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import type { PreferredFormat } from "@/types/database";
@@ -12,9 +13,29 @@ export default function SearchFilters() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const skill = searchParams.get("skill") ?? "";
-  const city = searchParams.get("city") ?? "";
   const format = searchParams.get("format") ?? "";
+
+  const [skillInput, setSkillInput] = useState(searchParams.get("skill") ?? "");
+  const [cityInput, setCityInput] = useState(searchParams.get("city") ?? "");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (skillInput) {
+        params.set("skill", skillInput);
+      } else {
+        params.delete("skill");
+      }
+      if (cityInput) {
+        params.set("city", cityInput);
+      } else {
+        params.delete("city");
+      }
+      router.push(`?${params.toString()}`);
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, [skillInput, cityInput]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function updateFilter(key: string, value: string) {
     const params = new URLSearchParams(searchParams.toString());
@@ -31,26 +52,16 @@ export default function SearchFilters() {
       <div className="flex gap-4">
         <input
           type="text"
-          defaultValue={skill}
+          value={skillInput}
           placeholder={t("skillPlaceholder")}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              updateFilter("skill", e.currentTarget.value);
-            }
-          }}
-          onBlur={(e) => updateFilter("skill", e.currentTarget.value)}
+          onChange={(e) => setSkillInput(e.target.value)}
           className="flex-1 rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
         <input
           type="text"
-          defaultValue={city}
+          value={cityInput}
           placeholder={t("cityPlaceholder")}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              updateFilter("city", e.currentTarget.value);
-            }
-          }}
-          onBlur={(e) => updateFilter("city", e.currentTarget.value)}
+          onChange={(e) => setCityInput(e.target.value)}
           className="flex-1 rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>

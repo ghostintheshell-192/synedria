@@ -215,6 +215,7 @@
     "requestPending": "Richiesta in attesa di approvazione",
     "loginToJoin": "Accedi per unirti a questo gruppo.",
     "groupFull": "Il gruppo è al completo.",
+    "noReferent": "Questo gruppo non ha un referente che possa gestire le richieste.",
     "groupClosed": "Il gruppo non accetta nuovi membri."
   },
   "checkIn": {

@@ -215,6 +215,7 @@
     "requestPending": "Request pending approval",
     "loginToJoin": "Sign in to join this group.",
     "groupFull": "This group is full.",
+    "noReferent": "This group has no referent to manage join requests.",
     "groupClosed": "This group is not accepting new members."
   },
   "checkIn": {

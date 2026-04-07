@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-04-07 21:11*
+*Auto-generated: 2026-04-07 22:14*
 
 ---
 
@@ -19,8 +19,8 @@
 
 ### (root)/ (4 files)
 
-- [ARCHITECTURE.md](ARCHITECTURE.md) (2KB, 2026-04-07) **RECENT**
 - [INDEX.md](INDEX.md) (2KB, 2026-04-07) **RECENT**
+- [ARCHITECTURE.md](ARCHITECTURE.md) (2KB, 2026-04-07) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (1KB, 2026-03-25)
 - [README.md](README.md) (2KB, 2026-03-25)
 
@@ -40,11 +40,12 @@
 
 - [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25)
 
-### reference/decisions/ (3 files)
+### reference/decisions/ (4 files)
 
-- [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (1KB, 2026-03-30) **RECENT**
-- [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (1KB, 2026-03-30) **RECENT**
-- [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (2KB, 2026-03-30) **RECENT**
+- [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (1KB, 2026-04-07) **RECENT**
+- [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (1KB, 2026-03-30)
+- [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (1KB, 2026-03-30)
+- [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (2KB, 2026-03-30)
 
 ### reference/technical/ (1 files)
 
@@ -64,8 +65,9 @@
 
 ## Recently Modified (last 7 days)
 
-1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
+1. [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (today)
 2. [INDEX.md](INDEX.md) (today)
+3. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
 
 ---
 

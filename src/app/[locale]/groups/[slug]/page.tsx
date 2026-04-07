@@ -145,10 +145,12 @@ export default async function GroupPage({
     : null;
   const isMember = !!currentMember;
   const isReferent = currentMember?.role === "referent";
+  const hasReferent = members?.some((m) => m.role === "referent") ?? false;
   const memberCount = members?.length ?? 0;
   const isFull = memberCount >= 8;
   const isOpen = group.status === "open";
   const isOpenAccess = group.entry_mode === "open";
+  const canJoin = isOpen && !isFull && (isOpenAccess || hasReferent);
 
   // Fetch pending requests (referent only)
   type JoinRequestRow = {
@@ -424,7 +426,7 @@ export default async function GroupPage({
 
       {/* Actions */}
       <div className="flex gap-3">
-        {!isMember && isOpen && !isFull && user && !hasPendingRequest && (
+        {!isMember && canJoin && user && !hasPendingRequest && (
           <Link
             href={`/groups/${group.slug}/join`}
             className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
@@ -437,9 +439,14 @@ export default async function GroupPage({
             {t("requestPending")}
           </p>
         )}
-        {!isMember && isOpen && !isFull && !user && (
+        {!isMember && canJoin && !user && (
           <p className="text-sm text-stone-500 dark:text-stone-400">
             {t("loginToJoin")}
+          </p>
+        )}
+        {!isMember && isOpen && !hasReferent && !isOpenAccess && (
+          <p className="text-sm text-stone-500 dark:text-stone-400">
+            {t("noReferent")}
           </p>
         )}
         {!isMember && isFull && (

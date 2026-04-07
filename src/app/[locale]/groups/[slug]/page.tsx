@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import PendingRequests from "@/components/groups/PendingRequests";
 import CheckInForm from "@/components/groups/CheckInForm";
+import LeaveGroupButton from "@/components/groups/LeaveGroupButton";
 
 type GroupRow = {
   id: string;
@@ -422,6 +423,18 @@ export default async function GroupPage({
         <section className="mb-8">
           <CheckInForm groupId={group.id} members={members ?? []} />
         </section>
+      )}
+
+      {/* Leave group (members only) */}
+      {isMember && user && (
+        <div className="mb-8">
+          <LeaveGroupButton
+            groupId={group.id}
+            userId={user.id}
+            isReferent={isReferent}
+            isLastMember={memberCount <= 1}
+          />
+        </div>
       )}
 
       {/* Actions */}

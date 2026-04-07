@@ -224,6 +224,7 @@
     "requestPending": "Richiesta in attesa di approvazione",
     "loginToJoin": "Accedi per unirti a questo gruppo.",
     "groupFull": "Il gruppo è al completo.",
+    "groupManagement": "Gestione gruppo",
     "leaveGroup": "Lascia il gruppo",
     "leaveAndClose": "Lascia e chiudi il gruppo",
     "leaveConfirm": "Sei sicuro di voler lasciare il gruppo?",

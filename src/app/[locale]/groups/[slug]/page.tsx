@@ -428,18 +428,23 @@ export default async function GroupPage({
 
       {/* Group management (members only) */}
       {isMember && user && (
-        <div className="mb-8 space-y-3">
-          {isReferent && isOpen && (
-            <CloseGroupButton groupId={group.id} />
-          )}
-          <LeaveGroupButton
-            groupId={group.id}
-            userId={user.id}
-            isReferent={isReferent}
-            isLastMember={memberCount <= 1}
-            isOpen={isOpen}
-          />
-        </div>
+        <section className="mb-8 rounded-lg border border-stone-200 p-5 dark:border-stone-700">
+          <h2 className="mb-4 text-sm font-medium text-stone-500 dark:text-stone-400">
+            {t("groupManagement")}
+          </h2>
+          <div className="space-y-4">
+            <LeaveGroupButton
+              groupId={group.id}
+              userId={user.id}
+              isReferent={isReferent}
+              isLastMember={memberCount <= 1}
+              isOpen={isOpen}
+            />
+            {isReferent && isOpen && (
+              <CloseGroupButton groupId={group.id} />
+            )}
+          </div>
+        </section>
       )}
 
       {/* Actions */}

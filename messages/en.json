@@ -53,7 +53,8 @@
     "history": "History",
     "noActive": "You're not in any active group.",
     "noHistory": "No groups in history.",
-    "role": "Referent"
+    "role": "Referent",
+    "createCta": "Create a group"
   },
   "login": {
     "pageTitle": "Sign in",
@@ -92,6 +93,8 @@
       "hybrid": "Hybrid",
       "online": "Online"
     },
+    "preferredLocale": "Preferred language",
+    "selectLocale": "Select a language",
     "availability": "Availability",
     "timeSlot": {
       "morning": "Morning",

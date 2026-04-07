@@ -118,9 +118,17 @@ export default async function SearchPage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="mb-6 text-3xl font-bold text-stone-900 dark:text-stone-50">
-        {t("pageTitle")}
-      </h1>
+      <div className="mb-6 flex items-center justify-between">
+        <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">
+          {t("pageTitle")}
+        </h1>
+        <Link
+          href="/groups/create"
+          className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
+        >
+          {t("createCta")}
+        </Link>
+      </div>
 
       <Suspense>
         <SearchFilters />

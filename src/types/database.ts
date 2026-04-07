@@ -20,6 +20,7 @@ export type Profile = {
   city: string | null;
   availability: Availability | null;
   preferred_format: PreferredFormat | null;
+  preferred_locale: string | null;
   is_public_profile: boolean;
   created_at: string;
   updated_at: string;

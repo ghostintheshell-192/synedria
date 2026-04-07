@@ -232,6 +232,10 @@
     "leaving": "Leaving...",
     "leaveCancel": "Cancel",
     "leaveBlockedReferent": "You are the referent of this group. To leave, close the group first.",
+    "closeGroup": "Close group",
+    "closeGroupConfirm": "Close the group? It will no longer accept new members.",
+    "closeConfirmButton": "Close",
+    "closingGroup": "Closing...",
     "noReferent": "This group has no referent to manage join requests.",
     "groupClosed": "This group is not accepting new members."
   },

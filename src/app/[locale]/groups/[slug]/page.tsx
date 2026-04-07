@@ -8,6 +8,7 @@ import { Link } from "@/i18n/navigation";
 import PendingRequests from "@/components/groups/PendingRequests";
 import CheckInForm from "@/components/groups/CheckInForm";
 import LeaveGroupButton from "@/components/groups/LeaveGroupButton";
+import CloseGroupButton from "@/components/groups/CloseGroupButton";
 
 type GroupRow = {
   id: string;
@@ -425,14 +426,18 @@ export default async function GroupPage({
         </section>
       )}
 
-      {/* Leave group (members only) */}
+      {/* Group management (members only) */}
       {isMember && user && (
-        <div className="mb-8">
+        <div className="mb-8 space-y-3">
+          {isReferent && isOpen && (
+            <CloseGroupButton groupId={group.id} />
+          )}
           <LeaveGroupButton
             groupId={group.id}
             userId={user.id}
             isReferent={isReferent}
             isLastMember={memberCount <= 1}
+            isOpen={isOpen}
           />
         </div>
       )}

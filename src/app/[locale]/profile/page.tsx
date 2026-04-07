@@ -35,18 +35,10 @@ export default async function ProfilePage({
     redirect(`/${locale}`);
   }
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
-    .single<Profile>();
-
-  const { data: skills } = await supabase
-    .from("user_skills")
-    .select("*")
-    .eq("user_id", user.id)
-    .order("created_at", { ascending: true })
-    .returns<UserSkill[]>();
+  const [{ data: profile }, { data: skills }] = await Promise.all([
+    supabase.from("profiles").select("*").eq("id", user.id).single<Profile>(),
+    supabase.from("user_skills").select("*").eq("user_id", user.id).order("created_at", { ascending: true }).returns<UserSkill[]>(),
+  ]);
 
   if (!profile) {
     redirect(`/${locale}`);

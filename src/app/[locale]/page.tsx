@@ -24,26 +24,21 @@ export default async function Home({
     return <LandingPage />;
   }
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
-    .single<Profile>();
-
-  const { data: skills } = await supabase
-    .from("user_skills")
-    .select("*")
-    .eq("user_id", user.id)
-    .returns<UserSkill[]>();
+  const [{ data: profile }, { data: skills }] = await Promise.all([
+    supabase.from("profiles").select("*").eq("id", user.id).single<Profile>(),
+    supabase.from("user_skills").select("*").eq("user_id", user.id).returns<UserSkill[]>(),
+  ]);
 
   if (!profile) {
     return <LandingPage />;
   }
 
   const missingFields = getProfileCompleteness(profile, skills ?? []);
-  const pendingRequests = await getPendingRequestsForReferent(supabase, user.id);
-  const candidatures = await getMyCandidatures(supabase, user.id);
-  const activeGroups = await getMyActiveGroups(supabase, user.id);
+  const [pendingRequests, candidatures, activeGroups] = await Promise.all([
+    getPendingRequestsForReferent(supabase, user.id),
+    getMyCandidatures(supabase, user.id),
+    getMyActiveGroups(supabase, user.id),
+  ]);
 
   return (
     <Dashboard

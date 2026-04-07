@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
@@ -59,19 +60,23 @@ type CheckInRow = {
   attendees: AttendeeRow[];
 };
 
+const getGroup = cache(async (slug: string) => {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("groups")
+    .select("*")
+    .eq("slug", slug)
+    .single<GroupRow>();
+  return data;
+});
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const supabase = await createClient();
-
-  const { data: group } = await supabase
-    .from("groups")
-    .select("name, objective, city, skill_tag, is_indexable")
-    .eq("slug", slug)
-    .single();
+  const group = await getGroup(slug);
 
   if (!group) return { title: "Not Found" };
 
@@ -99,30 +104,26 @@ export default async function GroupPage({
   const t = await getTranslations("groupPage");
   const tProfile = await getTranslations("profile");
 
-  // Fetch group
-  const { data: group } = await supabase
-    .from("groups")
-    .select("*")
-    .eq("slug", slug)
-    .single<GroupRow>();
-
+  // Fetch group (cached — shared with generateMetadata)
+  const group = await getGroup(slug);
   if (!group) notFound();
 
-  // Fetch members with profiles
-  const { data: members } = await supabase
-    .from("group_members")
-    .select("id, user_id, role, personal_objective, profiles(display_name, avatar_url, is_public_profile)")
-    .eq("group_id", group.id)
-    .order("joined_at", { ascending: true })
-    .returns<MemberRow[]>();
-
-  // Fetch check-ins
-  const { data: checkIns } = await supabase
-    .from("check_ins")
-    .select("id, meeting_date, location, duration")
-    .eq("group_id", group.id)
-    .order("meeting_date", { ascending: false })
-    .limit(10);
+  // Fetch members, check-ins, and current user in parallel
+  const [{ data: members }, { data: checkIns }, { data: { user } }] = await Promise.all([
+    supabase
+      .from("group_members")
+      .select("id, user_id, role, personal_objective, profiles(display_name, avatar_url, is_public_profile)")
+      .eq("group_id", group.id)
+      .order("joined_at", { ascending: true })
+      .returns<MemberRow[]>(),
+    supabase
+      .from("check_ins")
+      .select("id, meeting_date, location, duration")
+      .eq("group_id", group.id)
+      .order("meeting_date", { ascending: false })
+      .limit(10),
+    supabase.auth.getUser(),
+  ]);
 
   // Fetch all attendees for these check-ins in one query
   const checkInsWithAttendees: CheckInRow[] = [];
@@ -138,11 +139,6 @@ export default async function GroupPage({
       checkInsWithAttendees.push({ ...ci, attendees });
     }
   }
-
-  // Current user membership
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
 
   const currentMember = user
     ? members?.find((m) => m.user_id === user.id)

@@ -34,17 +34,10 @@ export default async function CreateGroupPage({
     redirect(`/${locale}`);
   }
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
-    .single<Profile>();
-
-  const { data: skills } = await supabase
-    .from("user_skills")
-    .select("*")
-    .eq("user_id", user.id)
-    .returns<UserSkill[]>();
+  const [{ data: profile }, { data: skills }] = await Promise.all([
+    supabase.from("profiles").select("*").eq("id", user.id).single<Profile>(),
+    supabase.from("user_skills").select("*").eq("user_id", user.id).returns<UserSkill[]>(),
+  ]);
 
   if (!profile || !isProfileComplete(profile, skills ?? [])) {
     redirect(`/${locale}/profile`);

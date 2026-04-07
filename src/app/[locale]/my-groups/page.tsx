@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
 import { getMyActiveGroups } from "@/lib/dashboard";
+import { Link } from "@/i18n/navigation";
 import GroupCard from "@/components/groups/GroupCard";
 
 export async function generateMetadata({
@@ -41,9 +42,17 @@ export default async function MyGroupsPage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="mb-8 text-3xl font-bold text-stone-900 dark:text-stone-50">
-        {t("pageTitle")}
-      </h1>
+      <div className="mb-8 flex items-center justify-between">
+        <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">
+          {t("pageTitle")}
+        </h1>
+        <Link
+          href="/groups/create"
+          className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
+        >
+          {t("createCta")}
+        </Link>
+      </div>
 
       <section className="mb-10">
         <h2 className="mb-4 text-xl font-semibold text-stone-800 dark:text-stone-200">

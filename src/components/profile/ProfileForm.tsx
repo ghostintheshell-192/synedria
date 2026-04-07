@@ -1,10 +1,15 @@
 "use client";
 
 import { Fragment, useState } from "react";
-import { useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useRouter, usePathname } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
 import type { Profile, PreferredFormat } from "@/types/database";
+
+const LOCALES = [
+  { value: "it", label: "Italiano" },
+  { value: "en", label: "English" },
+] as const;
 
 const DAYS = [
   "monday",
@@ -24,9 +29,12 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
   const t = useTranslations("profile");
   const supabase = createClient();
   const router = useRouter();
+  const pathname = usePathname();
+  const currentLocale = useLocale();
 
   const [displayName, setDisplayName] = useState(profile.display_name);
   const [city, setCity] = useState(profile.city ?? "");
+  const [preferredLocale, setPreferredLocale] = useState(profile.preferred_locale ?? "");
   const [preferredFormat, setPreferredFormat] = useState<PreferredFormat | "">(
     profile.preferred_format ?? ""
   );
@@ -62,12 +70,21 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
         display_name: displayName,
         city: city || null,
         preferred_format: preferredFormat || null,
+        preferred_locale: preferredLocale || null,
         availability: Object.keys(availability).length > 0 ? availability : null,
       })
       .eq("id", profile.id);
 
     setSaving(false);
     setSaved(true);
+
+    // Redirect to preferred locale if changed
+    if (preferredLocale && preferredLocale !== currentLocale) {
+      const newPath = pathname.replace(`/${currentLocale}`, `/${preferredLocale}`);
+      router.push(newPath);
+      return;
+    }
+
     router.refresh();
     setTimeout(() => setSaved(false), 2000);
   }
@@ -112,6 +129,24 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
           {FORMATS.map((f) => (
             <option key={f} value={f}>
               {t(`format.${f}`)}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
+          {t("preferredLocale")}
+        </label>
+        <select
+          value={preferredLocale}
+          onChange={(e) => setPreferredLocale(e.target.value)}
+          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
+        >
+          <option value="">{t("selectLocale")}</option>
+          {LOCALES.map((l) => (
+            <option key={l.value} value={l.value}>
+              {l.label}
             </option>
           ))}
         </select>

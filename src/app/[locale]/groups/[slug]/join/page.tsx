@@ -65,6 +65,21 @@ export default async function JoinPage({
     redirect(`/${locale}/groups/${slug}`);
   }
 
+  // If approval required, check group has a referent
+  if (group.entry_mode !== "open") {
+    const { data: referent } = await supabase
+      .from("group_members")
+      .select("id")
+      .eq("group_id", group.id)
+      .eq("role", "referent")
+      .limit(1)
+      .single();
+
+    if (!referent) {
+      redirect(`/${locale}/groups/${slug}`);
+    }
+  }
+
   // Check for pending request
   const { data: pendingRequest } = await supabase
     .from("join_requests")

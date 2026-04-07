@@ -53,6 +53,7 @@ coverage/
 # Claude Code
 .tmp/
 .mcp.json
+.claude/agents/
 
 # Shell config (sandbox artifacts)
 .bash_profile

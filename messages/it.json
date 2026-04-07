@@ -53,7 +53,8 @@
     "history": "Storico",
     "noActive": "Non fai parte di nessun gruppo attivo.",
     "noHistory": "Nessun gruppo nello storico.",
-    "role": "Referente"
+    "role": "Referente",
+    "createCta": "Crea un gruppo"
   },
   "login": {
     "pageTitle": "Accedi",
@@ -92,6 +93,8 @@
       "hybrid": "Ibrido",
       "online": "Online"
     },
+    "preferredLocale": "Lingua preferita",
+    "selectLocale": "Seleziona una lingua",
     "availability": "Disponibilità",
     "timeSlot": {
       "morning": "Mattina",
@@ -137,7 +140,16 @@
       "skills": "Aggiungi almeno una competenza",
       "city": "Imposta la tua città",
       "availability": "Imposta la tua disponibilità"
-    }
+    },
+    "dangerZone": "Cancellazione dati",
+    "deleteAccount": "Elimina il tuo account",
+    "deleteWarning": "Questa azione è irreversibile. Tutti i tuoi dati, gruppi e competenze verranno eliminati permanentemente.",
+    "deleteConfirmPrompt": "Digita \"{word}\" per confermare:",
+    "deleteConfirmWord": "ELIMINA",
+    "deleteConfirmButton": "Elimina account definitivamente",
+    "deleteDeleting": "Eliminazione...",
+    "deleteErrorReferent": "Non puoi eliminare il tuo account mentre sei referente di un gruppo attivo. Chiudi prima il gruppo o trasferisci il ruolo.",
+    "deleteErrorGeneric": "Errore nell'eliminazione dell'account. Riprova."
   },
   "groups": {
     "createTitle": "Crea un gruppo",
@@ -212,6 +224,20 @@
     "requestPending": "Richiesta in attesa di approvazione",
     "loginToJoin": "Accedi per unirti a questo gruppo.",
     "groupFull": "Il gruppo è al completo.",
+    "groupManagement": "Gestione gruppo",
+    "leaveGroup": "Lascia il gruppo",
+    "leaveAndClose": "Lascia e chiudi il gruppo",
+    "leaveConfirm": "Sei sicuro di voler lasciare il gruppo?",
+    "leaveAndCloseConfirm": "Sei l'ultimo membro. Lasciando, il gruppo verrà chiuso.",
+    "leaveConfirmButton": "Conferma",
+    "leaving": "Uscita...",
+    "leaveCancel": "Annulla",
+    "leaveBlockedReferent": "Sei il referente di questo gruppo. Per lasciarlo, chiudi prima il gruppo.",
+    "closeGroup": "Chiudi il gruppo",
+    "closeGroupConfirm": "Chiudere il gruppo? Non accetterà più nuovi membri.",
+    "closeConfirmButton": "Chiudi",
+    "closingGroup": "Chiusura...",
+    "noReferent": "Questo gruppo non ha un referente che possa gestire le richieste.",
     "groupClosed": "Il gruppo non accetta nuovi membri."
   },
   "checkIn": {

@@ -53,7 +53,8 @@
     "history": "History",
     "noActive": "You're not in any active group.",
     "noHistory": "No groups in history.",
-    "role": "Referent"
+    "role": "Referent",
+    "createCta": "Create a group"
   },
   "login": {
     "pageTitle": "Sign in",
@@ -92,6 +93,8 @@
       "hybrid": "Hybrid",
       "online": "Online"
     },
+    "preferredLocale": "Preferred language",
+    "selectLocale": "Select a language",
     "availability": "Availability",
     "timeSlot": {
       "morning": "Morning",
@@ -137,7 +140,16 @@
       "skills": "Add at least one skill",
       "city": "Set your city",
       "availability": "Set your availability"
-    }
+    },
+    "dangerZone": "Data deletion",
+    "deleteAccount": "Delete your account",
+    "deleteWarning": "This action is irreversible. All your data, groups, and skills will be permanently deleted.",
+    "deleteConfirmPrompt": "Type \"{word}\" to confirm:",
+    "deleteConfirmWord": "DELETE",
+    "deleteConfirmButton": "Delete account permanently",
+    "deleteDeleting": "Deleting...",
+    "deleteErrorReferent": "You cannot delete your account while you are the referent of an active group. Close the group or transfer the role first.",
+    "deleteErrorGeneric": "Error deleting your account. Please try again."
   },
   "groups": {
     "createTitle": "Create a group",
@@ -212,6 +224,20 @@
     "requestPending": "Request pending approval",
     "loginToJoin": "Sign in to join this group.",
     "groupFull": "This group is full.",
+    "groupManagement": "Group management",
+    "leaveGroup": "Leave group",
+    "leaveAndClose": "Leave and close group",
+    "leaveConfirm": "Are you sure you want to leave this group?",
+    "leaveAndCloseConfirm": "You are the last member. Leaving will close the group.",
+    "leaveConfirmButton": "Confirm",
+    "leaving": "Leaving...",
+    "leaveCancel": "Cancel",
+    "leaveBlockedReferent": "You are the referent of this group. To leave, close the group first.",
+    "closeGroup": "Close group",
+    "closeGroupConfirm": "Close the group? It will no longer accept new members.",
+    "closeConfirmButton": "Close",
+    "closingGroup": "Closing...",
+    "noReferent": "This group has no referent to manage join requests.",
     "groupClosed": "This group is not accepting new members."
   },
   "checkIn": {

@@ -76,27 +76,40 @@ export default async function SearchPage({
 
   const { data: groups } = await query;
 
-  // Enrich with member counts and last check-in
+  // Enrich with member counts and last check-in — 2 queries total instead of 2N
   const results: GroupResult[] = [];
-  if (groups) {
-    for (const group of groups) {
-      const { count: memberCount } = await supabase
+  if (groups && groups.length > 0) {
+    const groupIds = groups.map((g) => g.id);
+
+    const [{ data: memberRows }, { data: checkInRows }] = await Promise.all([
+      supabase
         .from("group_members")
-        .select("*", { count: "exact", head: true })
-        .eq("group_id", group.id);
-
-      const { data: lastCheckIn } = await supabase
+        .select("group_id")
+        .in("group_id", groupIds),
+      supabase
         .from("check_ins")
-        .select("meeting_date")
-        .eq("group_id", group.id)
-        .order("meeting_date", { ascending: false })
-        .limit(1)
-        .single();
+        .select("group_id, meeting_date")
+        .in("group_id", groupIds)
+        .order("meeting_date", { ascending: false }),
+    ]);
 
+    const memberCountByGroup = new Map<string, number>();
+    for (const row of memberRows ?? []) {
+      memberCountByGroup.set(row.group_id, (memberCountByGroup.get(row.group_id) ?? 0) + 1);
+    }
+
+    const lastCheckInByGroup = new Map<string, string>();
+    for (const row of checkInRows ?? []) {
+      if (!lastCheckInByGroup.has(row.group_id)) {
+        lastCheckInByGroup.set(row.group_id, row.meeting_date);
+      }
+    }
+
+    for (const group of groups) {
       results.push({
         ...group,
-        member_count: memberCount ?? 0,
-        last_check_in: lastCheckIn?.meeting_date ?? null,
+        member_count: memberCountByGroup.get(group.id) ?? 0,
+        last_check_in: lastCheckInByGroup.get(group.id) ?? null,
       });
     }
   }
@@ -105,9 +118,17 @@ export default async function SearchPage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="mb-6 text-3xl font-bold text-stone-900 dark:text-stone-50">
-        {t("pageTitle")}
-      </h1>
+      <div className="mb-6 flex items-center justify-between">
+        <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">
+          {t("pageTitle")}
+        </h1>
+        <Link
+          href="/groups/create"
+          className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
+        >
+          {t("createCta")}
+        </Link>
+      </div>
 
       <Suspense>
         <SearchFilters />

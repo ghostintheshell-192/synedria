@@ -53,6 +53,9 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src
 - `proxy.ts`
 
+### src/app/api/account
+- `route.ts`
+
 ### src/app/[locale]
 - `layout.tsx`
 - `page.tsx`
@@ -114,9 +117,11 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/components/layout
 - `Footer.tsx`
 - `Header.tsx`
+- `MobileMenu.tsx`
 - `NotificationBadge.tsx`
 
 ### src/components/profile
+- `DeleteAccountButton.tsx`
 - `ProfileForm.tsx`
 - `SkillList.tsx`
 
@@ -134,6 +139,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `slug.ts`
 
 ### src/lib/supabase
+- `admin.ts`
 - `client.ts`
 - `middleware.ts`
 - `server.ts`

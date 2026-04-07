@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
@@ -6,6 +7,8 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import PendingRequests from "@/components/groups/PendingRequests";
 import CheckInForm from "@/components/groups/CheckInForm";
+import LeaveGroupButton from "@/components/groups/LeaveGroupButton";
+import CloseGroupButton from "@/components/groups/CloseGroupButton";
 
 type GroupRow = {
   id: string;
@@ -59,19 +62,23 @@ type CheckInRow = {
   attendees: AttendeeRow[];
 };
 
+const getGroup = cache(async (slug: string) => {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("groups")
+    .select("*")
+    .eq("slug", slug)
+    .single<GroupRow>();
+  return data;
+});
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const supabase = await createClient();
-
-  const { data: group } = await supabase
-    .from("groups")
-    .select("name, objective, city, skill_tag, is_indexable")
-    .eq("slug", slug)
-    .single();
+  const group = await getGroup(slug);
 
   if (!group) return { title: "Not Found" };
 
@@ -99,30 +106,26 @@ export default async function GroupPage({
   const t = await getTranslations("groupPage");
   const tProfile = await getTranslations("profile");
 
-  // Fetch group
-  const { data: group } = await supabase
-    .from("groups")
-    .select("*")
-    .eq("slug", slug)
-    .single<GroupRow>();
-
+  // Fetch group (cached — shared with generateMetadata)
+  const group = await getGroup(slug);
   if (!group) notFound();
 
-  // Fetch members with profiles
-  const { data: members } = await supabase
-    .from("group_members")
-    .select("id, user_id, role, personal_objective, profiles(display_name, avatar_url, is_public_profile)")
-    .eq("group_id", group.id)
-    .order("joined_at", { ascending: true })
-    .returns<MemberRow[]>();
-
-  // Fetch check-ins
-  const { data: checkIns } = await supabase
-    .from("check_ins")
-    .select("id, meeting_date, location, duration")
-    .eq("group_id", group.id)
-    .order("meeting_date", { ascending: false })
-    .limit(10);
+  // Fetch members, check-ins, and current user in parallel
+  const [{ data: members }, { data: checkIns }, { data: { user } }] = await Promise.all([
+    supabase
+      .from("group_members")
+      .select("id, user_id, role, personal_objective, profiles(display_name, avatar_url, is_public_profile)")
+      .eq("group_id", group.id)
+      .order("joined_at", { ascending: true })
+      .returns<MemberRow[]>(),
+    supabase
+      .from("check_ins")
+      .select("id, meeting_date, location, duration")
+      .eq("group_id", group.id)
+      .order("meeting_date", { ascending: false })
+      .limit(10),
+    supabase.auth.getUser(),
+  ]);
 
   // Fetch all attendees for these check-ins in one query
   const checkInsWithAttendees: CheckInRow[] = [];
@@ -139,20 +142,17 @@ export default async function GroupPage({
     }
   }
 
-  // Current user membership
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
   const currentMember = user
     ? members?.find((m) => m.user_id === user.id)
     : null;
   const isMember = !!currentMember;
   const isReferent = currentMember?.role === "referent";
+  const hasReferent = members?.some((m) => m.role === "referent") ?? false;
   const memberCount = members?.length ?? 0;
   const isFull = memberCount >= 8;
   const isOpen = group.status === "open";
   const isOpenAccess = group.entry_mode === "open";
+  const canJoin = isOpen && !isFull && (isOpenAccess || hasReferent);
 
   // Fetch pending requests (referent only)
   type JoinRequestRow = {
@@ -426,9 +426,30 @@ export default async function GroupPage({
         </section>
       )}
 
+      {/* Group management (members only) */}
+      {isMember && user && (
+        <section className="mb-8 rounded-lg border border-stone-200 p-5 dark:border-stone-700">
+          <h2 className="mb-4 text-sm font-medium text-stone-500 dark:text-stone-400">
+            {t("groupManagement")}
+          </h2>
+          <div className="flex gap-6">
+            <LeaveGroupButton
+              groupId={group.id}
+              userId={user.id}
+              isReferent={isReferent}
+              isLastMember={memberCount <= 1}
+              isOpen={isOpen}
+            />
+            {isReferent && isOpen && (
+              <CloseGroupButton groupId={group.id} />
+            )}
+          </div>
+        </section>
+      )}
+
       {/* Actions */}
       <div className="flex gap-3">
-        {!isMember && isOpen && !isFull && user && !hasPendingRequest && (
+        {!isMember && canJoin && user && !hasPendingRequest && (
           <Link
             href={`/groups/${group.slug}/join`}
             className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
@@ -441,9 +462,14 @@ export default async function GroupPage({
             {t("requestPending")}
           </p>
         )}
-        {!isMember && isOpen && !isFull && !user && (
+        {!isMember && canJoin && !user && (
           <p className="text-sm text-stone-500 dark:text-stone-400">
             {t("loginToJoin")}
+          </p>
+        )}
+        {!isMember && isOpen && !hasReferent && !isOpenAccess && (
+          <p className="text-sm text-stone-500 dark:text-stone-400">
+            {t("noReferent")}
           </p>
         )}
         {!isMember && isFull && (

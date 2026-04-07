@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-03-30 22:03*
+*Auto-generated: 2026-04-07 23:08*
 
 ---
 
@@ -19,36 +19,38 @@
 
 ### (root)/ (4 files)
 
-- [INDEX.md](INDEX.md) (2KB, 2026-03-30) **RECENT**
-- [ARCHITECTURE.md](ARCHITECTURE.md) (2KB, 2026-03-30) **RECENT**
-- [CURRENT-STATUS.md](CURRENT-STATUS.md) (1KB, 2026-03-25) **RECENT**
-- [README.md](README.md) (2KB, 2026-03-25) **RECENT**
+- [INDEX.md](INDEX.md) (2KB, 2026-04-07) **RECENT**
+- [ARCHITECTURE.md](ARCHITECTURE.md) (3KB, 2026-04-07) **RECENT**
+- [CURRENT-STATUS.md](CURRENT-STATUS.md) (1KB, 2026-03-25)
+- [README.md](README.md) (2KB, 2026-03-25)
 
 ### specs/planned/ (9 files)
 
-- [01-auth.md](specs/planned/01-auth.md) (5KB, 2026-03-30) **RECENT**
-- [02-user-profile.md](specs/planned/02-user-profile.md) (5KB, 2026-03-30) **RECENT**
-- [03-onboarding.md](specs/planned/03-onboarding.md) (4KB, 2026-03-30) **RECENT**
-- [04-group-creation.md](specs/planned/04-group-creation.md) (5KB, 2026-03-30) **RECENT**
-- [05-group-page.md](specs/planned/05-group-page.md) (5KB, 2026-03-30) **RECENT**
-- [06-search-discovery.md](specs/planned/06-search-discovery.md) (5KB, 2026-03-30) **RECENT**
-- [07-join-request.md](specs/planned/07-join-request.md) (6KB, 2026-03-30) **RECENT**
-- [08-check-in.md](specs/planned/08-check-in.md) (5KB, 2026-03-30) **RECENT**
-- [09-i18n.md](specs/planned/09-i18n.md) (5KB, 2026-03-30) **RECENT**
+- [01-auth.md](specs/planned/01-auth.md) (5KB, 2026-03-30)
+- [02-user-profile.md](specs/planned/02-user-profile.md) (5KB, 2026-03-30)
+- [03-onboarding.md](specs/planned/03-onboarding.md) (4KB, 2026-03-30)
+- [04-group-creation.md](specs/planned/04-group-creation.md) (5KB, 2026-03-30)
+- [05-group-page.md](specs/planned/05-group-page.md) (5KB, 2026-03-30)
+- [06-search-discovery.md](specs/planned/06-search-discovery.md) (5KB, 2026-03-30)
+- [07-join-request.md](specs/planned/07-join-request.md) (6KB, 2026-03-30)
+- [08-check-in.md](specs/planned/08-check-in.md) (5KB, 2026-03-30)
+- [09-i18n.md](specs/planned/09-i18n.md) (5KB, 2026-03-30)
 
 ### tech-debt/ (1 files)
 
-- [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25) **RECENT**
+- [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25)
 
-### reference/decisions/ (3 files)
+### reference/decisions/ (5 files)
 
-- [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (1KB, 2026-03-28) **RECENT**
-- [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (1KB, 2026-03-28) **RECENT**
-- [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (2KB, 2026-03-28) **RECENT**
+- [ADR-005-single-referent-per-group.md](reference/decisions/ADR-005-single-referent-per-group.md) (1KB, 2026-04-07) **RECENT**
+- [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (1KB, 2026-04-07) **RECENT**
+- [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (1KB, 2026-03-30)
+- [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (1KB, 2026-03-30)
+- [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (2KB, 2026-03-30)
 
 ### reference/technical/ (1 files)
 
-- [database-schema.md](reference/technical/database-schema.md) (17KB, 2026-03-28) **RECENT**
+- [database-schema.md](reference/technical/database-schema.md) (17KB, 2026-03-28)
 
 ---
 
@@ -58,7 +60,7 @@
 
 ### docs/
 
-- [README.md](docs/README.md) (<1KB, 2026-03-25) **RECENT**
+- [README.md](docs/README.md) (<1KB, 2026-03-25)
 
 ---
 
@@ -66,14 +68,8 @@
 
 1. [INDEX.md](INDEX.md) (today)
 2. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-3. [01-auth.md](specs/planned/01-auth.md) (today)
-4. [02-user-profile.md](specs/planned/02-user-profile.md) (today)
-5. [03-onboarding.md](specs/planned/03-onboarding.md) (today)
-6. [04-group-creation.md](specs/planned/04-group-creation.md) (today)
-7. [05-group-page.md](specs/planned/05-group-page.md) (today)
-8. [06-search-discovery.md](specs/planned/06-search-discovery.md) (today)
-9. [07-join-request.md](specs/planned/07-join-request.md) (today)
-10. [08-check-in.md](specs/planned/08-check-in.md) (today)
+3. [ADR-005-single-referent-per-group.md](reference/decisions/ADR-005-single-referent-per-group.md) (today)
+4. [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (today)
 
 ---
 

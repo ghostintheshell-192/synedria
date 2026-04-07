@@ -5,6 +5,7 @@ import { getProfileCompleteness, isProfileComplete } from "@/lib/profile";
 import type { Profile, UserSkill } from "@/types/database";
 import ProfileForm from "@/components/profile/ProfileForm";
 import SkillList from "@/components/profile/SkillList";
+import DeleteAccountButton from "@/components/profile/DeleteAccountButton";
 
 export async function generateMetadata({
   params,
@@ -35,18 +36,10 @@ export default async function ProfilePage({
     redirect(`/${locale}`);
   }
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
-    .single<Profile>();
-
-  const { data: skills } = await supabase
-    .from("user_skills")
-    .select("*")
-    .eq("user_id", user.id)
-    .order("created_at", { ascending: true })
-    .returns<UserSkill[]>();
+  const [{ data: profile }, { data: skills }] = await Promise.all([
+    supabase.from("profiles").select("*").eq("id", user.id).single<Profile>(),
+    supabase.from("user_skills").select("*").eq("user_id", user.id).order("created_at", { ascending: true }).returns<UserSkill[]>(),
+  ]);
 
   if (!profile) {
     redirect(`/${locale}`);
@@ -91,6 +84,13 @@ export default async function ProfilePage({
           {t("skills")}
         </h2>
         <SkillList userId={user.id} skills={skills ?? []} />
+      </section>
+
+      <section className="mt-16 rounded-lg border border-red-300 bg-red-50/50 p-6 dark:border-red-800 dark:bg-red-950/30">
+        <h2 className="mb-4 text-xl font-semibold text-red-800 dark:text-red-200">
+          {t("dangerZone")}
+        </h2>
+        <DeleteAccountButton />
       </section>
     </div>
   );

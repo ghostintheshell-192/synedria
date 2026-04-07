@@ -86,8 +86,8 @@ export default async function ProfilePage({
         <SkillList userId={user.id} skills={skills ?? []} />
       </section>
 
-      <section className="mt-16 border-t border-stone-200 pt-8 dark:border-stone-700">
-        <h2 className="mb-4 text-xl font-semibold text-stone-800 dark:text-stone-200">
+      <section className="mt-16 rounded-lg border border-red-300 bg-red-50/50 p-6 dark:border-red-800 dark:bg-red-950/30">
+        <h2 className="mb-4 text-xl font-semibold text-red-800 dark:text-red-200">
           {t("dangerZone")}
         </h2>
         <DeleteAccountButton />

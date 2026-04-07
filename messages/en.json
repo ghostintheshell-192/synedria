@@ -141,7 +141,7 @@
       "city": "Set your city",
       "availability": "Set your availability"
     },
-    "dangerZone": "Danger zone",
+    "dangerZone": "Data deletion",
     "deleteAccount": "Delete your account",
     "deleteWarning": "This action is irreversible. All your data, groups, and skills will be permanently deleted.",
     "deleteConfirmPrompt": "Type \"{word}\" to confirm:",

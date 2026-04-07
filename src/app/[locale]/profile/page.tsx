@@ -5,6 +5,7 @@ import { getProfileCompleteness, isProfileComplete } from "@/lib/profile";
 import type { Profile, UserSkill } from "@/types/database";
 import ProfileForm from "@/components/profile/ProfileForm";
 import SkillList from "@/components/profile/SkillList";
+import DeleteAccountButton from "@/components/profile/DeleteAccountButton";
 
 export async function generateMetadata({
   params,
@@ -83,6 +84,13 @@ export default async function ProfilePage({
           {t("skills")}
         </h2>
         <SkillList userId={user.id} skills={skills ?? []} />
+      </section>
+
+      <section className="mt-16 border-t border-stone-200 pt-8 dark:border-stone-700">
+        <h2 className="mb-4 text-xl font-semibold text-stone-800 dark:text-stone-200">
+          {t("dangerZone")}
+        </h2>
+        <DeleteAccountButton />
       </section>
     </div>
   );

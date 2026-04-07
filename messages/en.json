@@ -140,7 +140,16 @@
       "skills": "Add at least one skill",
       "city": "Set your city",
       "availability": "Set your availability"
-    }
+    },
+    "dangerZone": "Danger zone",
+    "deleteAccount": "Delete your account",
+    "deleteWarning": "This action is irreversible. All your data, groups, and skills will be permanently deleted.",
+    "deleteConfirmPrompt": "Type \"{word}\" to confirm:",
+    "deleteConfirmWord": "DELETE",
+    "deleteConfirmButton": "Delete account permanently",
+    "deleteDeleting": "Deleting...",
+    "deleteErrorReferent": "You cannot delete your account while you are the referent of an active group. Close the group or transfer the role first.",
+    "deleteErrorGeneric": "Error deleting your account. Please try again."
   },
   "groups": {
     "createTitle": "Create a group",

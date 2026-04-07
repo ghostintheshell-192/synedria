@@ -140,7 +140,16 @@
       "skills": "Aggiungi almeno una competenza",
       "city": "Imposta la tua città",
       "availability": "Imposta la tua disponibilità"
-    }
+    },
+    "dangerZone": "Zona pericolosa",
+    "deleteAccount": "Elimina il tuo account",
+    "deleteWarning": "Questa azione è irreversibile. Tutti i tuoi dati, gruppi e competenze verranno eliminati permanentemente.",
+    "deleteConfirmPrompt": "Digita \"{word}\" per confermare:",
+    "deleteConfirmWord": "ELIMINA",
+    "deleteConfirmButton": "Elimina account definitivamente",
+    "deleteDeleting": "Eliminazione...",
+    "deleteErrorReferent": "Non puoi eliminare il tuo account mentre sei referente di un gruppo attivo. Chiudi prima il gruppo o trasferisci il ruolo.",
+    "deleteErrorGeneric": "Errore nell'eliminazione dell'account. Riprova."
   },
   "groups": {
     "createTitle": "Crea un gruppo",

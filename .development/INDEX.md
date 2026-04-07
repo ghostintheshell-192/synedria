@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-04-07 22:38*
+*Auto-generated: 2026-04-07 22:43*
 
 ---
 
@@ -19,8 +19,8 @@
 
 ### (root)/ (4 files)
 
+- [ARCHITECTURE.md](ARCHITECTURE.md) (3KB, 2026-04-07) **RECENT**
 - [INDEX.md](INDEX.md) (2KB, 2026-04-07) **RECENT**
-- [ARCHITECTURE.md](ARCHITECTURE.md) (2KB, 2026-04-07) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (1KB, 2026-03-25)
 - [README.md](README.md) (2KB, 2026-03-25)
 
@@ -66,10 +66,10 @@
 
 ## Recently Modified (last 7 days)
 
-1. [ADR-005-single-referent-per-group.md](reference/decisions/ADR-005-single-referent-per-group.md) (today)
+1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
 2. [INDEX.md](INDEX.md) (today)
-3. [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (today)
-4. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
+3. [ADR-005-single-referent-per-group.md](reference/decisions/ADR-005-single-referent-per-group.md) (today)
+4. [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (today)
 
 ---
 

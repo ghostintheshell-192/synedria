@@ -18,6 +18,7 @@ export default async function Header() {
         <Link
           href="/"
           className="text-lg font-bold text-amber-700 dark:text-amber-500"
+          style={{ fontVariant: "small-caps" }}
         >
           Synedria
         </Link>

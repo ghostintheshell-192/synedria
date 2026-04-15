@@ -21,7 +21,8 @@
   },
   "landing": {
     "hero": "Find your study group",
-    "heroSub": "Synedria helps you form small study groups based on shared interests and goals, with a preference for in-person meetings.",
+    "heroTagline": "when presence is practice",
+    "heroSub": "Small groups based on shared interests and goals, with a preference for in-person meetings.",
     "searchCta": "Search groups",
     "signInCta": "Sign in to get started",
     "step1Title": "Create your profile",

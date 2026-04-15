@@ -21,7 +21,8 @@
   },
   "landing": {
     "hero": "Trova il tuo gruppo di studio",
-    "heroSub": "Synedria ti aiuta a formare piccoli gruppi di studio basati su interessi e obiettivi condivisi, con preferenza per gli incontri dal vivo.",
+    "heroTagline": "la parte che non si studia da soli",
+    "heroSub": "Piccoli gruppi basati su interessi e obiettivi condivisi, con preferenza per gli incontri dal vivo.",
     "searchCta": "Cerca gruppi",
     "signInCta": "Accedi per iniziare",
     "step1Title": "Crea il tuo profilo",

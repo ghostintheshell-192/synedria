@@ -180,7 +180,7 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
                     key={`${day}-${slot}`}
                     type="button"
                     onClick={() => toggleSlot(day, slot)}
-                    className={`rounded py-1 transition-colors ${
+                    className={`rounded py-2.5 transition-colors ${
                       active
                         ? "bg-stone-800 text-white dark:bg-stone-200 dark:text-stone-900"
                         : "bg-stone-100 text-stone-400 hover:bg-stone-200 dark:bg-stone-700 dark:text-stone-500 dark:hover:bg-stone-600"

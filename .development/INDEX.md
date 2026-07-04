@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-04 19:50*
+*Auto-generated: 2026-07-04 20:37*
 
 ---
 
@@ -19,8 +19,8 @@
 
 ### (root)/ (4 files)
 
+- [INDEX.md](INDEX.md) (2KB, 2026-07-04) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (1KB, 2026-07-04) **RECENT**
-- [INDEX.md](INDEX.md) (3KB, 2026-07-04) **RECENT**
 - [ARCHITECTURE.md](ARCHITECTURE.md) (3KB, 2026-04-07)
 - [README.md](README.md) (2KB, 2026-03-25)
 
@@ -72,8 +72,8 @@
 
 ## Recently Modified (last 7 days)
 
-1. [CURRENT-STATUS.md](CURRENT-STATUS.md) (today)
-2. [INDEX.md](INDEX.md) (today)
+1. [INDEX.md](INDEX.md) (today)
+2. [CURRENT-STATUS.md](CURRENT-STATUS.md) (today)
 3. [back-navigation.md](specs/backlog/back-navigation.md) (today)
 4. [mobile-optimization.md](specs/backlog/mobile-optimization.md) (today)
 5. [referent-transfer.md](specs/backlog/referent-transfer.md) (today)

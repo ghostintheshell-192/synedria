@@ -55,6 +55,11 @@ export default async function PrivacyPage() {
         </section>
 
         <section>
+          <h2 className="mb-2 text-lg font-semibold text-stone-800 dark:text-stone-200">{t("transfersTitle")}</h2>
+          <p>{t("transfers")}</p>
+        </section>
+
+        <section>
           <h2 className="mb-2 text-lg font-semibold text-stone-800 dark:text-stone-200">{t("retentionTitle")}</h2>
           <p>{t("retention")}</p>
         </section>
@@ -68,6 +73,8 @@ export default async function PrivacyPage() {
             <li>{t("rightDelete")}</li>
             <li>{t("rightPortability")}</li>
             <li>{t("rightObject")}</li>
+            <li>{t("rightWithdraw")}</li>
+            <li>{t("rightComplaint")}</li>
           </ul>
           <p className="mt-3">{t("rightsOutro")}</p>
         </section>

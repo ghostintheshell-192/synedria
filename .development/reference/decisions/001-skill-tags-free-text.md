@@ -1,12 +1,9 @@
 # ADR-001: Skill Tags as Free Text
 
-## Status
-
-Accepted
-
-## Date
-
-2026-03-28
+**Date**: 2026-03-28
+**Status**: Accepted
+**Impact**: medium
+**Summary**: Skills are entered as free text with case-insensitive matching and autocomplete, not a curated taxonomy, to avoid ongoing curation overhead.
 
 ## Context
 

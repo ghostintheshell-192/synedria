@@ -1,12 +1,9 @@
 # ADR-004: Public Profile Default
 
-## Status
-
-Accepted
-
-## Date
-
-2026-04-07
+**Date**: 2026-04-07
+**Status**: Accepted
+**Impact**: medium
+**Summary**: `is_public_profile` defaults to `true` (member identities visible on public group pages), with no UI toggle exposed yet.
 
 ## Context
 

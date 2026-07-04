@@ -1,12 +1,9 @@
 # ADR-005: Single Referent Per Group
 
-## Status
-
-Accepted
-
-## Date
-
-2026-04-07
+**Date**: 2026-04-07
+**Status**: Accepted
+**Impact**: high
+**Summary**: A single referent per group is enforced by a unique partial index at the database level; no multi-referent flow exists.
 
 ## Context
 

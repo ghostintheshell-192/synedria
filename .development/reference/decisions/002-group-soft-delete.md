@@ -1,12 +1,9 @@
 # ADR-002: Groups Are Closed, Never Deleted
 
-## Status
-
-Accepted
-
-## Date
-
-2026-03-28
+**Date**: 2026-03-28
+**Status**: Accepted
+**Impact**: high
+**Summary**: Groups are closed (soft-deleted), never hard-deleted — pages, history, and member records are preserved; user erasure is handled separately by anonymization.
 
 ## Context
 

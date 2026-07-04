@@ -127,7 +127,7 @@ export default function CheckInForm({
         <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
       )}
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
             {t("date")}

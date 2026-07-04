@@ -31,7 +31,7 @@ export default async function MyGroupsPage({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect(`/${locale}`);
+    redirect(`/${locale}/login`);
   }
 
   const allGroups = await getMyActiveGroups(supabase, user.id);

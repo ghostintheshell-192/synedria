@@ -118,13 +118,13 @@ export default async function SearchPage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-6 flex items-center justify-between gap-4">
         <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">
           {t("pageTitle")}
         </h1>
         <Link
           href="/groups/create"
-          className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
+          className="shrink-0 rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-amber-500 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400"
         >
           {t("createCta")}
         </Link>
@@ -163,7 +163,7 @@ export default async function SearchPage({
                   }`}
                 >
                   <div className="flex items-start justify-between">
-                    <div>
+                    <div className="min-w-0">
                       <h2 className="font-semibold text-stone-900 dark:text-stone-100 dark:group-hover:text-stone-900">
                         {group.name}
                       </h2>
@@ -171,7 +171,7 @@ export default async function SearchPage({
                         {group.objective}
                       </p>
                     </div>
-                    <span className="ml-4 whitespace-nowrap text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
+                    <span className="ml-2 shrink-0 whitespace-nowrap text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
                       {group.member_count}/8
                     </span>
                   </div>

@@ -58,23 +58,25 @@ export default function LeaveGroupButton({
   }
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">
       <p className="text-sm text-red-600 dark:text-red-400">
         {isLastMember ? t("leaveAndCloseConfirm") : t("leaveConfirm")}
       </p>
-      <button
-        onClick={handleLeave}
-        disabled={leaving}
-        className="rounded-md bg-red-600 px-3 py-1 text-sm font-medium text-white hover:bg-red-700 disabled:opacity-50 dark:bg-red-700 dark:hover:bg-red-600"
-      >
-        {leaving ? t("leaving") : t("leaveConfirmButton")}
-      </button>
-      <button
-        onClick={() => setShowConfirm(false)}
-        className="text-sm text-stone-500 underline hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-200"
-      >
-        {t("leaveCancel")}
-      </button>
+      <div className="flex gap-2">
+        <button
+          onClick={handleLeave}
+          disabled={leaving}
+          className="rounded-md bg-red-600 px-3 py-2 text-sm font-medium text-white hover:bg-red-700 disabled:opacity-50 dark:bg-red-700 dark:hover:bg-red-600"
+        >
+          {leaving ? t("leaving") : t("leaveConfirmButton")}
+        </button>
+        <button
+          onClick={() => setShowConfirm(false)}
+          className="text-sm text-stone-500 underline hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-200"
+        >
+          {t("leaveCancel")}
+        </button>
+      </div>
     </div>
   );
 }

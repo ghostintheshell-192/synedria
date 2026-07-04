@@ -77,7 +77,7 @@ function SkillForm({
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
             {t("level")}
@@ -181,7 +181,7 @@ export default function SkillList({ userId, skills }: { userId: string; skills: 
             key={skill.id}
             className="flex items-start justify-between rounded-md border border-stone-200 p-4 dark:border-stone-700"
           >
-            <div>
+            <div className="min-w-0">
               <div className="font-medium text-stone-900 dark:text-stone-100">
                 {skill.skill_name}
               </div>
@@ -195,7 +195,7 @@ export default function SkillList({ userId, skills }: { userId: string; skills: 
                 </div>
               )}
             </div>
-            <div className="flex gap-2">
+            <div className="ml-4 flex shrink-0 gap-2">
               <button
                 onClick={() => setEditingId(skill.id)}
                 className="text-sm text-stone-500 hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-200"

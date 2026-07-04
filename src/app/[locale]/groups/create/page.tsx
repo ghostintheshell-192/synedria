@@ -31,7 +31,7 @@ export default async function CreateGroupPage({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect(`/${locale}`);
+    redirect(`/${locale}/login`);
   }
 
   const [{ data: profile }, { data: skills }] = await Promise.all([

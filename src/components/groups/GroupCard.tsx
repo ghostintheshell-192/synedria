@@ -29,7 +29,7 @@ export default async function GroupCard({
       className="group block rounded-lg border border-stone-200 p-4 transition-colors hover:border-amber-400 hover:bg-amber-100 dark:border-stone-700 dark:hover:border-amber-600 dark:hover:bg-amber-500"
     >
       <div className="flex items-start justify-between">
-        <div>
+        <div className="min-w-0">
           <h3 className="font-semibold text-stone-900 dark:text-stone-100 dark:group-hover:text-stone-900">
             {name}
           </h3>
@@ -45,7 +45,7 @@ export default async function GroupCard({
             </span>
           </div>
         </div>
-        <div className="text-right">
+        <div className="ml-2 shrink-0 text-right">
           <span className="text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
             {memberCount}/8
           </span>

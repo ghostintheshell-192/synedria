@@ -29,7 +29,7 @@ export default async function JoinPage({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect(`/${locale}`);
+    redirect(`/${locale}/login`);
   }
 
   // Get group

@@ -58,7 +58,7 @@ export default function PendingRequests({
             className="rounded-md border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950"
           >
             <div className="flex items-start justify-between">
-              <div>
+              <div className="min-w-0">
                 <p className="font-medium text-stone-900 dark:text-stone-100">
                   {req.profiles?.display_name ?? t("unknownUser")}
                 </p>
@@ -68,7 +68,7 @@ export default function PendingRequests({
                   </p>
                 )}
               </div>
-              <span className="text-xs text-stone-400">
+              <span className="ml-2 shrink-0 text-xs text-stone-400">
                 {new Date(req.created_at).toLocaleDateString()}
               </span>
             </div>

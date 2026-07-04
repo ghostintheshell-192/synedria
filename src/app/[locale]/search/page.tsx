@@ -163,7 +163,7 @@ export default async function SearchPage({
                   }`}
                 >
                   <div className="flex items-start justify-between">
-                    <div>
+                    <div className="min-w-0">
                       <h2 className="font-semibold text-stone-900 dark:text-stone-100 dark:group-hover:text-stone-900">
                         {group.name}
                       </h2>
@@ -171,7 +171,7 @@ export default async function SearchPage({
                         {group.objective}
                       </p>
                     </div>
-                    <span className="ml-4 whitespace-nowrap text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
+                    <span className="ml-2 shrink-0 whitespace-nowrap text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
                       {group.member_count}/8
                     </span>
                   </div>

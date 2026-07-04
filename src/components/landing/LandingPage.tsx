@@ -8,10 +8,16 @@ export default async function LandingPage() {
     <div className="flex flex-col items-center">
       {/* Hero */}
       <section className="flex min-h-[60vh] flex-col items-center justify-center px-4 text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl dark:text-stone-50">
-          {t("hero")}
+        <h1 className="text-6xl font-bold tracking-tight text-stone-900 sm:text-7xl dark:text-stone-50">
+          συνέδρια
         </h1>
-        <p className="mt-4 max-w-lg text-lg text-stone-600 dark:text-stone-400">
+        <p className="mt-3 text-lg italic text-stone-500 dark:text-stone-400">
+          {t("heroTagline")}
+        </p>
+        <p className="mt-4 max-w-lg text-base text-amber-700 dark:text-amber-500">
+          {t("hero")}
+        </p>
+        <p className="mt-2 max-w-lg text-sm text-stone-400 dark:text-stone-500">
           {t("heroSub")}
         </p>
         <div className="mt-8 flex gap-4">

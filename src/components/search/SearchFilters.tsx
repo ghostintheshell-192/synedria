@@ -49,7 +49,7 @@ export default function SearchFilters() {
 
   return (
     <div className="mb-8 space-y-4">
-      <div className="flex gap-4">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <input
           type="text"
           value={skillInput}

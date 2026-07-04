@@ -11,14 +11,14 @@ export default async function LandingPage() {
         <h1 className="text-6xl font-bold tracking-tight text-stone-900 sm:text-7xl dark:text-stone-50">
           συνέδρια
         </h1>
-        <p className="mt-3 text-lg italic text-stone-500 dark:text-stone-400">
+        <p className="mt-4 text-2xl text-stone-900 sm:text-3xl dark:text-stone-50">
           {t("heroTagline")}
         </p>
-        <p className="mt-4 max-w-lg text-base text-amber-700 dark:text-amber-500">
-          {t("hero")}
-        </p>
-        <p className="mt-2 max-w-lg text-sm text-stone-400 dark:text-stone-500">
+        <p className="mt-2 max-w-lg text-base text-stone-900 dark:text-stone-50">
           {t("heroSub")}
+        </p>
+        <p className="mt-6 max-w-lg text-base text-amber-700 dark:text-amber-500">
+          {t("hero")}
         </p>
         <div className="mt-8 flex gap-4">
           <Link

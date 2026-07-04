@@ -77,6 +77,8 @@
     "legalBasis": "Data processing is based on user consent (Art. 6.1.a GDPR), expressed at registration through the OAuth provider, and on the performance of the requested service (Art. 6.1.b GDPR).",
     "thirdPartiesTitle": "Sharing with third parties",
     "thirdParties": "Personal data is not sold, transferred, or shared with third parties for commercial purposes. Data is stored on Supabase servers (cloud infrastructure with data centers in the European Union). Authentication is managed through OAuth providers (GitHub, Google), each subject to their own privacy policy.",
+    "transfersTitle": "Data transfers outside the European Union",
+    "transfers": "Authentication data (name, email, avatar) is processed by the OAuth providers GitHub and Google, companies based in the United States. Such transfers take place under the EU-U.S. Data Privacy Framework and the Standard Contractual Clauses adopted by the European Commission, which ensure an adequate level of protection pursuant to Art. 45 GDPR. Platform data remains stored on Supabase servers with data centers in the European Union.",
     "retentionTitle": "Data retention",
     "retention": "Personal data is retained for the duration of the account. Upon account deletion, all personal data is immediately removed. Anonymous participation data (check-in attendance) is preserved in anonymized form to maintain group history.",
     "rightsTitle": "Your rights",
@@ -86,6 +88,8 @@
     "rightDelete": "Delete your account and all associated data (from the \"Data deletion\" section in your profile)",
     "rightPortability": "Request data portability in a readable format",
     "rightObject": "Object to the processing of your data",
+    "rightWithdraw": "Withdraw your consent at any time, without affecting the lawfulness of processing carried out before withdrawal",
+    "rightComplaint": "Lodge a complaint with the competent supervisory authority (in Italy, the Garante per la protezione dei dati personali, www.garanteprivacy.it)",
     "rightsOutro": "To exercise your portability or objection rights, contact us at the address above.",
     "changesTitle": "Changes to this policy",
     "changes": "We reserve the right to update this policy. Substantial changes will be communicated through the platform. The date of the last update is indicated above."

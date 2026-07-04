@@ -77,6 +77,8 @@
     "legalBasis": "Il trattamento dei dati è basato sul consenso dell'utente (art. 6.1.a GDPR), espresso al momento della registrazione tramite provider OAuth, e sull'esecuzione del servizio richiesto (art. 6.1.b GDPR).",
     "thirdPartiesTitle": "Condivisione con terzi",
     "thirdParties": "I dati personali non vengono venduti, ceduti o condivisi con terzi a fini commerciali. I dati sono conservati nei server di Supabase (infrastruttura cloud con data center nell'Unione Europea). L'autenticazione è gestita tramite provider OAuth (GitHub, Google), ciascuno soggetto alla propria informativa privacy.",
+    "transfersTitle": "Trasferimento dei dati fuori dall'Unione Europea",
+    "transfers": "I dati di autenticazione (nome, email, avatar) sono trattati dai provider OAuth GitHub e Google, società con sede negli Stati Uniti. Tali trasferimenti avvengono nell'ambito del EU-U.S. Data Privacy Framework e delle Clausole Contrattuali Standard adottate dalla Commissione Europea, che garantiscono un livello di protezione adeguato ai sensi dell'art. 45 GDPR. I dati della piattaforma restano archiviati su server Supabase con data center nell'Unione Europea.",
     "retentionTitle": "Conservazione dei dati",
     "retention": "I dati personali sono conservati per tutta la durata dell'account. In caso di cancellazione dell'account, tutti i dati personali vengono eliminati immediatamente. I dati anonimi relativi alla partecipazione ai gruppi (presenze ai check-in) vengono conservati in forma anonimizzata per preservare lo storico del gruppo.",
     "rightsTitle": "I tuoi diritti",
@@ -86,6 +88,8 @@
     "rightDelete": "Cancellare il tuo account e tutti i dati associati (dalla sezione \"Cancellazione dati\" nel profilo)",
     "rightPortability": "Richiedere la portabilità dei dati in formato leggibile",
     "rightObject": "Opporti al trattamento dei tuoi dati",
+    "rightWithdraw": "Revocare il consenso in qualsiasi momento, senza pregiudicare la liceità del trattamento effettuato prima della revoca",
+    "rightComplaint": "Proporre reclamo all'autorità di controllo competente (Garante per la protezione dei dati personali, www.garanteprivacy.it)",
     "rightsOutro": "Per esercitare i diritti di portabilità o opposizione, contattaci all'indirizzo indicato sopra.",
     "changesTitle": "Modifiche a questa informativa",
     "changes": "Ci riserviamo di aggiornare questa informativa. Le modifiche sostanziali saranno comunicate tramite la piattaforma. La data dell'ultimo aggiornamento è indicata in alto."

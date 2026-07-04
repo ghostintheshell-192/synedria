@@ -47,13 +47,23 @@ coverage/
 # Personal notes (not tracked)
 .personal/
 
-# Memory bank (session handoffs, not tracked)
-.memory-bank/
+# Memory bank: handoffs and session transcripts stay local (per-machine),
+# but tangential idea notes are tracked as provenance.
+.memory-bank/*
+!.memory-bank/ideas/
 
 # Claude Code
 .tmp/
 .mcp.json
-.claude/agents/
+# Local/harness-injected runtime artifacts (char devices or per-machine config),
+# not project configuration — never commit these.
+.claude/settings.local.json
+.claude/agents
+.claude/hooks
+.claude/launch.json
+.claude/routines
+.claude/scheduled_tasks.json
+.claude/workflows
 
 # Shell config (sandbox artifacts)
 .bash_profile

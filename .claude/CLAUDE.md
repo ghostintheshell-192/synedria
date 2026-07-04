@@ -11,6 +11,13 @@ The following rules are automatically loaded from `.claude/rules/`:
 - **principles.md** - General development principles
 - **preflight-checks.md** - Pre-flight checks before coding
 - **workflow.md** - Git workflow and development process
+- **idea-capture.md** - Convention for parking tangential ideas in `.memory-bank/ideas/`
+
+## Key Decisions
+
+High-impact architecture decisions (ADR `Impact ≥ high`) are auto-generated from the ADRs and loaded into every session via the import below — `critical` ones are constraints that must not be violated, `high` ones are context that shapes ongoing work. Each entry carries a one-line Summary; open the linked ADR for full context. For the complete catalogue see `.development/reference/decisions/` (index in its README).
+
+@key-decisions.md
 
 ## Documentation Structure
 

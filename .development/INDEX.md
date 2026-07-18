@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-18 12:23*
+*Auto-generated: 2026-07-18 16:31*
 
 ---
 
@@ -20,7 +20,7 @@
 ### (root)/ (4 files)
 
 - [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-18) **RECENT**
-- [INDEX.md](INDEX.md) (2KB, 2026-07-18) **RECENT**
+- [INDEX.md](INDEX.md) (3KB, 2026-07-18) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (2KB, 2026-07-04)
 - [README.md](README.md) (2KB, 2026-03-25)
 
@@ -34,9 +34,12 @@
 - [mobile-optimization.md](specs/backlog/mobile-optimization.md) (1KB, 2026-07-04)
 - [referent-transfer.md](specs/backlog/referent-transfer.md) (1KB, 2026-07-04)
 
-### specs/planned/ (10 files)
+### specs/in-progress/ (1 files)
 
-- [10-certification-catalog.md](specs/planned/10-certification-catalog.md) (10KB, 2026-07-18) **RECENT**
+- [10-certification-catalog.md](specs/in-progress/10-certification-catalog.md) (10KB, 2026-07-18) **RECENT**
+
+### specs/planned/ (9 files)
+
 - [01-auth.md](specs/planned/01-auth.md) (5KB, 2026-03-30)
 - [02-user-profile.md](specs/planned/02-user-profile.md) (5KB, 2026-03-30)
 - [03-onboarding.md](specs/planned/03-onboarding.md) (4KB, 2026-03-30)
@@ -81,9 +84,9 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [10-certification-catalog.md](specs/planned/10-certification-catalog.md) (today)
+2. [README.md](tech-debt/README.md) (today)
 3. [INDEX.md](INDEX.md) (today)
-4. [README.md](tech-debt/README.md) (today)
+4. [10-certification-catalog.md](specs/in-progress/10-certification-catalog.md) (today)
 
 ---
 

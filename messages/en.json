@@ -67,7 +67,7 @@
     "introTitle": "Introduction",
     "intro": "Synedria (\"the Platform\") processes users' personal data in compliance with the European Regulation 2016/679 (GDPR). This notice describes what data we collect, why we collect it, and what your rights are.",
     "controllerTitle": "Data controller",
-    "controller": "The data controller is the operator of the Synedria platform, reachable at synedria.app@proton.me.",
+    "controller": "The data controller is <name>Valentina Malavenda</name>, operator of the Synedria platform, reachable at <email>synedria.app@proton.me</email>.",
     "dataTitle": "Data collected and purposes",
     "dataIntro": "We collect the following personal data, exclusively for the operation of the platform:",
     "dataAuth": "Authentication data (name, email, avatar) — provided automatically by the OAuth provider (GitHub, Google) at login. Purpose: user identification and platform access.",

@@ -30,7 +30,21 @@ export default async function PrivacyPage() {
 
         <section>
           <h2 className="mb-2 text-lg font-semibold text-stone-800 dark:text-stone-200">{t("controllerTitle")}</h2>
-          <p>{t("controller")}</p>
+          <p>
+            {t.rich("controller", {
+              name: (chunks) => (
+                <strong className="font-semibold text-stone-800 dark:text-stone-200">{chunks}</strong>
+              ),
+              email: (chunks) => (
+                <a
+                  href="mailto:synedria.app@proton.me"
+                  className="underline decoration-stone-400 underline-offset-2 hover:text-stone-800 dark:hover:text-stone-200"
+                >
+                  {chunks}
+                </a>
+              ),
+            })}
+          </p>
         </section>
 
         <section>

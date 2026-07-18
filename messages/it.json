@@ -67,7 +67,7 @@
     "introTitle": "Introduzione",
     "intro": "Synedria (\"la Piattaforma\") tratta i dati personali degli utenti nel rispetto del Regolamento Europeo 2016/679 (GDPR). Questa informativa descrive quali dati raccogliamo, perché li raccogliamo, e quali sono i tuoi diritti.",
     "controllerTitle": "Titolare del trattamento",
-    "controller": "Il titolare del trattamento è il gestore della piattaforma Synedria, contattabile all'indirizzo synedria.app@proton.me.",
+    "controller": "Il titolare del trattamento è <name>Valentina Malavenda</name>, responsabile della piattaforma Synedria, contattabile all'indirizzo <email>synedria.app@proton.me</email>.",
     "dataTitle": "Dati raccolti e finalità",
     "dataIntro": "Raccogliamo i seguenti dati personali, esclusivamente per il funzionamento della piattaforma:",
     "dataAuth": "Dati di autenticazione (nome, email, avatar) — forniti automaticamente dal provider OAuth (GitHub, Google) al momento dell'accesso. Finalità: identificazione dell'utente e accesso alla piattaforma.",

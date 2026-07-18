@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import LogoutButton from "@/components/LogoutButton";
 import NotificationBadge from "./NotificationBadge";
 import MobileMenu from "./MobileMenu";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default async function Header() {
   const t = await getTranslations("header");
@@ -57,11 +58,14 @@ export default async function Header() {
               {t("signIn")}
             </Link>
           )}
+
+          <LanguageSwitcher userId={user?.id ?? null} />
         </div>
 
         {/* Mobile menu */}
         <MobileMenu
           isLoggedIn={!!user}
+          userId={user?.id ?? null}
           labels={{
             search: t("search"),
             myGroups: t("myGroups"),

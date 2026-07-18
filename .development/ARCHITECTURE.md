@@ -123,6 +123,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/components/layout
 - `Footer.tsx`
 - `Header.tsx`
+- `LanguageSwitcher.tsx`
 - `MobileMenu.tsx`
 - `NotificationBadge.tsx`
 

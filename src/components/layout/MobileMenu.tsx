@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
 import LogoutButton from "@/components/LogoutButton";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 type Props = {
   isLoggedIn: boolean;
+  userId?: string | null;
   labels: {
     search: string;
     myGroups: string;
@@ -14,7 +16,7 @@ type Props = {
   };
 };
 
-export default function MobileMenu({ isLoggedIn, labels }: Props) {
+export default function MobileMenu({ isLoggedIn, userId, labels }: Props) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -76,6 +78,9 @@ export default function MobileMenu({ isLoggedIn, labels }: Props) {
                 {labels.signIn}
               </Link>
             )}
+            <div className="border-t border-stone-200 pt-4 dark:border-stone-800">
+              <LanguageSwitcher userId={userId} />
+            </div>
           </nav>
         </div>
       )}

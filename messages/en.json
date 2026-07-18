@@ -12,7 +12,8 @@
     "myGroups": "My groups",
     "profile": "Profile",
     "signIn": "Sign in",
-    "menu": "Menu"
+    "menu": "Menu",
+    "language": "Language"
   },
   "footer": {
     "privacy": "Privacy",
@@ -135,8 +136,6 @@
       "hybrid": "Hybrid",
       "online": "Online"
     },
-    "preferredLocale": "Preferred language",
-    "selectLocale": "Select a language",
     "availability": "Availability",
     "timeSlot": {
       "morning": "Morning",

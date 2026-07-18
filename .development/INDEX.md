@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-18 17:43*
+*Auto-generated: 2026-07-18 18:28*
 
 ---
 
@@ -84,8 +84,8 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [README.md](tech-debt/README.md) (today)
-3. [INDEX.md](INDEX.md) (today)
+2. [INDEX.md](INDEX.md) (today)
+3. [README.md](tech-debt/README.md) (today)
 4. [10-certification-catalog.md](specs/in-progress/10-certification-catalog.md) (today)
 
 ---

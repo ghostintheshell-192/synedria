@@ -66,7 +66,8 @@ export async function POST(request: NextRequest) {
         resolved_at: new Date().toISOString(),
         resolved_by: user.id,
       })
-      .eq("id", requestId);
+      .eq("id", requestId)
+      .eq("group_id", groupId);
 
     return NextResponse.json({ success: true });
   }
@@ -79,7 +80,8 @@ export async function POST(request: NextRequest) {
         resolved_at: new Date().toISOString(),
         resolved_by: user.id,
       })
-      .eq("id", requestId);
+      .eq("id", requestId)
+      .eq("group_id", groupId);
 
     return NextResponse.json({ success: true });
   }

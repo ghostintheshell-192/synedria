@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-05 00:36*
+*Auto-generated: 2026-07-18 10:24*
 
 ---
 
@@ -19,20 +19,20 @@
 
 ### (root)/ (4 files)
 
-- [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-05) **RECENT**
-- [INDEX.md](INDEX.md) (3KB, 2026-07-04) **RECENT**
-- [CURRENT-STATUS.md](CURRENT-STATUS.md) (2KB, 2026-07-04) **RECENT**
+- [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-18) **RECENT**
+- [INDEX.md](INDEX.md) (2KB, 2026-07-18) **RECENT**
+- [CURRENT-STATUS.md](CURRENT-STATUS.md) (2KB, 2026-07-04)
 - [README.md](README.md) (2KB, 2026-03-25)
 
 ### specs/ (1 files)
 
-- [README.md](specs/README.md) (1KB, 2026-07-04) **RECENT**
+- [README.md](specs/README.md) (1KB, 2026-07-05)
 
 ### specs/backlog/ (3 files)
 
-- [back-navigation.md](specs/backlog/back-navigation.md) (1KB, 2026-07-04) **RECENT**
-- [mobile-optimization.md](specs/backlog/mobile-optimization.md) (1KB, 2026-07-04) **RECENT**
-- [referent-transfer.md](specs/backlog/referent-transfer.md) (1KB, 2026-07-04) **RECENT**
+- [back-navigation.md](specs/backlog/back-navigation.md) (1KB, 2026-07-04)
+- [mobile-optimization.md](specs/backlog/mobile-optimization.md) (1KB, 2026-07-04)
+- [referent-transfer.md](specs/backlog/referent-transfer.md) (1KB, 2026-07-04)
 
 ### specs/planned/ (9 files)
 
@@ -48,18 +48,18 @@
 
 ### tech-debt/ (2 files)
 
-- [README.md](tech-debt/README.md) (1KB, 2026-07-04) **RECENT**
+- [README.md](tech-debt/README.md) (1KB, 2026-07-18) **RECENT**
 - [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25)
 
 ### reference/decisions/ (7 files)
 
-- [005-single-referent-per-group.md](reference/decisions/005-single-referent-per-group.md) (1KB, 2026-07-04) **RECENT**
-- [004-public-profile-default.md](reference/decisions/004-public-profile-default.md) (1KB, 2026-07-04) **RECENT**
-- [003-reapplication-deferred.md](reference/decisions/003-reapplication-deferred.md) (2KB, 2026-07-04) **RECENT**
-- [002-group-soft-delete.md](reference/decisions/002-group-soft-delete.md) (1KB, 2026-07-04) **RECENT**
-- [001-skill-tags-free-text.md](reference/decisions/001-skill-tags-free-text.md) (1KB, 2026-07-04) **RECENT**
-- [README.md](reference/decisions/README.md) (2KB, 2026-07-04) **RECENT**
-- [_TEMPLATE.md](reference/decisions/_TEMPLATE.md) (1KB, 2026-07-04) **RECENT**
+- [001-skill-tags-free-text.md](reference/decisions/001-skill-tags-free-text.md) (1KB, 2026-07-05)
+- [002-group-soft-delete.md](reference/decisions/002-group-soft-delete.md) (1KB, 2026-07-05)
+- [003-reapplication-deferred.md](reference/decisions/003-reapplication-deferred.md) (2KB, 2026-07-05)
+- [004-public-profile-default.md](reference/decisions/004-public-profile-default.md) (1KB, 2026-07-05)
+- [005-single-referent-per-group.md](reference/decisions/005-single-referent-per-group.md) (1KB, 2026-07-05)
+- [README.md](reference/decisions/README.md) (2KB, 2026-07-05)
+- [_TEMPLATE.md](reference/decisions/_TEMPLATE.md) (1KB, 2026-07-05)
 
 ### reference/technical/ (1 files)
 
@@ -80,15 +80,8 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [README.md](tech-debt/README.md) (today)
-3. [INDEX.md](INDEX.md) (today)
-4. [005-single-referent-per-group.md](reference/decisions/005-single-referent-per-group.md) (today)
-5. [004-public-profile-default.md](reference/decisions/004-public-profile-default.md) (today)
-6. [003-reapplication-deferred.md](reference/decisions/003-reapplication-deferred.md) (today)
-7. [002-group-soft-delete.md](reference/decisions/002-group-soft-delete.md) (today)
-8. [001-skill-tags-free-text.md](reference/decisions/001-skill-tags-free-text.md) (today)
-9. [README.md](specs/README.md) (today)
-10. [README.md](reference/decisions/README.md) (today)
+2. [INDEX.md](INDEX.md) (today)
+3. [README.md](tech-debt/README.md) (today)
 
 ---
 

@@ -26,6 +26,7 @@ BLOCKED=0
 FORBIDDEN_PATTERNS=(
     '\.env$'
     '\.env\.local$'
+    '\.env\..*\.local$'
     '\.env\.production$'
     '.*secret.*'
     '.*credential.*'
@@ -97,10 +98,14 @@ for file in $(git diff --cached --name-only --diff-filter=ACM); do
     # Skip binary files
     if file "$file" | grep -q "text"; then
         for pattern in "${SECRET_PATTERNS[@]}"; do
-            if git diff --cached "$file" | grep -qE -- "$pattern"; then
+            # Ignore env-var references — env(...), ${...}, $(...) — these are
+            # indirection to a value stored elsewhere, not literal secrets
+            # (e.g. Supabase config.toml: secret = "env(SUPABASE_...)").
+            matches=$(git diff --cached "$file" | grep -E -- "$pattern" | grep -vE '["\047](env\(|\$\{|\$\()' || true)
+            if [ -n "$matches" ]; then
                 echo -e "${RED}✗ BLOCKED:${NC} $file contains potential secret (pattern: ${pattern:0:30}...)"
                 echo -e "${YELLOW}  Matched line:${NC}"
-                git diff --cached "$file" | grep -E -- "$pattern" | head -3 | sed 's/^/    /'
+                echo "$matches" | head -3 | sed 's/^/    /'
                 BLOCKED=1
             fi
         done

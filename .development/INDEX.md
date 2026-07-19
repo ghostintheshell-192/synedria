@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-18 18:28*
+*Auto-generated: 2026-07-19 11:11*
 
 ---
 
@@ -19,8 +19,8 @@
 
 ### (root)/ (4 files)
 
-- [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-18) **RECENT**
-- [INDEX.md](INDEX.md) (3KB, 2026-07-18) **RECENT**
+- [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-19) **RECENT**
+- [INDEX.md](INDEX.md) (3KB, 2026-07-19) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (2KB, 2026-07-04)
 - [README.md](README.md) (2KB, 2026-03-25)
 
@@ -52,7 +52,7 @@
 
 ### tech-debt/ (2 files)
 
-- [README.md](tech-debt/README.md) (1KB, 2026-07-18) **RECENT**
+- [README.md](tech-debt/README.md) (1KB, 2026-07-19) **RECENT**
 - [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25)
 
 ### reference/decisions/ (7 files)

@@ -142,6 +142,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 
 ### src/lib
 - `dashboard.ts`
+- `groups.ts` — A group's displayed title is derived, never stored (FR-10a): the custom
 - `profile.ts`
 - `slug.ts`
 

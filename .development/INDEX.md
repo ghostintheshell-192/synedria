@@ -52,8 +52,8 @@
 
 ### tech-debt/ (3 files)
 
-- [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (1KB, 2026-07-19) **RECENT**
 - [README.md](tech-debt/README.md) (1KB, 2026-07-19) **RECENT**
+- [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (1KB, 2026-07-19) **RECENT**
 - [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25)
 
 ### reference/decisions/ (7 files)
@@ -85,9 +85,9 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
+2. [README.md](tech-debt/README.md) (today)
 3. [INDEX.md](INDEX.md) (today)
-4. [README.md](tech-debt/README.md) (today)
+4. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
 5. [10-certification-catalog.md](specs/in-progress/10-certification-catalog.md) (today)
 
 ---

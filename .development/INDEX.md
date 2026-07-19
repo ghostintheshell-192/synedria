@@ -52,8 +52,8 @@
 
 ### tech-debt/ (5 files)
 
-- [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (3KB, 2026-07-19) **RECENT**
 - [README.md](tech-debt/README.md) (1KB, 2026-07-19) **RECENT**
+- [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (3KB, 2026-07-19) **RECENT**
 - [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (2KB, 2026-07-19) **RECENT**
 - [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (1KB, 2026-07-19) **RECENT**
 - [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25)
@@ -87,9 +87,9 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
-3. [README.md](tech-debt/README.md) (today)
-4. [INDEX.md](INDEX.md) (today)
+2. [README.md](tech-debt/README.md) (today)
+3. [INDEX.md](INDEX.md) (today)
+4. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
 5. [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (today)
 6. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
 7. [10-certification-catalog.md](specs/in-progress/10-certification-catalog.md) (1d ago)

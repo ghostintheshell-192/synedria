@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
+import { deriveGroupTitle } from "@/lib/groups";
 import { Link } from "@/i18n/navigation";
 import SearchFilters from "@/components/search/SearchFilters";
 
@@ -18,7 +19,7 @@ export async function generateMetadata({
 
 type GroupResult = {
   id: string;
-  name: string;
+  name: string | null;
   slug: string;
   skill_tag: string;
   objective: string;
@@ -27,6 +28,7 @@ type GroupResult = {
   status: string;
   member_count: number;
   last_check_in: string | null;
+  certification: { name: string } | null;
 };
 
 function getActivityLabel(
@@ -60,7 +62,7 @@ export default async function SearchPage({
   // Build query
   let query = supabase
     .from("groups")
-    .select("id, name, slug, skill_tag, objective, city, preferred_format, status")
+    .select("id, name, slug, skill_tag, objective, city, preferred_format, status, certification:certification_id(name)")
     .order("status", { ascending: true }) // open before closed (enum order: open=1, closed=2)
     .order("created_at", { ascending: false });
 
@@ -107,7 +109,7 @@ export default async function SearchPage({
 
     for (const group of groups) {
       results.push({
-        ...group,
+        ...(group as unknown as Omit<GroupResult, "member_count" | "last_check_in">),
         member_count: memberCountByGroup.get(group.id) ?? 0,
         last_check_in: lastCheckInByGroup.get(group.id) ?? null,
       });
@@ -165,7 +167,7 @@ export default async function SearchPage({
                   <div className="flex items-start justify-between">
                     <div className="min-w-0">
                       <h2 className="font-semibold text-stone-900 dark:text-stone-100 dark:group-hover:text-stone-900">
-                        {group.name}
+                        {deriveGroupTitle(group)}
                       </h2>
                       <p className="mt-1 text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
                         {group.objective}

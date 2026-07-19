@@ -2,6 +2,7 @@ import { cache } from "react";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
+import { deriveGroupTitle } from "@/lib/groups";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -12,7 +13,7 @@ import CloseGroupButton from "@/components/groups/CloseGroupButton";
 
 type GroupRow = {
   id: string;
-  name: string;
+  name: string | null;
   slug: string;
   skill_tag: string;
   objective: string;
@@ -30,6 +31,7 @@ type GroupRow = {
   description: string | null;
   is_indexable: boolean;
   created_at: string;
+  certification: { name: string } | null;
 };
 
 type MemberRow = {
@@ -66,7 +68,7 @@ const getGroup = cache(async (slug: string) => {
   const supabase = await createClient();
   const { data } = await supabase
     .from("groups")
-    .select("*")
+    .select("*, certification:certification_id(name)")
     .eq("slug", slug)
     .single<GroupRow>();
   return data;
@@ -83,13 +85,13 @@ export async function generateMetadata({
   if (!group) return { title: "Not Found" };
 
   return {
-    title: `${group.name} — Synedria`,
+    title: `${deriveGroupTitle(group)} — Synedria`,
     description: `${group.objective} | ${group.skill_tag} | ${group.city}`,
     robots: group.is_indexable
       ? { index: true, follow: true }
       : { index: false, follow: false },
     openGraph: {
-      title: group.name,
+      title: deriveGroupTitle(group),
       description: group.objective,
       siteName: "Synedria",
     },
@@ -200,7 +202,7 @@ export default async function GroupPage({
         <div className="flex items-start justify-between">
           <div>
             <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">
-              {group.name}
+              {deriveGroupTitle(group)}
             </h1>
             <div className="mt-2 flex flex-wrap gap-2">
               <span className="rounded-full bg-stone-100 px-3 py-1 text-sm text-stone-700 dark:bg-stone-800 dark:text-stone-300">

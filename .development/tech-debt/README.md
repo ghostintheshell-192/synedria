@@ -40,11 +40,12 @@ moves the file to `../archive/completed/` with a date prefix.
 
 ## Current Issues by Priority
 
-*Auto-updated: 2026-07-19 12:55*
+*Auto-updated: 2026-07-19 16:31*
 
 **High Priority:** None currently
 
-**Medium Priority:** None currently
+**Medium Priority:**
+- `untyped-supabase-client.md` - Supabase client is untyped (no Database generic)
 
 **Low Priority:**
 - `onboarding-prompt-copy.md` - Onboarding profile-completion copy needs improvement

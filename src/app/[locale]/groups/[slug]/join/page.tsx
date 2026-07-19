@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
+import { deriveGroupTitle } from "@/lib/groups";
 import JoinRequestForm from "@/components/groups/JoinRequestForm";
 
 export async function generateMetadata({
@@ -35,7 +36,7 @@ export default async function JoinPage({
   // Get group
   const { data: group } = await supabase
     .from("groups")
-    .select("id, name, slug, status, entry_mode")
+    .select("id, name, slug, status, entry_mode, certification:certification_id(name)")
     .eq("slug", slug)
     .single();
 
@@ -99,7 +100,9 @@ export default async function JoinPage({
     <div className="mx-auto max-w-lg px-4 py-12">
       <JoinRequestForm
         groupId={group.id}
-        groupName={group.name}
+        groupName={deriveGroupTitle(
+          group as unknown as { name: string | null; certification: { name: string } | null }
+        )}
         groupSlug={group.slug}
         userId={user.id}
         isOpenAccess={isOpenAccess}

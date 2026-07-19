@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
 import { getMyActiveGroups } from "@/lib/dashboard";
+import { deriveGroupTitle } from "@/lib/groups";
 import { Link } from "@/i18n/navigation";
 import GroupCard from "@/components/groups/GroupCard";
 
@@ -63,7 +64,7 @@ export default async function MyGroupsPage({
             {active.map((group) => (
               <GroupCard
                 key={group.id}
-                name={group.name}
+                name={deriveGroupTitle(group)}
                 slug={group.slug}
                 skillTag={group.skill_tag}
                 city={group.city}
@@ -89,7 +90,7 @@ export default async function MyGroupsPage({
             {history.map((group) => (
               <GroupCard
                 key={group.id}
-                name={group.name}
+                name={deriveGroupTitle(group)}
                 slug={group.slug}
                 skillTag={group.skill_tag}
                 city={group.city}

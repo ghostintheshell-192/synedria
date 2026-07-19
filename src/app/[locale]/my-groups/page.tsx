@@ -39,6 +39,15 @@ export default async function MyGroupsPage({
   const active = allGroups.filter((g) => g.status === "open");
   const history = allGroups.filter((g) => g.status === "closed");
 
+  const badgeFor = (g: (typeof allGroups)[number]) =>
+    g.certification
+      ? {
+          name: g.certification.name,
+          issuerName: g.certification.issuer?.name ?? "",
+          logoUrl: g.certification.issuer?.logo_url,
+        }
+      : null;
+
   const t = await getTranslations("myGroups");
 
   return (
@@ -71,6 +80,8 @@ export default async function MyGroupsPage({
                 preferredFormat={group.preferred_format}
                 memberCount={group.member_count}
                 role={group.role}
+                certification={badgeFor(group)}
+                titleDerived={!group.name}
               />
             ))}
           </div>
@@ -97,6 +108,8 @@ export default async function MyGroupsPage({
                 preferredFormat={group.preferred_format}
                 memberCount={group.member_count}
                 status={group.status}
+                certification={badgeFor(group)}
+                titleDerived={!group.name}
               />
             ))}
           </div>

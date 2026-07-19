@@ -112,6 +112,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `Dashboard.tsx`
 
 ### src/components/groups
+- `CertificationBadge.tsx`
 - `CertificationCombobox.tsx`
 - `CheckInForm.tsx`
 - `CloseGroupButton.tsx`

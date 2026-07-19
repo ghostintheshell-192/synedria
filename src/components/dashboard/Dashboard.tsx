@@ -123,6 +123,16 @@ export default async function Dashboard({
                 preferredFormat={group.preferred_format}
                 memberCount={group.member_count}
                 role={group.role}
+                certification={
+                  group.certification
+                    ? {
+                        name: group.certification.name,
+                        issuerName: group.certification.issuer?.name ?? "",
+                        logoUrl: group.certification.issuer?.logo_url,
+                      }
+                    : null
+                }
+                titleDerived={!group.name}
               />
             ))}
           </div>

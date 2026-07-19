@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { deriveGroupTitle } from "@/lib/groups";
 import { Link } from "@/i18n/navigation";
 import SearchFilters from "@/components/search/SearchFilters";
+import CertificationBadge from "@/components/groups/CertificationBadge";
 
 export async function generateMetadata({
   params,
@@ -28,7 +29,10 @@ type GroupResult = {
   status: string;
   member_count: number;
   last_check_in: string | null;
-  certification: { name: string } | null;
+  certification: {
+    name: string;
+    issuer: { name: string; logo_url: string | null } | null;
+  } | null;
 };
 
 function getActivityLabel(
@@ -62,7 +66,9 @@ export default async function SearchPage({
   // Build query
   let query = supabase
     .from("groups")
-    .select("id, name, slug, skill_tag, objective, city, preferred_format, status, certification:certification_id(name)")
+    .select(
+      "id, name, slug, skill_tag, objective, city, preferred_format, status, certification:certification_id(name, issuer:issuer_id(name, logo_url))",
+    )
     .order("status", { ascending: true }) // open before closed (enum order: open=1, closed=2)
     .order("created_at", { ascending: false });
 
@@ -169,6 +175,20 @@ export default async function SearchPage({
                       <h2 className="font-semibold text-stone-900 dark:text-stone-100 dark:group-hover:text-stone-900">
                         {deriveGroupTitle(group)}
                       </h2>
+                      {group.certification && (
+                        <div className="mt-0.5">
+                          <CertificationBadge
+                            variant="compact"
+                            titleDerived={!group.name}
+                            cert={{
+                              name: group.certification.name,
+                              issuerName:
+                                group.certification.issuer?.name ?? "",
+                              logoUrl: group.certification.issuer?.logo_url,
+                            }}
+                          />
+                        </div>
+                      )}
                       {group.objective && (
                         <p className="mt-1 text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
                           {group.objective}

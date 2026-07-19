@@ -10,6 +10,7 @@ import PendingRequests from "@/components/groups/PendingRequests";
 import CheckInForm from "@/components/groups/CheckInForm";
 import LeaveGroupButton from "@/components/groups/LeaveGroupButton";
 import CloseGroupButton from "@/components/groups/CloseGroupButton";
+import CertificationBadge from "@/components/groups/CertificationBadge";
 
 type GroupRow = {
   id: string;
@@ -31,7 +32,10 @@ type GroupRow = {
   description: string | null;
   is_indexable: boolean;
   created_at: string;
-  certification: { name: string } | null;
+  certification: {
+    name: string;
+    issuer: { name: string; logo_url: string | null } | null;
+  } | null;
 };
 
 type MemberRow = {
@@ -68,7 +72,9 @@ const getGroup = cache(async (slug: string) => {
   const supabase = await createClient();
   const { data } = await supabase
     .from("groups")
-    .select("*, certification:certification_id(name)")
+    .select(
+      "*, certification:certification_id(name, issuer:issuer_id(name, logo_url))",
+    )
     .eq("slug", slug)
     .single<GroupRow>();
   return data;
@@ -206,7 +212,20 @@ export default async function GroupPage({
             <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">
               {deriveGroupTitle(group)}
             </h1>
-            <div className="mt-2 flex flex-wrap gap-2">
+            {group.certification && (
+              <div className="mt-3">
+                <CertificationBadge
+                  variant="prominent"
+                  titleDerived={!group.name}
+                  cert={{
+                    name: group.certification.name,
+                    issuerName: group.certification.issuer?.name ?? "",
+                    logoUrl: group.certification.issuer?.logo_url,
+                  }}
+                />
+              </div>
+            )}
+            <div className="mt-3 flex flex-wrap gap-2">
               <span className="rounded-full bg-stone-100 px-3 py-1 text-sm text-stone-700 dark:bg-stone-800 dark:text-stone-300">
                 {group.skill_tag}
               </span>

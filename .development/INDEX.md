@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-19 21:18*
+*Auto-generated: 2026-07-19 21:53*
 
 ---
 
@@ -20,7 +20,7 @@
 ### (root)/ (4 files)
 
 - [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-19) **RECENT**
-- [INDEX.md](INDEX.md) (3KB, 2026-07-19) **RECENT**
+- [INDEX.md](INDEX.md) (4KB, 2026-07-19) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (2KB, 2026-07-04)
 - [README.md](README.md) (2KB, 2026-03-25)
 
@@ -52,9 +52,9 @@
 
 ### tech-debt/ (8 files)
 
+- [README.md](tech-debt/README.md) (2KB, 2026-07-19) **RECENT**
 - [test-coverage-group-objective.md](tech-debt/test-coverage-group-objective.md) (1KB, 2026-07-19) **RECENT**
 - [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (2KB, 2026-07-19) **RECENT**
-- [README.md](tech-debt/README.md) (2KB, 2026-07-19) **RECENT**
 - [group-edit-missing.md](tech-debt/group-edit-missing.md) (2KB, 2026-07-19) **RECENT**
 - [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (3KB, 2026-07-19) **RECENT**
 - [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (2KB, 2026-07-19) **RECENT**
@@ -90,10 +90,10 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [test-coverage-group-objective.md](tech-debt/test-coverage-group-objective.md) (today)
-3. [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (today)
-4. [README.md](tech-debt/README.md) (today)
-5. [INDEX.md](INDEX.md) (today)
+2. [README.md](tech-debt/README.md) (today)
+3. [INDEX.md](INDEX.md) (today)
+4. [test-coverage-group-objective.md](tech-debt/test-coverage-group-objective.md) (today)
+5. [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (today)
 6. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
 7. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
 8. [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (today)

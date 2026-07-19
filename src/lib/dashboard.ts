@@ -28,7 +28,10 @@ export type ActiveGroup = {
   status: string;
   role: string;
   member_count: number;
-  certification: { name: string } | null;
+  certification: {
+    name: string;
+    issuer: { name: string; logo_url: string | null } | null;
+  } | null;
 };
 
 export async function getPendingRequestsForReferent(
@@ -107,7 +110,9 @@ export async function getMyActiveGroups(
 ): Promise<ActiveGroup[]> {
   const { data } = await supabase
     .from("group_members")
-    .select("role, groups(id, name, slug, skill_tag, city, preferred_format, status, certification:certification_id(name))")
+    .select(
+      "role, groups(id, name, slug, skill_tag, city, preferred_format, status, certification:certification_id(name, issuer:issuer_id(name, logo_url)))",
+    )
     .eq("user_id", userId);
 
   if (!data || data.length === 0) return [];
@@ -136,7 +141,10 @@ export async function getMyActiveGroups(
       city: string;
       preferred_format: string;
       status: string;
-      certification: { name: string } | null;
+      certification: {
+        name: string;
+        issuer: { name: string; logo_url: string | null } | null;
+      } | null;
     };
 
     return {

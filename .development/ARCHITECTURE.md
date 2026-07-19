@@ -149,6 +149,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `certifications.ts`
 - `dashboard.ts`
 - `groups.ts` — A group's displayed title is derived, never stored (FR-10a): the custom
+- `issuerMonogram.ts` — Fallback tile identity for a certification issuer that has no curated logo
 - `profile.ts`
 - `slug.ts`
 

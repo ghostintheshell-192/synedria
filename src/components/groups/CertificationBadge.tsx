@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import { issuerMonogram, issuerTileColor } from "@/lib/issuerMonogram";
+
 export type CertificationBadgeData = {
   name: string;
   issuerName: string;
@@ -8,9 +10,10 @@ export type CertificationBadgeData = {
 
 /**
  * Shows a group's linked certification (FR-11): certification name + issuer,
- * with the curated issuer logo where available (a graduation glyph stands in
- * until issuer logos are curated, increment #2). Two variants: `prominent` for
- * the group page header, `compact` for search/list cards.
+ * with the curated issuer logo where available (a colored monogram tile derived
+ * from the issuer name stands in until an issuer's logo is curated/cleared,
+ * increment #2). Two variants: `prominent` for the group page header, `compact`
+ * for search/list cards.
  */
 export default async function CertificationBadge({
   cert,
@@ -29,6 +32,8 @@ export default async function CertificationBadge({
   const t = await getTranslations("groups");
   const label = t("certification");
   const ariaLabel = `${label}: ${cert.name} — ${cert.issuerName}`;
+  const monogram = issuerMonogram(cert.issuerName);
+  const tileColor = issuerTileColor(cert.issuerName);
 
   if (variant === "prominent") {
     return (
@@ -44,8 +49,11 @@ export default async function CertificationBadge({
             className="h-10 w-10 shrink-0 object-contain"
           />
         ) : (
-          <span aria-hidden className="text-2xl">
-            🎓
+          <span
+            aria-hidden
+            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-sm font-semibold ${tileColor}`}
+          >
+            {monogram}
           </span>
         )}
         <span className="min-w-0">
@@ -81,7 +89,12 @@ export default async function CertificationBadge({
           className="h-4 w-4 shrink-0 object-contain"
         />
       ) : (
-        <span aria-hidden>🎓</span>
+        <span
+          aria-hidden
+          className={`flex h-4 w-4 shrink-0 items-center justify-center rounded text-[8px] font-bold leading-none ${tileColor}`}
+        >
+          {monogram}
+        </span>
       )}
       <span className="truncate">
         {titleDerived ? cert.issuerName : `${cert.name} · ${cert.issuerName}`}

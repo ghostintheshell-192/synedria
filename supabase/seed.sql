@@ -22,9 +22,9 @@ GRANT ALL ON ALL ROUTINES  IN SCHEMA public TO anon, authenticated, service_role
 -- migration / manual SQL — there is no in-app write path.
 --
 -- Notes for the curator:
---   * logo_url is intentionally NULL here. Issuer logos are self-hosted assets
---     (no hotlinking) and are a separate curation step; fill logo_url once the
---     assets exist.
+--   * logo_url is set below (separate UPDATE block) only for issuers whose logo
+--     has been curated as a self-hosted asset under public/logos/ (no hotlinking).
+--     Issuers without a cleared asset stay NULL and render a monogram tile.
 --   * official_url and code values are best-known at seed time — re-verify them
 --     as part of curation before relying on them in production.
 --   * Idempotent: ON CONFLICT (slug) DO NOTHING makes this safe to re-run and to
@@ -48,6 +48,15 @@ INSERT INTO issuers (name, slug, website_url) VALUES
   ('Oracle',              'oracle',           'https://education.oracle.com/certification'),
   ('Anthropic',           'anthropic',        'https://www.anthropic.com/')
 ON CONFLICT (slug) DO NOTHING;
+
+-- Curated self-hosted logos (public/logos/, no hotlinking — see spec Technical
+-- Notes "Logos"). Set via UPDATE so re-seeding also backfills pre-existing rows
+-- that ON CONFLICT DO NOTHING left untouched. Only issuers with a cleared asset
+-- are listed; the rest keep logo_url NULL and fall back to a monogram tile.
+UPDATE issuers SET logo_url = '/logos/aws.png'          WHERE slug = 'aws';
+UPDATE issuers SET logo_url = '/logos/cisco.svg'        WHERE slug = 'cisco';
+UPDATE issuers SET logo_url = '/logos/google-cloud.svg' WHERE slug = 'google-cloud';
+UPDATE issuers SET logo_url = '/logos/hashicorp.png'    WHERE slug = 'hashicorp';
 
 -- =============================================================================
 -- CERTIFICATIONS

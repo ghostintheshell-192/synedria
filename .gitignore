@@ -82,3 +82,7 @@ coverage/
 
 # Tool config
 .ripgreprc
+
+# Harness scaffolding accidentally written under public/
+/public/.claude/
+public/**/.claude/

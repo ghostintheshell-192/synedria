@@ -40,7 +40,7 @@ moves the file to `../archive/completed/` with a date prefix.
 
 ## Current Issues by Priority
 
-*Auto-updated: 2026-07-19 18:11*
+*Auto-updated: 2026-07-19 18:19*
 
 **High Priority:**
 - `group-tag-model-single-and-coarse.md` - Group tag model is single + coarse (no curated multi-tags)
@@ -49,6 +49,7 @@ moves the file to `../archive/completed/` with a date prefix.
 - `untyped-supabase-client.md` - Supabase client is untyped (no Database generic)
 
 **Low Priority:**
+- `group-edit-missing.md` - No group-edit flow — referent cannot change a group after creation
 - `onboarding-prompt-copy.md` - Onboarding profile-completion copy needs improvement
 
 ## Integration with Reference Documentation

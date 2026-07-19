@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-19 21:53*
+*Auto-generated: 2026-07-19 21:56*
 
 ---
 
@@ -50,8 +50,9 @@
 - [08-check-in.md](specs/planned/08-check-in.md) (5KB, 2026-03-30)
 - [09-i18n.md](specs/planned/09-i18n.md) (5KB, 2026-03-30)
 
-### tech-debt/ (8 files)
+### tech-debt/ (9 files)
 
+- [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (1KB, 2026-07-19) **RECENT**
 - [README.md](tech-debt/README.md) (2KB, 2026-07-19) **RECENT**
 - [test-coverage-group-objective.md](tech-debt/test-coverage-group-objective.md) (1KB, 2026-07-19) **RECENT**
 - [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (2KB, 2026-07-19) **RECENT**
@@ -90,15 +91,15 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [README.md](tech-debt/README.md) (today)
-3. [INDEX.md](INDEX.md) (today)
-4. [test-coverage-group-objective.md](tech-debt/test-coverage-group-objective.md) (today)
-5. [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (today)
-6. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
-7. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
-8. [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (today)
-9. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
-10. [10-certification-catalog.md](specs/in-progress/10-certification-catalog.md) (1d ago)
+2. [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (today)
+3. [README.md](tech-debt/README.md) (today)
+4. [INDEX.md](INDEX.md) (today)
+5. [test-coverage-group-objective.md](tech-debt/test-coverage-group-objective.md) (today)
+6. [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (today)
+7. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
+8. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
+9. [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (today)
+10. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
 
 ---
 

@@ -5,6 +5,7 @@ import { deriveGroupTitle } from "@/lib/groups";
 import { Link } from "@/i18n/navigation";
 import SearchFilters from "@/components/search/SearchFilters";
 import CertificationBadge from "@/components/groups/CertificationBadge";
+import { getActiveCertifications } from "@/lib/certifications";
 
 export async function generateMetadata({
   params,
@@ -53,7 +54,12 @@ export default async function SearchPage({
   searchParams: searchParamsPromise,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ skill?: string; city?: string; format?: string }>;
+  searchParams: Promise<{
+    skill?: string;
+    city?: string;
+    format?: string;
+    cert?: string;
+  }>;
 }) {
   await params;
   const searchParams = await searchParamsPromise;
@@ -81,8 +87,14 @@ export default async function SearchPage({
   if (searchParams.format) {
     query = query.eq("preferred_format", searchParams.format);
   }
+  if (searchParams.cert) {
+    query = query.eq("certification_id", searchParams.cert);
+  }
 
-  const { data: groups } = await query;
+  const [{ data: groups }, certifications] = await Promise.all([
+    query,
+    getActiveCertifications(supabase),
+  ]);
 
   // Enrich with member counts and last check-in — 2 queries total instead of 2N
   const results: GroupResult[] = [];
@@ -139,7 +151,7 @@ export default async function SearchPage({
       </div>
 
       <Suspense>
-        <SearchFilters />
+        <SearchFilters certifications={certifications} />
       </Suspense>
 
       {results.length === 0 ? (

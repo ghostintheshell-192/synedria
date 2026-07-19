@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { isProfileComplete } from "@/lib/profile";
 import type { Profile, UserSkill } from "@/types/database";
 import GroupCreateForm from "@/components/groups/GroupCreateForm";
-import type { CertOption } from "@/components/groups/CertificationCombobox";
+import { getActiveCertifications } from "@/lib/certifications";
 
 export async function generateMetadata({
   params,
@@ -35,7 +35,7 @@ export default async function CreateGroupPage({
     redirect(`/${locale}/login`);
   }
 
-  const [{ data: profile }, { data: skills }, { data: certRows }] =
+  const [{ data: profile }, { data: skills }, certifications] =
     await Promise.all([
       supabase.from("profiles").select("*").eq("id", user.id).single<Profile>(),
       supabase
@@ -43,37 +43,12 @@ export default async function CreateGroupPage({
         .select("*")
         .eq("user_id", user.id)
         .returns<UserSkill[]>(),
-      // Only active certifications from active issuers reach the picker (FR-7,
-      // FR-15). The nested issuer relation is typed as an array by supabase-js
-      // (same shape handled with a cast elsewhere), so we normalize it below.
-      supabase
-        .from("certifications")
-        .select("id, name, issuer:issuer_id!inner(name, is_active)")
-        .eq("is_active", true)
-        .eq("issuer.is_active", true)
-        .order("name"),
+      getActiveCertifications(supabase),
     ]);
 
   if (!profile || !isProfileComplete(profile, skills ?? [])) {
     redirect(`/${locale}/profile`);
   }
-
-  const certifications: CertOption[] = (
-    (certRows ?? []) as unknown as {
-      id: string;
-      name: string;
-      issuer: { name: string } | null;
-    }[]
-  )
-    .map((c) => ({
-      id: c.id,
-      name: c.name,
-      issuerName: c.issuer?.name ?? "",
-    }))
-    .sort(
-      (a, b) =>
-        a.issuerName.localeCompare(b.issuerName) || a.name.localeCompare(b.name),
-    );
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">

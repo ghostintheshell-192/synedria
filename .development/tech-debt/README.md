@@ -40,12 +40,14 @@ moves the file to `../archive/completed/` with a date prefix.
 
 ## Current Issues by Priority
 
-*Auto-updated: 2026-07-19 18:19*
+*Auto-updated: 2026-07-19 21:18*
 
 **High Priority:**
 - `group-tag-model-single-and-coarse.md` - Group tag model is single + coarse (no curated multi-tags)
 
 **Medium Priority:**
+- `test-coverage-certification-catalog.md` - No pgTAP coverage for the certification catalog (migration 00008)
+- `test-coverage-group-objective.md` - No pgTAP coverage for group objective nullability (migration 00010)
 - `untyped-supabase-client.md` - Supabase client is untyped (no Database generic)
 
 **Low Priority:**

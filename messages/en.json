@@ -203,6 +203,7 @@
     "skillTagPlaceholder": "e.g. DevOps, Python, Machine Learning",
     "objective": "Objective",
     "objectivePlaceholder": "e.g. prepare for AWS Solutions Architect certification",
+    "objectiveExtraPlaceholder": "Add details about your goal, if you like (optional)",
     "entryMode": "Entry mode",
     "entryModeOption": {
       "approval": "Referent approval required",
@@ -225,7 +226,24 @@
     "climatePlaceholder": "e.g. fairly informal, absolute focus",
     "expectedAttendance": "Expected attendance",
     "expectedAttendancePlaceholder": "e.g. every meeting, flexible",
-    "description": "Additional description"
+    "description": "Additional description",
+    "optional": "optional",
+    "titleModeLabel": "Group title",
+    "titleModeOption": {
+      "custom": "Custom",
+      "derived": "Derive from certification"
+    },
+    "titleDerivedHint": "The group title will be the name of the selected certification.",
+    "certification": "Certification",
+    "certificationLead": "Is your group preparing for an official certification? Link it so people can find you more easily.",
+    "objectiveFromCert": "Prepare for the {name} certification",
+    "certificationSearchPlaceholder": "Search for a certification...",
+    "certificationNoMatch": "No certification found.",
+    "certificationClear": "Clear the selected certification",
+    "certificationRequired": "Select a certification, or choose a custom title.",
+    "suggestCertification": "Can't find your certification? Suggest one",
+    "suggestEmailSubject": "Certification suggestion for the Synedria catalog",
+    "suggestEmailBody": "Certification name:\n\nOfficial link:\n\n(Thanks for the suggestion! We'll review it for the catalog.)"
   },
   "search": {
     "pageTitle": "Search groups",

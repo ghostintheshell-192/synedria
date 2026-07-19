@@ -203,6 +203,7 @@
     "skillTagPlaceholder": "es. DevOps, Python, Machine Learning",
     "objective": "Obiettivo",
     "objectivePlaceholder": "es. preparare la certificazione AWS Solutions Architect",
+    "objectiveExtraPlaceholder": "Aggiungi dettagli sul tuo obiettivo, se vuoi (facoltativo)",
     "entryMode": "Modalità di accesso",
     "entryModeOption": {
       "approval": "Con approvazione del referente",
@@ -225,7 +226,24 @@
     "climatePlaceholder": "es. abbastanza informale, focus assoluto",
     "expectedAttendance": "Frequenza attesa",
     "expectedAttendancePlaceholder": "es. ogni incontro, flessibile",
-    "description": "Descrizione aggiuntiva"
+    "description": "Descrizione aggiuntiva",
+    "optional": "opzionale",
+    "titleModeLabel": "Titolo del gruppo",
+    "titleModeOption": {
+      "custom": "Personalizzato",
+      "derived": "Deriva dalla certificazione"
+    },
+    "titleDerivedHint": "Il titolo del gruppo sarà il nome della certificazione selezionata.",
+    "certification": "Certificazione",
+    "certificationLead": "Il tuo gruppo prepara una certificazione ufficiale? Collegala per farti trovare più facilmente.",
+    "objectiveFromCert": "Preparare la certificazione {name}",
+    "certificationSearchPlaceholder": "Cerca una certificazione...",
+    "certificationNoMatch": "Nessuna certificazione trovata.",
+    "certificationClear": "Rimuovi la certificazione selezionata",
+    "certificationRequired": "Seleziona una certificazione, oppure scegli un titolo personalizzato.",
+    "suggestCertification": "Non trovi la tua certificazione? Suggeriscine una",
+    "suggestEmailSubject": "Suggerimento certificazione per il catalogo Synedria",
+    "suggestEmailBody": "Nome della certificazione:\n\nLink ufficiale:\n\n(Grazie per il suggerimento! La valuteremo per aggiungerla al catalogo.)"
   },
   "search": {
     "pageTitle": "Cerca gruppi",

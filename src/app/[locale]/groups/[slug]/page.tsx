@@ -16,7 +16,7 @@ type GroupRow = {
   name: string | null;
   slug: string;
   skill_tag: string;
-  objective: string;
+  objective: string | null;
   roadmap_url: string | null;
   city: string;
   preferred_format: string;
@@ -86,13 +86,15 @@ export async function generateMetadata({
 
   return {
     title: `${deriveGroupTitle(group)} — Synedria`,
-    description: `${group.objective} | ${group.skill_tag} | ${group.city}`,
+    // objective may be null when the goal is implied by the linked certification
+    // (FR-10) — fall back to the derived title so the description is never "null".
+    description: `${group.objective ?? deriveGroupTitle(group)} | ${group.skill_tag} | ${group.city}`,
     robots: group.is_indexable
       ? { index: true, follow: true }
       : { index: false, follow: false },
     openGraph: {
       title: deriveGroupTitle(group),
-      description: group.objective,
+      description: group.objective ?? deriveGroupTitle(group),
       siteName: "Synedria",
     },
   };
@@ -233,12 +235,19 @@ export default async function GroupPage({
         </div>
       </div>
 
-      {/* Objective */}
+      {/* Objective — may be absent when the goal is implied by the linked
+          certification (FR-10); the derived title already names it, and the
+          certification badge will carry it (FR-11, #6/#7). */}
+      {(group.objective || group.roadmap_url) && (
       <section className="mb-8">
         <h2 className="mb-2 text-lg font-semibold text-stone-800 dark:text-stone-200">
           {t("objective")}
         </h2>
-        <p className="text-stone-600 dark:text-stone-400">{group.objective}</p>
+        {group.objective && (
+          <p className="text-stone-600 dark:text-stone-400">
+            {group.objective}
+          </p>
+        )}
         {group.roadmap_url && (
           <a
             href={group.roadmap_url}
@@ -250,6 +259,7 @@ export default async function GroupPage({
           </a>
         )}
       </section>
+      )}
 
       {/* Group details */}
       {(group.study_mode || group.climate || group.expected_attendance || group.meeting_place) && (

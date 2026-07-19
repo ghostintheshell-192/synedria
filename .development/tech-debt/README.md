@@ -40,9 +40,10 @@ moves the file to `../archive/completed/` with a date prefix.
 
 ## Current Issues by Priority
 
-*Auto-updated: 2026-07-19 16:32*
+*Auto-updated: 2026-07-19 18:11*
 
-**High Priority:** None currently
+**High Priority:**
+- `group-tag-model-single-and-coarse.md` - Group tag model is single + coarse (no curated multi-tags)
 
 **Medium Priority:**
 - `untyped-supabase-client.md` - Supabase client is untyped (no Database generic)

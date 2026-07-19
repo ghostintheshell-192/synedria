@@ -22,7 +22,7 @@ type GroupResult = {
   name: string | null;
   slug: string;
   skill_tag: string;
-  objective: string;
+  objective: string | null;
   city: string;
   preferred_format: string;
   status: string;
@@ -169,9 +169,11 @@ export default async function SearchPage({
                       <h2 className="font-semibold text-stone-900 dark:text-stone-100 dark:group-hover:text-stone-900">
                         {deriveGroupTitle(group)}
                       </h2>
-                      <p className="mt-1 text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
-                        {group.objective}
-                      </p>
+                      {group.objective && (
+                        <p className="mt-1 text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
+                          {group.objective}
+                        </p>
+                      )}
                     </div>
                     <span className="ml-2 shrink-0 whitespace-nowrap text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
                       {group.member_count}/8

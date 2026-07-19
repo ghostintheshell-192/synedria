@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-19 11:20*
+*Auto-generated: 2026-07-19 12:55*
 
 ---
 
@@ -50,8 +50,9 @@
 - [08-check-in.md](specs/planned/08-check-in.md) (5KB, 2026-03-30)
 - [09-i18n.md](specs/planned/09-i18n.md) (5KB, 2026-03-30)
 
-### tech-debt/ (2 files)
+### tech-debt/ (3 files)
 
+- [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (1KB, 2026-07-19) **RECENT**
 - [README.md](tech-debt/README.md) (1KB, 2026-07-19) **RECENT**
 - [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25)
 
@@ -84,9 +85,10 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [README.md](tech-debt/README.md) (today)
+2. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
 3. [INDEX.md](INDEX.md) (today)
-4. [10-certification-catalog.md](specs/in-progress/10-certification-catalog.md) (today)
+4. [README.md](tech-debt/README.md) (today)
+5. [10-certification-catalog.md](specs/in-progress/10-certification-catalog.md) (today)
 
 ---
 

@@ -40,13 +40,14 @@ moves the file to `../archive/completed/` with a date prefix.
 
 ## Current Issues by Priority
 
-*Auto-updated: 2026-07-19 11:20*
+*Auto-updated: 2026-07-19 12:55*
 
 **High Priority:** None currently
 
 **Medium Priority:** None currently
 
-**Low Priority:** None currently
+**Low Priority:**
+- `onboarding-prompt-copy.md` - Onboarding profile-completion copy needs improvement
 
 ## Integration with Reference Documentation
 

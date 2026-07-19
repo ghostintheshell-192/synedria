@@ -67,6 +67,9 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/app/[locale]/auth/callback
 - `route.ts`
 
+### src/app/[locale]/auth/confirm
+- `route.ts`
+
 ### src/app/[locale]/contact
 - `page.tsx`
 

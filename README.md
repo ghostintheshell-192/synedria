@@ -19,6 +19,18 @@ npm run build   # Production build
 npm run lint    # Lint
 ```
 
+### Database tests
+
+Schema and row-level-security policies are tested with pgTAP against the local
+Supabase stack:
+
+```bash
+npx supabase db reset   # apply migrations + seed on a clean local db
+npx supabase test db    # run every test in supabase/tests/
+```
+
+See [supabase/tests/README.md](supabase/tests/README.md) for conventions.
+
 ## Documentation
 
 - [Vision](vision.md) — product vision and design principles

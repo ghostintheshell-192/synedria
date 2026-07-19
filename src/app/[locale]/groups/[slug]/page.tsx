@@ -2,6 +2,7 @@ import { cache } from "react";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
+import { deriveGroupTitle } from "@/lib/groups";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -9,13 +10,14 @@ import PendingRequests from "@/components/groups/PendingRequests";
 import CheckInForm from "@/components/groups/CheckInForm";
 import LeaveGroupButton from "@/components/groups/LeaveGroupButton";
 import CloseGroupButton from "@/components/groups/CloseGroupButton";
+import CertificationBadge from "@/components/groups/CertificationBadge";
 
 type GroupRow = {
   id: string;
-  name: string;
+  name: string | null;
   slug: string;
   skill_tag: string;
-  objective: string;
+  objective: string | null;
   roadmap_url: string | null;
   city: string;
   preferred_format: string;
@@ -30,6 +32,10 @@ type GroupRow = {
   description: string | null;
   is_indexable: boolean;
   created_at: string;
+  certification: {
+    name: string;
+    issuer: { name: string; logo_url: string | null } | null;
+  } | null;
 };
 
 type MemberRow = {
@@ -66,7 +72,9 @@ const getGroup = cache(async (slug: string) => {
   const supabase = await createClient();
   const { data } = await supabase
     .from("groups")
-    .select("*")
+    .select(
+      "*, certification:certification_id(name, issuer:issuer_id(name, logo_url))",
+    )
     .eq("slug", slug)
     .single<GroupRow>();
   return data;
@@ -83,14 +91,16 @@ export async function generateMetadata({
   if (!group) return { title: "Not Found" };
 
   return {
-    title: `${group.name} — Synedria`,
-    description: `${group.objective} | ${group.skill_tag} | ${group.city}`,
+    title: `${deriveGroupTitle(group)} — Synedria`,
+    // objective may be null when the goal is implied by the linked certification
+    // (FR-10) — fall back to the derived title so the description is never "null".
+    description: `${group.objective ?? deriveGroupTitle(group)} | ${group.skill_tag} | ${group.city}`,
     robots: group.is_indexable
       ? { index: true, follow: true }
       : { index: false, follow: false },
     openGraph: {
-      title: group.name,
-      description: group.objective,
+      title: deriveGroupTitle(group),
+      description: group.objective ?? deriveGroupTitle(group),
       siteName: "Synedria",
     },
   };
@@ -200,9 +210,22 @@ export default async function GroupPage({
         <div className="flex items-start justify-between">
           <div>
             <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">
-              {group.name}
+              {deriveGroupTitle(group)}
             </h1>
-            <div className="mt-2 flex flex-wrap gap-2">
+            {group.certification && (
+              <div className="mt-3">
+                <CertificationBadge
+                  variant="prominent"
+                  titleDerived={!group.name}
+                  cert={{
+                    name: group.certification.name,
+                    issuerName: group.certification.issuer?.name ?? "",
+                    logoUrl: group.certification.issuer?.logo_url,
+                  }}
+                />
+              </div>
+            )}
+            <div className="mt-3 flex flex-wrap gap-2">
               <span className="rounded-full bg-stone-100 px-3 py-1 text-sm text-stone-700 dark:bg-stone-800 dark:text-stone-300">
                 {group.skill_tag}
               </span>
@@ -231,12 +254,19 @@ export default async function GroupPage({
         </div>
       </div>
 
-      {/* Objective */}
+      {/* Objective — may be absent when the goal is implied by the linked
+          certification (FR-10); the derived title already names it, and the
+          certification badge will carry it (FR-11, #6/#7). */}
+      {(group.objective || group.roadmap_url) && (
       <section className="mb-8">
         <h2 className="mb-2 text-lg font-semibold text-stone-800 dark:text-stone-200">
           {t("objective")}
         </h2>
-        <p className="text-stone-600 dark:text-stone-400">{group.objective}</p>
+        {group.objective && (
+          <p className="text-stone-600 dark:text-stone-400">
+            {group.objective}
+          </p>
+        )}
         {group.roadmap_url && (
           <a
             href={group.roadmap_url}
@@ -248,6 +278,7 @@ export default async function GroupPage({
           </a>
         )}
       </section>
+      )}
 
       {/* Group details */}
       {(group.study_mode || group.climate || group.expected_attendance || group.meeting_place) && (

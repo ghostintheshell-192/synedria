@@ -4,16 +4,24 @@ import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import type { PreferredFormat } from "@/types/database";
+import CertificationCombobox, {
+  type CertOption,
+} from "@/components/groups/CertificationCombobox";
 
 const FORMATS: PreferredFormat[] = ["in_person", "hybrid", "online"];
 
-export default function SearchFilters() {
+export default function SearchFilters({
+  certifications,
+}: {
+  certifications: CertOption[];
+}) {
   const t = useTranslations("search");
   const tProfile = useTranslations("profile");
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const format = searchParams.get("format") ?? "";
+  const cert = searchParams.get("cert");
 
   const [skillInput, setSkillInput] = useState(searchParams.get("skill") ?? "");
   const [cityInput, setCityInput] = useState(searchParams.get("city") ?? "");
@@ -65,6 +73,11 @@ export default function SearchFilters() {
           className="flex-1 rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>
+      <CertificationCombobox
+        options={certifications}
+        value={cert}
+        onChange={(id) => updateFilter("cert", id ?? "")}
+      />
       <div className="flex gap-2">
         <button
           onClick={() => updateFilter("format", "")}

@@ -1,4 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { deriveGroupTitle } from "@/lib/groups";
 
 export type PendingRequestGroup = {
   groupName: string;
@@ -11,14 +12,15 @@ export type Candidature = {
   status: string;
   created_at: string;
   group: {
-    name: string;
+    name: string | null;
     slug: string;
+    certification: { name: string } | null;
   };
 };
 
 export type ActiveGroup = {
   id: string;
-  name: string;
+  name: string | null;
   slug: string;
   skill_tag: string;
   city: string;
@@ -26,6 +28,10 @@ export type ActiveGroup = {
   status: string;
   role: string;
   member_count: number;
+  certification: {
+    name: string;
+    issuer: { name: string; logo_url: string | null } | null;
+  } | null;
 };
 
 export async function getPendingRequestsForReferent(
@@ -34,7 +40,7 @@ export async function getPendingRequestsForReferent(
 ): Promise<PendingRequestGroup[]> {
   const { data: referentGroups } = await supabase
     .from("group_members")
-    .select("group_id, groups(name, slug)")
+    .select("group_id, groups(name, slug, certification:certification_id(name))")
     .eq("user_id", userId)
     .eq("role", "referent");
 
@@ -57,9 +63,13 @@ export async function getPendingRequestsForReferent(
   for (const gm of referentGroups) {
     const count = pendingCountByGroup.get(gm.group_id) ?? 0;
     if (count > 0) {
-      const group = gm.groups as unknown as { name: string; slug: string };
+      const group = gm.groups as unknown as {
+        name: string | null;
+        slug: string;
+        certification: { name: string } | null;
+      };
       results.push({
-        groupName: group.name,
+        groupName: deriveGroupTitle(group),
         groupSlug: group.slug,
         pendingCount: count,
       });
@@ -75,7 +85,7 @@ export async function getMyCandidatures(
 ): Promise<Candidature[]> {
   const { data } = await supabase
     .from("join_requests")
-    .select("id, status, created_at, groups:group_id(name, slug)")
+    .select("id, status, created_at, groups:group_id(name, slug, certification:certification_id(name))")
     .eq("applicant_id", userId)
     .order("created_at", { ascending: false })
     .limit(10);
@@ -86,7 +96,11 @@ export async function getMyCandidatures(
     id: row.id,
     status: row.status,
     created_at: row.created_at,
-    group: row.groups as unknown as { name: string; slug: string },
+    group: row.groups as unknown as {
+      name: string | null;
+      slug: string;
+      certification: { name: string } | null;
+    },
   }));
 }
 
@@ -96,7 +110,9 @@ export async function getMyActiveGroups(
 ): Promise<ActiveGroup[]> {
   const { data } = await supabase
     .from("group_members")
-    .select("role, groups(id, name, slug, skill_tag, city, preferred_format, status)")
+    .select(
+      "role, groups(id, name, slug, skill_tag, city, preferred_format, status, certification:certification_id(name, issuer:issuer_id(name, logo_url)))",
+    )
     .eq("user_id", userId);
 
   if (!data || data.length === 0) return [];
@@ -119,12 +135,16 @@ export async function getMyActiveGroups(
   return data.map((membership) => {
     const group = membership.groups as unknown as {
       id: string;
-      name: string;
+      name: string | null;
       slug: string;
       skill_tag: string;
       city: string;
       preferred_format: string;
       status: string;
+      certification: {
+        name: string;
+        issuer: { name: string; logo_url: string | null } | null;
+      } | null;
     };
 
     return {

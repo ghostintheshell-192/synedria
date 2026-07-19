@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-18 17:43*
+*Auto-generated: 2026-07-19 23:59*
 
 ---
 
@@ -19,8 +19,8 @@
 
 ### (root)/ (4 files)
 
-- [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-18) **RECENT**
-- [INDEX.md](INDEX.md) (3KB, 2026-07-18) **RECENT**
+- [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-19) **RECENT**
+- [INDEX.md](INDEX.md) (4KB, 2026-07-19) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (2KB, 2026-07-04)
 - [README.md](README.md) (2KB, 2026-03-25)
 
@@ -34,9 +34,9 @@
 - [mobile-optimization.md](specs/backlog/mobile-optimization.md) (1KB, 2026-07-04)
 - [referent-transfer.md](specs/backlog/referent-transfer.md) (1KB, 2026-07-04)
 
-### specs/in-progress/ (1 files)
+### specs/implemented/ (1 files)
 
-- [10-certification-catalog.md](specs/in-progress/10-certification-catalog.md) (10KB, 2026-07-18) **RECENT**
+- [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (10KB, 2026-07-19) **RECENT**
 
 ### specs/planned/ (9 files)
 
@@ -50,9 +50,16 @@
 - [08-check-in.md](specs/planned/08-check-in.md) (5KB, 2026-03-30)
 - [09-i18n.md](specs/planned/09-i18n.md) (5KB, 2026-03-30)
 
-### tech-debt/ (2 files)
+### tech-debt/ (9 files)
 
-- [README.md](tech-debt/README.md) (1KB, 2026-07-18) **RECENT**
+- [README.md](tech-debt/README.md) (2KB, 2026-07-19) **RECENT**
+- [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (1KB, 2026-07-19) **RECENT**
+- [group-edit-missing.md](tech-debt/group-edit-missing.md) (2KB, 2026-07-19) **RECENT**
+- [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (3KB, 2026-07-19) **RECENT**
+- [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (1KB, 2026-07-19) **RECENT**
+- [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (2KB, 2026-07-19) **RECENT**
+- [test-coverage-group-objective.md](tech-debt/test-coverage-group-objective.md) (1KB, 2026-07-19) **RECENT**
+- [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (2KB, 2026-07-19) **RECENT**
 - [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25)
 
 ### reference/decisions/ (7 files)
@@ -84,9 +91,15 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [README.md](tech-debt/README.md) (today)
+2. [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (today)
 3. [INDEX.md](INDEX.md) (today)
-4. [10-certification-catalog.md](specs/in-progress/10-certification-catalog.md) (today)
+4. [README.md](tech-debt/README.md) (today)
+5. [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (today)
+6. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
+7. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
+8. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
+9. [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (today)
+10. [test-coverage-group-objective.md](tech-debt/test-coverage-group-objective.md) (today)
 
 ---
 

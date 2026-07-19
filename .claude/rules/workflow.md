@@ -58,6 +58,7 @@ npx tsc --noEmit
 # Supabase local
 npx supabase start
 npx supabase db reset
+npx supabase test db     # run pgTAP database tests (supabase/tests/)
 ```
 
 ## Investigation & Analysis Workflow

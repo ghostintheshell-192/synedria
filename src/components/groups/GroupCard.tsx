@@ -1,5 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import CertificationBadge, {
+  type CertificationBadgeData,
+} from "@/components/groups/CertificationBadge";
 
 export default async function GroupCard({
   name,
@@ -10,6 +13,8 @@ export default async function GroupCard({
   memberCount,
   role,
   status,
+  certification,
+  titleDerived,
 }: {
   name: string;
   slug: string;
@@ -19,6 +24,8 @@ export default async function GroupCard({
   memberCount: number;
   role?: string;
   status?: string;
+  certification?: CertificationBadgeData | null;
+  titleDerived?: boolean;
 }) {
   const tProfile = await getTranslations("profile");
   const tMyGroups = await getTranslations("myGroups");
@@ -33,6 +40,15 @@ export default async function GroupCard({
           <h3 className="font-semibold text-stone-900 dark:text-stone-100 dark:group-hover:text-stone-900">
             {name}
           </h3>
+          {certification && (
+            <div className="mt-0.5">
+              <CertificationBadge
+                variant="compact"
+                titleDerived={titleDerived}
+                cert={certification}
+              />
+            </div>
+          )}
           <div className="mt-2 flex flex-wrap gap-2">
             <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-400 dark:group-hover:bg-amber-200 dark:group-hover:text-stone-700">
               {skillTag}

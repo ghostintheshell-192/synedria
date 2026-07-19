@@ -40,13 +40,20 @@ moves the file to `../archive/completed/` with a date prefix.
 
 ## Current Issues by Priority
 
-*Auto-updated: 2026-07-18 17:43*
+*Auto-updated: 2026-07-19 23:59*
 
-**High Priority:** None currently
+**High Priority:**
+- `group-tag-model-single-and-coarse.md` - Group tag model is single + coarse (no curated multi-tags)
 
-**Medium Priority:** None currently
+**Medium Priority:**
+- `test-coverage-certification-catalog.md` - No pgTAP coverage for the certification catalog (migration 00008)
+- `test-coverage-group-objective.md` - No pgTAP coverage for group objective nullability (migration 00010)
+- `untyped-supabase-client.md` - Supabase client is untyped (no Database generic)
 
-**Low Priority:** None currently
+**Low Priority:**
+- `certification-badge-prominent-layout.md` - Prominent certification badge takes a full row on the group page
+- `group-edit-missing.md` - No group-edit flow — referent cannot change a group after creation
+- `onboarding-prompt-copy.md` - Onboarding profile-completion copy needs improvement
 
 ## Integration with Reference Documentation
 

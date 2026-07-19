@@ -24,6 +24,10 @@ supabase/.temp/
 # IDE
 .vscode/
 .idea/
+# Same names show up as sandbox-injected char devices (not directories), so the
+# trailing-slash patterns above miss them — match them without a slash too.
+.vscode
+.idea
 *.swp
 *.swo
 *~
@@ -78,3 +82,7 @@ coverage/
 
 # Tool config
 .ripgreprc
+
+# Harness scaffolding accidentally written under public/
+/public/.claude/
+public/**/.claude/

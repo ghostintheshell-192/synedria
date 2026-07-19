@@ -67,6 +67,9 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/app/[locale]/auth/callback
 - `route.ts`
 
+### src/app/[locale]/auth/confirm
+- `route.ts`
+
 ### src/app/[locale]/contact
 - `page.tsx`
 
@@ -109,6 +112,8 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `Dashboard.tsx`
 
 ### src/components/groups
+- `CertificationBadge.tsx`
+- `CertificationCombobox.tsx`
 - `CheckInForm.tsx`
 - `CloseGroupButton.tsx`
 - `GroupCard.tsx`
@@ -141,7 +146,10 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `routing.ts`
 
 ### src/lib
+- `certifications.ts`
 - `dashboard.ts`
+- `groups.ts` — A group's displayed title is derived, never stored (FR-10a): the custom
+- `issuerMonogram.ts` — Fallback tile identity for a certification issuer that has no curated logo
 - `profile.ts`
 - `slug.ts`
 

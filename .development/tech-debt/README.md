@@ -40,7 +40,7 @@ moves the file to `../archive/completed/` with a date prefix.
 
 ## Current Issues by Priority
 
-*Auto-updated: 2026-07-20 21:35*
+*Auto-updated: 2026-07-20 21:36*
 
 **High Priority:**
 - `group-tag-model-single-and-coarse.md` - Group tag model is single + coarse (no curated multi-tags)

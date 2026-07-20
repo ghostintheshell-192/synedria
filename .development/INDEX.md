@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-20 21:19*
+*Auto-generated: 2026-07-20 21:21*
 
 ---
 
@@ -50,9 +50,10 @@
 - [08-check-in.md](specs/planned/08-check-in.md) (5KB, 2026-03-30)
 - [09-i18n.md](specs/planned/09-i18n.md) (5KB, 2026-03-30)
 
-### tech-debt/ (9 files)
+### tech-debt/ (10 files)
 
 - [README.md](tech-debt/README.md) (2KB, 2026-07-20) **RECENT**
+- [oauth-identities-not-linked.md](tech-debt/oauth-identities-not-linked.md) (3KB, 2026-07-20) **RECENT**
 - [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (1KB, 2026-07-19) **RECENT**
 - [group-edit-missing.md](tech-debt/group-edit-missing.md) (2KB, 2026-07-19) **RECENT**
 - [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (3KB, 2026-07-19) **RECENT**
@@ -91,15 +92,15 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [INDEX.md](INDEX.md) (today)
-3. [README.md](tech-debt/README.md) (today)
-4. [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (today)
-5. [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (today)
-6. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
-7. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
-8. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
-9. [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (today)
-10. [test-coverage-group-objective.md](tech-debt/test-coverage-group-objective.md) (today)
+2. [README.md](tech-debt/README.md) (today)
+3. [INDEX.md](INDEX.md) (today)
+4. [oauth-identities-not-linked.md](tech-debt/oauth-identities-not-linked.md) (today)
+5. [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (today)
+6. [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (today)
+7. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
+8. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
+9. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
+10. [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (today)
 
 ---
 

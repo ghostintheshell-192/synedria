@@ -35,6 +35,7 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
   );
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [error, setError] = useState("");
 
   function toggleSlot(day: string, slot: string) {
     setAvailability((prev) => {
@@ -55,8 +56,11 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
   async function handleSave() {
     setSaving(true);
     setSaved(false);
+    setError("");
 
-    await supabase
+    // .select() is required to tell a real write from an RLS-blocked one:
+    // without it PostgREST answers 204 whether or not any row matched.
+    const { data, error: updateError } = await supabase
       .from("profiles")
       .update({
         display_name: displayName,
@@ -64,7 +68,14 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
         preferred_format: preferredFormat || null,
         availability: Object.keys(availability).length > 0 ? availability : null,
       })
-      .eq("id", profile.id);
+      .eq("id", profile.id)
+      .select("id");
+
+    if (updateError || !data?.length) {
+      setError(t("saveError"));
+      setSaving(false);
+      return;
+    }
 
     setSaving(false);
     setSaved(true);
@@ -160,6 +171,10 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
           ))}
         </div>
       </div>
+
+      {error && (
+        <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+      )}
 
       <button
         onClick={handleSave}

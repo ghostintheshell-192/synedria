@@ -25,29 +25,41 @@ export default function JoinRequestForm({
   const [introMessage, setIntroMessage] = useState("");
   const [personalObjective, setPersonalObjective] = useState("");
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!personalObjective.trim()) return;
 
     setSaving(true);
+    setError("");
 
-    if (isOpenAccess) {
-      // Direct join
-      await supabase.from("group_members").insert({
-        group_id: groupId,
-        user_id: userId,
-        role: "member",
-        personal_objective: personalObjective.trim(),
-      });
-    } else {
-      // Submit join request
-      await supabase.from("join_requests").insert({
-        group_id: groupId,
-        applicant_id: userId,
-        intro_message: introMessage.trim() || null,
-        personal_objective: personalObjective.trim(),
-      });
+    // .select() distinguishes a real write from an RLS-blocked no-op — without
+    // it a rejected join would still navigate, as if the user had joined.
+    const { data, error: insertError } = isOpenAccess
+      ? await supabase
+          .from("group_members")
+          .insert({
+            group_id: groupId,
+            user_id: userId,
+            role: "member",
+            personal_objective: personalObjective.trim(),
+          })
+          .select("group_id")
+      : await supabase
+          .from("join_requests")
+          .insert({
+            group_id: groupId,
+            applicant_id: userId,
+            intro_message: introMessage.trim() || null,
+            personal_objective: personalObjective.trim(),
+          })
+          .select("id");
+
+    if (insertError || !data?.length) {
+      setError(t("joinError"));
+      setSaving(false);
+      return;
     }
 
     router.push(`/groups/${groupSlug}`);
@@ -94,6 +106,10 @@ export default function JoinRequestForm({
           className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
         />
       </div>
+
+      {error && (
+        <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+      )}
 
       <button
         type="submit"

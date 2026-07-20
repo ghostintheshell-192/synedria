@@ -64,7 +64,11 @@ export default function CheckInForm({
     setError("");
 
     const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return;
+    if (!user) {
+      setError(t("genericError"));
+      setSaving(false);
+      return;
+    }
 
     const { data: checkIn, error: insertError } = await supabase
       .from("check_ins")
@@ -90,12 +94,24 @@ export default function CheckInForm({
 
     // Insert attendees
     if (attendees.size > 0) {
-      await supabase.from("check_in_attendees").insert(
-        Array.from(attendees).map((userId) => ({
-          check_in_id: checkIn.id,
-          user_id: userId,
-        }))
-      );
+      const { data: saved, error: attendeesError } = await supabase
+        .from("check_in_attendees")
+        .insert(
+          Array.from(attendees).map((userId) => ({
+            check_in_id: checkIn.id,
+            user_id: userId,
+          }))
+        )
+        .select("check_in_id");
+
+      // The check-in itself is already stored, so this is a partial failure:
+      // report it and keep the form open rather than claiming success.
+      if (attendeesError || saved?.length !== attendees.size) {
+        setError(t("attendeesError"));
+        setSaving(false);
+        router.refresh();
+        return;
+      }
     }
 
     setSaving(false);

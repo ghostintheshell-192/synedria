@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-19 23:59*
+*Auto-generated: 2026-07-20 21:19*
 
 ---
 
@@ -19,8 +19,8 @@
 
 ### (root)/ (4 files)
 
-- [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-19) **RECENT**
-- [INDEX.md](INDEX.md) (4KB, 2026-07-19) **RECENT**
+- [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-20) **RECENT**
+- [INDEX.md](INDEX.md) (4KB, 2026-07-20) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (2KB, 2026-07-04)
 - [README.md](README.md) (2KB, 2026-03-25)
 
@@ -52,7 +52,7 @@
 
 ### tech-debt/ (9 files)
 
-- [README.md](tech-debt/README.md) (2KB, 2026-07-19) **RECENT**
+- [README.md](tech-debt/README.md) (2KB, 2026-07-20) **RECENT**
 - [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (1KB, 2026-07-19) **RECENT**
 - [group-edit-missing.md](tech-debt/group-edit-missing.md) (2KB, 2026-07-19) **RECENT**
 - [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (3KB, 2026-07-19) **RECENT**
@@ -91,9 +91,9 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (today)
-3. [INDEX.md](INDEX.md) (today)
-4. [README.md](tech-debt/README.md) (today)
+2. [INDEX.md](INDEX.md) (today)
+3. [README.md](tech-debt/README.md) (today)
+4. [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (today)
 5. [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (today)
 6. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
 7. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)

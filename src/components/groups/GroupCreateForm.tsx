@@ -147,12 +147,22 @@ export default function GroupCreateForm({
       return;
     }
 
-    // Add creator as referent member
-    await supabase.from("group_members").insert({
-      group_id: group.id,
-      user_id: userId,
-      role: "referent",
-    });
+    // Add creator as referent member. If this is silently dropped the group is
+    // left with no referent, so the failure must surface instead of navigating.
+    const { data: member, error: memberError } = await supabase
+      .from("group_members")
+      .insert({
+        group_id: group.id,
+        user_id: userId,
+        role: "referent",
+      })
+      .select("group_id");
+
+    if (memberError || !member?.length) {
+      setError(t("referentError"));
+      setSaving(false);
+      return;
+    }
 
     router.push(`/groups/${group.slug}`);
   }

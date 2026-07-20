@@ -30,31 +30,38 @@ function SkillForm({
   );
   const [goal, setGoal] = useState(skill?.goal ?? "");
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!skillName.trim()) return;
 
     setSaving(true);
+    setError("");
 
-    if (skill) {
-      await supabase
-        .from("user_skills")
-        .update({
-          skill_name: skillName.trim(),
-          level,
-          intention,
-          goal: goal.trim() || null,
-        })
-        .eq("id", skill.id);
-    } else {
-      await supabase.from("user_skills").insert({
-        user_id: userId,
-        skill_name: skillName.trim(),
-        level,
-        intention,
-        goal: goal.trim() || null,
-      });
+    const values = {
+      skill_name: skillName.trim(),
+      level,
+      intention,
+      goal: goal.trim() || null,
+    };
+
+    // .select() distinguishes a real write from an RLS-blocked no-op.
+    const { data, error: writeError } = skill
+      ? await supabase
+          .from("user_skills")
+          .update(values)
+          .eq("id", skill.id)
+          .select("id")
+      : await supabase
+          .from("user_skills")
+          .insert({ user_id: userId, ...values })
+          .select("id");
+
+    if (writeError || !data?.length) {
+      setError(t("skillSaveError"));
+      setSaving(false);
+      return;
     }
 
     setSaving(false);
@@ -126,6 +133,10 @@ function SkillForm({
         />
       </div>
 
+      {error && (
+        <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+      )}
+
       <div className="flex gap-2">
         <button
           type="submit"
@@ -153,9 +164,22 @@ export default function SkillList({ userId, skills }: { userId: string; skills: 
 
   const [adding, setAdding] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [error, setError] = useState("");
 
   async function handleDelete(id: string) {
-    await supabase.from("user_skills").delete().eq("id", id);
+    setError("");
+
+    const { data, error: deleteError } = await supabase
+      .from("user_skills")
+      .delete()
+      .eq("id", id)
+      .select("id");
+
+    if (deleteError || !data?.length) {
+      setError(t("skillDeleteError"));
+      return;
+    }
+
     router.refresh();
   }
 
@@ -167,6 +191,10 @@ export default function SkillList({ userId, skills }: { userId: string; skills: 
 
   return (
     <div className="space-y-4">
+      {error && (
+        <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+      )}
+
       {skills.map((skill) =>
         editingId === skill.id ? (
           <SkillForm

@@ -24,10 +24,18 @@ export default function LanguageSwitcher({ userId }: Props) {
 
     if (userId) {
       const supabase = createClient();
-      await supabase
+      const { data, error } = await supabase
         .from("profiles")
         .update({ preferred_locale: target })
-        .eq("id", userId);
+        .eq("id", userId)
+        .select("id");
+
+      // The switch itself still works through next-intl's cookie, so a failed
+      // write only means the choice won't follow the user across devices —
+      // not worth blocking the UI, but not worth swallowing either.
+      if (error || !data?.length) {
+        console.error("Could not persist preferred_locale", error);
+      }
     }
 
     // next-intl also sets the NEXT_LOCALE cookie, persisting the choice

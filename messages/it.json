@@ -190,7 +190,10 @@
     "deleteConfirmButton": "Elimina account definitivamente",
     "deleteDeleting": "Eliminazione...",
     "deleteErrorReferent": "Non puoi eliminare il tuo account mentre sei referente di un gruppo attivo. Chiudi prima il gruppo o trasferisci il ruolo.",
-    "deleteErrorGeneric": "Errore nell'eliminazione dell'account. Riprova."
+    "deleteErrorGeneric": "Errore nell'eliminazione dell'account. Riprova.",
+    "saveError": "Errore nel salvataggio del profilo. Riprova.",
+    "skillSaveError": "Errore nel salvataggio della competenza. Riprova.",
+    "skillDeleteError": "Errore nell'eliminazione della competenza. Riprova."
   },
   "groups": {
     "createTitle": "Crea un gruppo",
@@ -198,6 +201,7 @@
     "createButton": "Crea gruppo",
     "creating": "Creazione...",
     "createError": "Errore nella creazione del gruppo. Riprova.",
+    "referentError": "Il gruppo è stato creato, ma non è stato possibile registrarti come referente. Ricarica la pagina.",
     "groupName": "Nome del gruppo",
     "skillTag": "Argomento / competenza",
     "skillTagPlaceholder": "es. DevOps, Python, Machine Learning",
@@ -297,7 +301,9 @@
     "closeConfirmButton": "Chiudi",
     "closingGroup": "Chiusura...",
     "noReferent": "Questo gruppo non ha un referente che possa gestire le richieste.",
-    "groupClosed": "Il gruppo non accetta nuovi membri."
+    "groupClosed": "Il gruppo non accetta nuovi membri.",
+    "closeError": "Errore nella chiusura del gruppo. Riprova.",
+    "leaveError": "Errore nell'uscita dal gruppo. Riprova."
   },
   "checkIn": {
     "recordMeeting": "Registra incontro",
@@ -310,7 +316,8 @@
     "saving": "Salvataggio...",
     "cancel": "Annulla",
     "duplicateError": "Esiste già un check-in per questa data.",
-    "genericError": "Errore nel salvataggio. Riprova."
+    "genericError": "Errore nel salvataggio. Riprova.",
+    "attendeesError": "Incontro registrato, ma non è stato possibile salvare i partecipanti."
   },
   "referent": {
     "pendingRequests": "Richieste in attesa ({count})",
@@ -332,6 +339,7 @@
     "requestButton": "Invia richiesta",
     "joinButton": "Unisciti",
     "submitting": "Invio...",
+    "joinError": "Errore nell'invio. Riprova.",
     "requestPending": "Richiesta in attesa"
   },
   "onboarding": {

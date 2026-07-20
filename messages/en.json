@@ -190,7 +190,10 @@
     "deleteConfirmButton": "Delete account permanently",
     "deleteDeleting": "Deleting...",
     "deleteErrorReferent": "You cannot delete your account while you are the referent of an active group. Close the group or transfer the role first.",
-    "deleteErrorGeneric": "Error deleting your account. Please try again."
+    "deleteErrorGeneric": "Error deleting your account. Please try again.",
+    "saveError": "Error saving your profile. Please try again.",
+    "skillSaveError": "Error saving the skill. Please try again.",
+    "skillDeleteError": "Error deleting the skill. Please try again."
   },
   "groups": {
     "createTitle": "Create a group",
@@ -198,6 +201,7 @@
     "createButton": "Create group",
     "creating": "Creating...",
     "createError": "Error creating the group. Please try again.",
+    "referentError": "The group was created, but you could not be registered as its referent. Please reload the page.",
     "groupName": "Group name",
     "skillTag": "Topic / skill",
     "skillTagPlaceholder": "e.g. DevOps, Python, Machine Learning",
@@ -297,7 +301,9 @@
     "closeConfirmButton": "Close",
     "closingGroup": "Closing...",
     "noReferent": "This group has no referent to manage join requests.",
-    "groupClosed": "This group is not accepting new members."
+    "groupClosed": "This group is not accepting new members.",
+    "closeError": "Error closing the group. Please try again.",
+    "leaveError": "Error leaving the group. Please try again."
   },
   "checkIn": {
     "recordMeeting": "Record meeting",
@@ -310,7 +316,8 @@
     "saving": "Saving...",
     "cancel": "Cancel",
     "duplicateError": "A check-in already exists for this date.",
-    "genericError": "Error saving. Please try again."
+    "genericError": "Error saving. Please try again.",
+    "attendeesError": "Meeting recorded, but attendees could not be saved."
   },
   "referent": {
     "pendingRequests": "Pending requests ({count})",
@@ -332,6 +339,7 @@
     "requestButton": "Send request",
     "joinButton": "Join",
     "submitting": "Sending...",
+    "joinError": "Error sending your request. Please try again.",
     "requestPending": "Request pending"
   },
   "onboarding": {

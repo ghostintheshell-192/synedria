@@ -29,9 +29,15 @@ createServerClient(url, key, { cookies: { ... } }) // no <Database>
   names, and shape mismatches are not caught at compile time — the opposite of
   the project's "TypeScript strict" stance.
 - Forces `as unknown as { ... }` casts wherever a query result is passed to a
-  typed function. Already present in `src/lib/dashboard.ts` (3×) and, since
-  FR-10a, `search/page.tsx` and `groups/[slug]/join/page.tsx`. Each cast is a
-  blind spot: it silences the checker without guaranteeing the runtime shape.
+  typed function. Each cast is a blind spot: it silences the checker without
+  guaranteeing the runtime shape. There are **8**, all from the same cause —
+  without the generic, supabase-js types a nested relation as an array rather
+  than to-one:
+  - `src/lib/dashboard.ts` — 4 (lines 66, 99, 121, 136)
+  - `src/lib/certifications.ts` — 1 (line 23)
+  - `src/app/api/account/route.ts` — 1 (line 23)
+  - `src/app/[locale]/groups/[slug]/join/page.tsx` — 1 (line 104)
+  - `src/app/[locale]/search/page.tsx` — 1 (line 130)
 
 ## Proposed Solution
 

@@ -45,6 +45,7 @@ moves the file to `../archive/completed/` with a date prefix.
 **High Priority:**
 - `group-tag-model-single-and-coarse.md` - Group tag model is single + coarse (no curated multi-tags)
 - `oauth-identities-not-linked.md` - One person signing in with two OAuth providers becomes two users
+- `production-schema-untracked.md` - Production schema is applied by hand and tracked nowhere
 
 **Medium Priority:**
 - `test-coverage-certification-catalog.md` - No pgTAP coverage for the certification catalog (migration 00008)

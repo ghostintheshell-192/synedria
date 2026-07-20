@@ -50,8 +50,9 @@
 - [08-check-in.md](specs/planned/08-check-in.md) (5KB, 2026-03-30)
 - [09-i18n.md](specs/planned/09-i18n.md) (5KB, 2026-03-30)
 
-### tech-debt/ (10 files)
+### tech-debt/ (11 files)
 
+- [production-schema-untracked.md](tech-debt/production-schema-untracked.md) (3KB, 2026-07-20) **RECENT**
 - [README.md](tech-debt/README.md) (2KB, 2026-07-20) **RECENT**
 - [oauth-identities-not-linked.md](tech-debt/oauth-identities-not-linked.md) (3KB, 2026-07-20) **RECENT**
 - [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (1KB, 2026-07-19) **RECENT**
@@ -92,15 +93,15 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [INDEX.md](INDEX.md) (today)
-3. [README.md](tech-debt/README.md) (today)
-4. [oauth-identities-not-linked.md](tech-debt/oauth-identities-not-linked.md) (today)
-5. [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (today)
-6. [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (today)
-7. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
-8. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
-9. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
-10. [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (today)
+2. [production-schema-untracked.md](tech-debt/production-schema-untracked.md) (today)
+3. [INDEX.md](INDEX.md) (today)
+4. [README.md](tech-debt/README.md) (today)
+5. [oauth-identities-not-linked.md](tech-debt/oauth-identities-not-linked.md) (today)
+6. [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (today)
+7. [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (today)
+8. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
+9. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
+10. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
 
 ---
 

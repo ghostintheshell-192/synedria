@@ -1,15 +1,10 @@
 "use client";
 
 import { Fragment, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
 import type { Profile, PreferredFormat } from "@/types/database";
-
-const LOCALES = [
-  { value: "it", label: "Italiano" },
-  { value: "en", label: "English" },
-] as const;
 
 const DAYS = [
   "monday",
@@ -29,12 +24,9 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
   const t = useTranslations("profile");
   const supabase = createClient();
   const router = useRouter();
-  const pathname = usePathname();
-  const currentLocale = useLocale();
 
   const [displayName, setDisplayName] = useState(profile.display_name);
   const [city, setCity] = useState(profile.city ?? "");
-  const [preferredLocale, setPreferredLocale] = useState(profile.preferred_locale ?? "");
   const [preferredFormat, setPreferredFormat] = useState<PreferredFormat | "">(
     profile.preferred_format ?? ""
   );
@@ -43,6 +35,7 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
   );
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [error, setError] = useState("");
 
   function toggleSlot(day: string, slot: string) {
     setAvailability((prev) => {
@@ -63,27 +56,29 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
   async function handleSave() {
     setSaving(true);
     setSaved(false);
+    setError("");
 
-    await supabase
+    // .select() is required to tell a real write from an RLS-blocked one:
+    // without it PostgREST answers 204 whether or not any row matched.
+    const { data, error: updateError } = await supabase
       .from("profiles")
       .update({
         display_name: displayName,
         city: city || null,
         preferred_format: preferredFormat || null,
-        preferred_locale: preferredLocale || null,
         availability: Object.keys(availability).length > 0 ? availability : null,
       })
-      .eq("id", profile.id);
+      .eq("id", profile.id)
+      .select("id");
+
+    if (updateError || !data?.length) {
+      setError(t("saveError"));
+      setSaving(false);
+      return;
+    }
 
     setSaving(false);
     setSaved(true);
-
-    // Redirect to preferred locale if changed
-    if (preferredLocale && preferredLocale !== currentLocale) {
-      const newPath = pathname.replace(`/${currentLocale}`, `/${preferredLocale}`);
-      router.push(newPath);
-      return;
-    }
 
     router.refresh();
     setTimeout(() => setSaved(false), 2000);
@@ -135,24 +130,6 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-stone-700 dark:text-stone-300">
-          {t("preferredLocale")}
-        </label>
-        <select
-          value={preferredLocale}
-          onChange={(e) => setPreferredLocale(e.target.value)}
-          className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-100"
-        >
-          <option value="">{t("selectLocale")}</option>
-          {LOCALES.map((l) => (
-            <option key={l.value} value={l.value}>
-              {l.label}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div>
         <label className="mb-3 block text-sm font-medium text-stone-700 dark:text-stone-300">
           {t("availability")}
         </label>
@@ -194,6 +171,10 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
           ))}
         </div>
       </div>
+
+      {error && (
+        <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+      )}
 
       <button
         onClick={handleSave}

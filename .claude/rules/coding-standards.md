@@ -14,8 +14,10 @@
 ## Code Style
 
 - **TypeScript**: Strict mode enabled
-- **Formatting**: Prettier (auto-format on save)
-- **Linting**: ESLint with Next.js recommended config
+- **Linting & formatting**: ESLint with Next.js recommended config is the single
+  gate (`npm run lint`, wired into the format-check hook and CI via
+  `.development/automation/format-check.sh`). No separate formatter is configured;
+  if Prettier is adopted later, add it there.
 - **Imports order**:
   1. React/Next.js
   2. Third-party libraries

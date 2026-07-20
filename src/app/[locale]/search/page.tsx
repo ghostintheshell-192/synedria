@@ -1,8 +1,11 @@
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
+import { deriveGroupTitle } from "@/lib/groups";
 import { Link } from "@/i18n/navigation";
 import SearchFilters from "@/components/search/SearchFilters";
+import CertificationBadge from "@/components/groups/CertificationBadge";
+import { getActiveCertifications } from "@/lib/certifications";
 
 export async function generateMetadata({
   params,
@@ -18,15 +21,19 @@ export async function generateMetadata({
 
 type GroupResult = {
   id: string;
-  name: string;
+  name: string | null;
   slug: string;
   skill_tag: string;
-  objective: string;
+  objective: string | null;
   city: string;
   preferred_format: string;
   status: string;
   member_count: number;
   last_check_in: string | null;
+  certification: {
+    name: string;
+    issuer: { name: string; logo_url: string | null } | null;
+  } | null;
 };
 
 function getActivityLabel(
@@ -47,7 +54,12 @@ export default async function SearchPage({
   searchParams: searchParamsPromise,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ skill?: string; city?: string; format?: string }>;
+  searchParams: Promise<{
+    skill?: string;
+    city?: string;
+    format?: string;
+    cert?: string;
+  }>;
 }) {
   await params;
   const searchParams = await searchParamsPromise;
@@ -60,7 +72,9 @@ export default async function SearchPage({
   // Build query
   let query = supabase
     .from("groups")
-    .select("id, name, slug, skill_tag, objective, city, preferred_format, status")
+    .select(
+      "id, name, slug, skill_tag, objective, city, preferred_format, status, certification:certification_id(name, issuer:issuer_id(name, logo_url))",
+    )
     .order("status", { ascending: true }) // open before closed (enum order: open=1, closed=2)
     .order("created_at", { ascending: false });
 
@@ -73,8 +87,14 @@ export default async function SearchPage({
   if (searchParams.format) {
     query = query.eq("preferred_format", searchParams.format);
   }
+  if (searchParams.cert) {
+    query = query.eq("certification_id", searchParams.cert);
+  }
 
-  const { data: groups } = await query;
+  const [{ data: groups }, certifications] = await Promise.all([
+    query,
+    getActiveCertifications(supabase),
+  ]);
 
   // Enrich with member counts and last check-in — 2 queries total instead of 2N
   const results: GroupResult[] = [];
@@ -107,7 +127,7 @@ export default async function SearchPage({
 
     for (const group of groups) {
       results.push({
-        ...group,
+        ...(group as unknown as Omit<GroupResult, "member_count" | "last_check_in">),
         member_count: memberCountByGroup.get(group.id) ?? 0,
         last_check_in: lastCheckInByGroup.get(group.id) ?? null,
       });
@@ -131,7 +151,7 @@ export default async function SearchPage({
       </div>
 
       <Suspense>
-        <SearchFilters />
+        <SearchFilters certifications={certifications} />
       </Suspense>
 
       {results.length === 0 ? (
@@ -165,11 +185,27 @@ export default async function SearchPage({
                   <div className="flex items-start justify-between">
                     <div className="min-w-0">
                       <h2 className="font-semibold text-stone-900 dark:text-stone-100 dark:group-hover:text-stone-900">
-                        {group.name}
+                        {deriveGroupTitle(group)}
                       </h2>
-                      <p className="mt-1 text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
-                        {group.objective}
-                      </p>
+                      {group.certification && (
+                        <div className="mt-0.5">
+                          <CertificationBadge
+                            variant="compact"
+                            titleDerived={!group.name}
+                            cert={{
+                              name: group.certification.name,
+                              issuerName:
+                                group.certification.issuer?.name ?? "",
+                              logoUrl: group.certification.issuer?.logo_url,
+                            }}
+                          />
+                        </div>
+                      )}
+                      {group.objective && (
+                        <p className="mt-1 text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
+                          {group.objective}
+                        </p>
+                      )}
                     </div>
                     <span className="ml-2 shrink-0 whitespace-nowrap text-sm text-stone-500 dark:text-stone-400 dark:group-hover:text-stone-700">
                       {group.member_count}/8

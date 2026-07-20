@@ -6,6 +6,7 @@ import type {
   ActiveGroup,
 } from "@/lib/dashboard";
 import type { MissingField } from "@/lib/profile";
+import { deriveGroupTitle } from "@/lib/groups";
 import OnboardingBanner from "@/components/OnboardingBanner";
 import GroupCard from "@/components/groups/GroupCard";
 
@@ -78,7 +79,7 @@ export default async function Dashboard({
                   href={`/groups/${c.group.slug}`}
                   className="font-medium text-stone-900 hover:underline dark:text-stone-100"
                 >
-                  {c.group.name}
+                  {deriveGroupTitle(c.group)}
                 </Link>
                 <span
                   className={`text-xs font-medium ${
@@ -115,13 +116,23 @@ export default async function Dashboard({
             {activeGroups.slice(0, 4).map((group) => (
               <GroupCard
                 key={group.id}
-                name={group.name}
+                name={deriveGroupTitle(group)}
                 slug={group.slug}
                 skillTag={group.skill_tag}
                 city={group.city}
                 preferredFormat={group.preferred_format}
                 memberCount={group.member_count}
                 role={group.role}
+                certification={
+                  group.certification
+                    ? {
+                        name: group.certification.name,
+                        issuerName: group.certification.issuer?.name ?? "",
+                        logoUrl: group.certification.issuer?.logo_url,
+                      }
+                    : null
+                }
+                titleDerived={!group.name}
               />
             ))}
           </div>

@@ -12,7 +12,8 @@
     "myGroups": "I miei gruppi",
     "profile": "Profilo",
     "signIn": "Accedi",
-    "menu": "Menu"
+    "menu": "Menu",
+    "language": "Lingua"
   },
   "footer": {
     "privacy": "Privacy",
@@ -67,7 +68,7 @@
     "introTitle": "Introduzione",
     "intro": "Synedria (\"la Piattaforma\") tratta i dati personali degli utenti nel rispetto del Regolamento Europeo 2016/679 (GDPR). Questa informativa descrive quali dati raccogliamo, perché li raccogliamo, e quali sono i tuoi diritti.",
     "controllerTitle": "Titolare del trattamento",
-    "controller": "Il titolare del trattamento è il gestore della piattaforma Synedria, contattabile all'indirizzo synedria.app@proton.me.",
+    "controller": "Il titolare del trattamento è <name>Valentina Malavenda</name>, responsabile della piattaforma Synedria, contattabile all'indirizzo <email>synedria.app@proton.me</email>.",
     "dataTitle": "Dati raccolti e finalità",
     "dataIntro": "Raccogliamo i seguenti dati personali, esclusivamente per il funzionamento della piattaforma:",
     "dataAuth": "Dati di autenticazione (nome, email, avatar) — forniti automaticamente dal provider OAuth (GitHub, Google) al momento dell'accesso. Finalità: identificazione dell'utente e accesso alla piattaforma.",
@@ -135,8 +136,6 @@
       "hybrid": "Ibrido",
       "online": "Online"
     },
-    "preferredLocale": "Lingua preferita",
-    "selectLocale": "Seleziona una lingua",
     "availability": "Disponibilità",
     "timeSlot": {
       "morning": "Mattina",
@@ -191,7 +190,10 @@
     "deleteConfirmButton": "Elimina account definitivamente",
     "deleteDeleting": "Eliminazione...",
     "deleteErrorReferent": "Non puoi eliminare il tuo account mentre sei referente di un gruppo attivo. Chiudi prima il gruppo o trasferisci il ruolo.",
-    "deleteErrorGeneric": "Errore nell'eliminazione dell'account. Riprova."
+    "deleteErrorGeneric": "Errore nell'eliminazione dell'account. Riprova.",
+    "saveError": "Errore nel salvataggio del profilo. Riprova.",
+    "skillSaveError": "Errore nel salvataggio della competenza. Riprova.",
+    "skillDeleteError": "Errore nell'eliminazione della competenza. Riprova."
   },
   "groups": {
     "createTitle": "Crea un gruppo",
@@ -199,11 +201,13 @@
     "createButton": "Crea gruppo",
     "creating": "Creazione...",
     "createError": "Errore nella creazione del gruppo. Riprova.",
+    "referentError": "Il gruppo è stato creato, ma non è stato possibile registrarti come referente. Ricarica la pagina.",
     "groupName": "Nome del gruppo",
     "skillTag": "Argomento / competenza",
     "skillTagPlaceholder": "es. DevOps, Python, Machine Learning",
     "objective": "Obiettivo",
     "objectivePlaceholder": "es. preparare la certificazione AWS Solutions Architect",
+    "objectiveExtraPlaceholder": "Aggiungi dettagli sul tuo obiettivo, se vuoi (facoltativo)",
     "entryMode": "Modalità di accesso",
     "entryModeOption": {
       "approval": "Con approvazione del referente",
@@ -226,7 +230,24 @@
     "climatePlaceholder": "es. abbastanza informale, focus assoluto",
     "expectedAttendance": "Frequenza attesa",
     "expectedAttendancePlaceholder": "es. ogni incontro, flessibile",
-    "description": "Descrizione aggiuntiva"
+    "description": "Descrizione aggiuntiva",
+    "optional": "opzionale",
+    "titleModeLabel": "Titolo del gruppo",
+    "titleModeOption": {
+      "custom": "Personalizzato",
+      "derived": "Deriva dalla certificazione"
+    },
+    "titleDerivedHint": "Il titolo del gruppo sarà il nome della certificazione selezionata.",
+    "certification": "Certificazione",
+    "certificationLead": "Il tuo gruppo prepara una certificazione ufficiale? Collegala per farti trovare più facilmente.",
+    "objectiveFromCert": "Preparare la certificazione {name}",
+    "certificationSearchPlaceholder": "Cerca una certificazione...",
+    "certificationNoMatch": "Nessuna certificazione trovata.",
+    "certificationClear": "Rimuovi la certificazione selezionata",
+    "certificationRequired": "Seleziona una certificazione, oppure scegli un titolo personalizzato.",
+    "suggestCertification": "Non trovi la tua certificazione? Suggeriscine una",
+    "suggestEmailSubject": "Suggerimento certificazione per il catalogo Synedria",
+    "suggestEmailBody": "Nome della certificazione:\n\nLink ufficiale:\n\n(Grazie per il suggerimento! La valuteremo per aggiungerla al catalogo.)"
   },
   "search": {
     "pageTitle": "Cerca gruppi",
@@ -280,7 +301,9 @@
     "closeConfirmButton": "Chiudi",
     "closingGroup": "Chiusura...",
     "noReferent": "Questo gruppo non ha un referente che possa gestire le richieste.",
-    "groupClosed": "Il gruppo non accetta nuovi membri."
+    "groupClosed": "Il gruppo non accetta nuovi membri.",
+    "closeError": "Errore nella chiusura del gruppo. Riprova.",
+    "leaveError": "Errore nell'uscita dal gruppo. Riprova."
   },
   "checkIn": {
     "recordMeeting": "Registra incontro",
@@ -293,7 +316,8 @@
     "saving": "Salvataggio...",
     "cancel": "Annulla",
     "duplicateError": "Esiste già un check-in per questa data.",
-    "genericError": "Errore nel salvataggio. Riprova."
+    "genericError": "Errore nel salvataggio. Riprova.",
+    "attendeesError": "Incontro registrato, ma non è stato possibile salvare i partecipanti."
   },
   "referent": {
     "pendingRequests": "Richieste in attesa ({count})",
@@ -315,6 +339,7 @@
     "requestButton": "Invia richiesta",
     "joinButton": "Unisciti",
     "submitting": "Invio...",
+    "joinError": "Errore nell'invio. Riprova.",
     "requestPending": "Richiesta in attesa"
   },
   "onboarding": {

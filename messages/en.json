@@ -12,7 +12,8 @@
     "myGroups": "My groups",
     "profile": "Profile",
     "signIn": "Sign in",
-    "menu": "Menu"
+    "menu": "Menu",
+    "language": "Language"
   },
   "footer": {
     "privacy": "Privacy",
@@ -67,7 +68,7 @@
     "introTitle": "Introduction",
     "intro": "Synedria (\"the Platform\") processes users' personal data in compliance with the European Regulation 2016/679 (GDPR). This notice describes what data we collect, why we collect it, and what your rights are.",
     "controllerTitle": "Data controller",
-    "controller": "The data controller is the operator of the Synedria platform, reachable at synedria.app@proton.me.",
+    "controller": "The data controller is <name>Valentina Malavenda</name>, operator of the Synedria platform, reachable at <email>synedria.app@proton.me</email>.",
     "dataTitle": "Data collected and purposes",
     "dataIntro": "We collect the following personal data, exclusively for the operation of the platform:",
     "dataAuth": "Authentication data (name, email, avatar) — provided automatically by the OAuth provider (GitHub, Google) at login. Purpose: user identification and platform access.",
@@ -135,8 +136,6 @@
       "hybrid": "Hybrid",
       "online": "Online"
     },
-    "preferredLocale": "Preferred language",
-    "selectLocale": "Select a language",
     "availability": "Availability",
     "timeSlot": {
       "morning": "Morning",
@@ -191,7 +190,10 @@
     "deleteConfirmButton": "Delete account permanently",
     "deleteDeleting": "Deleting...",
     "deleteErrorReferent": "You cannot delete your account while you are the referent of an active group. Close the group or transfer the role first.",
-    "deleteErrorGeneric": "Error deleting your account. Please try again."
+    "deleteErrorGeneric": "Error deleting your account. Please try again.",
+    "saveError": "Error saving your profile. Please try again.",
+    "skillSaveError": "Error saving the skill. Please try again.",
+    "skillDeleteError": "Error deleting the skill. Please try again."
   },
   "groups": {
     "createTitle": "Create a group",
@@ -199,11 +201,13 @@
     "createButton": "Create group",
     "creating": "Creating...",
     "createError": "Error creating the group. Please try again.",
+    "referentError": "The group was created, but you could not be registered as its referent. Please reload the page.",
     "groupName": "Group name",
     "skillTag": "Topic / skill",
     "skillTagPlaceholder": "e.g. DevOps, Python, Machine Learning",
     "objective": "Objective",
     "objectivePlaceholder": "e.g. prepare for AWS Solutions Architect certification",
+    "objectiveExtraPlaceholder": "Add details about your goal, if you like (optional)",
     "entryMode": "Entry mode",
     "entryModeOption": {
       "approval": "Referent approval required",
@@ -226,7 +230,24 @@
     "climatePlaceholder": "e.g. fairly informal, absolute focus",
     "expectedAttendance": "Expected attendance",
     "expectedAttendancePlaceholder": "e.g. every meeting, flexible",
-    "description": "Additional description"
+    "description": "Additional description",
+    "optional": "optional",
+    "titleModeLabel": "Group title",
+    "titleModeOption": {
+      "custom": "Custom",
+      "derived": "Derive from certification"
+    },
+    "titleDerivedHint": "The group title will be the name of the selected certification.",
+    "certification": "Certification",
+    "certificationLead": "Is your group preparing for an official certification? Link it so people can find you more easily.",
+    "objectiveFromCert": "Prepare for the {name} certification",
+    "certificationSearchPlaceholder": "Search for a certification...",
+    "certificationNoMatch": "No certification found.",
+    "certificationClear": "Clear the selected certification",
+    "certificationRequired": "Select a certification, or choose a custom title.",
+    "suggestCertification": "Can't find your certification? Suggest one",
+    "suggestEmailSubject": "Certification suggestion for the Synedria catalog",
+    "suggestEmailBody": "Certification name:\n\nOfficial link:\n\n(Thanks for the suggestion! We'll review it for the catalog.)"
   },
   "search": {
     "pageTitle": "Search groups",
@@ -280,7 +301,9 @@
     "closeConfirmButton": "Close",
     "closingGroup": "Closing...",
     "noReferent": "This group has no referent to manage join requests.",
-    "groupClosed": "This group is not accepting new members."
+    "groupClosed": "This group is not accepting new members.",
+    "closeError": "Error closing the group. Please try again.",
+    "leaveError": "Error leaving the group. Please try again."
   },
   "checkIn": {
     "recordMeeting": "Record meeting",
@@ -293,7 +316,8 @@
     "saving": "Saving...",
     "cancel": "Cancel",
     "duplicateError": "A check-in already exists for this date.",
-    "genericError": "Error saving. Please try again."
+    "genericError": "Error saving. Please try again.",
+    "attendeesError": "Meeting recorded, but attendees could not be saved."
   },
   "referent": {
     "pendingRequests": "Pending requests ({count})",
@@ -315,6 +339,7 @@
     "requestButton": "Send request",
     "joinButton": "Join",
     "submitting": "Sending...",
+    "joinError": "Error sending your request. Please try again.",
     "requestPending": "Request pending"
   },
   "onboarding": {

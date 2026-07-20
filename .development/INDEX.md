@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-04 20:37*
+*Auto-generated: 2026-07-20 21:36*
 
 ---
 
@@ -19,16 +19,24 @@
 
 ### (root)/ (4 files)
 
-- [INDEX.md](INDEX.md) (2KB, 2026-07-04) **RECENT**
-- [CURRENT-STATUS.md](CURRENT-STATUS.md) (1KB, 2026-07-04) **RECENT**
-- [ARCHITECTURE.md](ARCHITECTURE.md) (3KB, 2026-04-07)
+- [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-20) **RECENT**
+- [INDEX.md](INDEX.md) (4KB, 2026-07-20) **RECENT**
+- [CURRENT-STATUS.md](CURRENT-STATUS.md) (2KB, 2026-07-04)
 - [README.md](README.md) (2KB, 2026-03-25)
+
+### specs/ (1 files)
+
+- [README.md](specs/README.md) (1KB, 2026-07-05)
 
 ### specs/backlog/ (3 files)
 
-- [back-navigation.md](specs/backlog/back-navigation.md) (1KB, 2026-07-04) **RECENT**
-- [mobile-optimization.md](specs/backlog/mobile-optimization.md) (1KB, 2026-07-04) **RECENT**
-- [referent-transfer.md](specs/backlog/referent-transfer.md) (1KB, 2026-07-04) **RECENT**
+- [back-navigation.md](specs/backlog/back-navigation.md) (1KB, 2026-07-04)
+- [mobile-optimization.md](specs/backlog/mobile-optimization.md) (1KB, 2026-07-04)
+- [referent-transfer.md](specs/backlog/referent-transfer.md) (1KB, 2026-07-04)
+
+### specs/implemented/ (1 files)
+
+- [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (10KB, 2026-07-19) **RECENT**
 
 ### specs/planned/ (9 files)
 
@@ -42,17 +50,29 @@
 - [08-check-in.md](specs/planned/08-check-in.md) (5KB, 2026-03-30)
 - [09-i18n.md](specs/planned/09-i18n.md) (5KB, 2026-03-30)
 
-### tech-debt/ (1 files)
+### tech-debt/ (11 files)
 
+- [README.md](tech-debt/README.md) (2KB, 2026-07-20) **RECENT**
+- [production-schema-untracked.md](tech-debt/production-schema-untracked.md) (3KB, 2026-07-20) **RECENT**
+- [oauth-identities-not-linked.md](tech-debt/oauth-identities-not-linked.md) (3KB, 2026-07-20) **RECENT**
+- [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (1KB, 2026-07-19) **RECENT**
+- [group-edit-missing.md](tech-debt/group-edit-missing.md) (2KB, 2026-07-19) **RECENT**
+- [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (3KB, 2026-07-19) **RECENT**
+- [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (1KB, 2026-07-19) **RECENT**
+- [test-coverage-certification-catalog.md](tech-debt/test-coverage-certification-catalog.md) (2KB, 2026-07-19) **RECENT**
+- [test-coverage-group-objective.md](tech-debt/test-coverage-group-objective.md) (1KB, 2026-07-19) **RECENT**
+- [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (2KB, 2026-07-19) **RECENT**
 - [_TEMPLATE.md](tech-debt/_TEMPLATE.md) (<1KB, 2026-03-25)
 
-### reference/decisions/ (5 files)
+### reference/decisions/ (7 files)
 
-- [ADR-004-public-profile-default.md](reference/decisions/ADR-004-public-profile-default.md) (1KB, 2026-04-07)
-- [ADR-005-single-referent-per-group.md](reference/decisions/ADR-005-single-referent-per-group.md) (1KB, 2026-04-07)
-- [ADR-001-skill-tags-free-text.md](reference/decisions/ADR-001-skill-tags-free-text.md) (1KB, 2026-03-30)
-- [ADR-002-group-soft-delete.md](reference/decisions/ADR-002-group-soft-delete.md) (1KB, 2026-03-30)
-- [ADR-003-reapplication-deferred.md](reference/decisions/ADR-003-reapplication-deferred.md) (2KB, 2026-03-30)
+- [001-skill-tags-free-text.md](reference/decisions/001-skill-tags-free-text.md) (1KB, 2026-07-05)
+- [002-group-soft-delete.md](reference/decisions/002-group-soft-delete.md) (1KB, 2026-07-05)
+- [003-reapplication-deferred.md](reference/decisions/003-reapplication-deferred.md) (2KB, 2026-07-05)
+- [004-public-profile-default.md](reference/decisions/004-public-profile-default.md) (1KB, 2026-07-05)
+- [005-single-referent-per-group.md](reference/decisions/005-single-referent-per-group.md) (1KB, 2026-07-05)
+- [README.md](reference/decisions/README.md) (2KB, 2026-07-05)
+- [_TEMPLATE.md](reference/decisions/_TEMPLATE.md) (1KB, 2026-07-05)
 
 ### reference/technical/ (1 files)
 
@@ -72,11 +92,16 @@
 
 ## Recently Modified (last 7 days)
 
-1. [INDEX.md](INDEX.md) (today)
-2. [CURRENT-STATUS.md](CURRENT-STATUS.md) (today)
-3. [back-navigation.md](specs/backlog/back-navigation.md) (today)
-4. [mobile-optimization.md](specs/backlog/mobile-optimization.md) (today)
-5. [referent-transfer.md](specs/backlog/referent-transfer.md) (today)
+1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
+2. [INDEX.md](INDEX.md) (today)
+3. [README.md](tech-debt/README.md) (today)
+4. [production-schema-untracked.md](tech-debt/production-schema-untracked.md) (today)
+5. [oauth-identities-not-linked.md](tech-debt/oauth-identities-not-linked.md) (today)
+6. [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (today)
+7. [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (today)
+8. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
+9. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
+10. [onboarding-prompt-copy.md](tech-debt/onboarding-prompt-copy.md) (today)
 
 ---
 

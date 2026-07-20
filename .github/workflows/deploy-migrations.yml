@@ -1,0 +1,49 @@
+name: Deploy migrations
+
+# Runs only after CI has gone green on main, and only for that exact commit —
+# a schema change is applied to production solely if the code that needs it
+# builds. Triggered via workflow_run rather than as a job inside CI so this
+# workflow can set cancel-in-progress: false: CI cancels superseded runs, which
+# is right for a build and dangerous for a migration.
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+
+concurrency:
+  group: production-migrations
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    name: Apply migrations to production
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    # Create this environment in repo settings with a required reviewer if you
+    # want a human gate before production schema changes.
+    environment: production
+
+    steps:
+      - name: Checkout the commit CI validated
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # CI and local runs share these entry points (ADR-012): all
+      # stack-specific knowledge lives in .development/automation/, not here.
+      - name: Push migrations
+        run: .development/automation/db-push.sh
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+          SUPABASE_PROJECT_REF: ${{ vars.SUPABASE_PROJECT_REF }}

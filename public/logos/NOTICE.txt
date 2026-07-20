@@ -1,0 +1,28 @@
+Issuer logos in this directory are trademarks of their respective owners and are
+used solely to identify the certification each study group targets (nominative
+use). Their presence implies no endorsement, affiliation, or partnership.
+
+Sources — all public-domain or CC0, no attribution required:
+
+  aws.png          Amazon Web Services logo.
+                   Wikimedia Commons "Aws_logo.svg" (CC0 1.0). The "aws" wordmark
+                   was recolored white and placed on the AWS Squid Ink (#252f3e)
+                   square, reproducing the self-contained squared badge form.
+
+  cisco.svg        Cisco logo.
+                   Wikimedia Commons "Cisco_logo_blue_2016.svg"
+                   (public domain — PD-textlogo). Used unmodified.
+
+  google-cloud.svg Google Cloud (Platform) logo.
+                   Wikimedia Commons "Google-cloud-platform.svg" (public domain —
+                   simple geometric shapes/text). CSS class fills inlined so the
+                   file renders in any SVG engine.
+
+  hashicorp.png    HashiCorp logo.
+                   Wikimedia Commons "HashiCorp_Logo_no_text.png" (public domain).
+                   Placed on a white tile so the black mark stays legible on dark
+                   backgrounds.
+
+Trademarks: "AWS" and the AWS smile are trademarks of Amazon.com, Inc.; "Cisco"
+of Cisco Systems, Inc.; "Google Cloud" of Google LLC; "HashiCorp" of HashiCorp,
+Inc. Other issuers in the catalog render a text monogram, not their logo.

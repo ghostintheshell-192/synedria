@@ -35,3 +35,37 @@ export type UserSkill = {
   goal: string | null;
   created_at: string;
 };
+
+export type CertificationCategory =
+  | "cloud"
+  | "networking"
+  | "security"
+  | "data"
+  | "devops"
+  | "development"
+  | "systems"
+  | "project_management";
+
+export type Issuer = {
+  id: string;
+  name: string;
+  slug: string;
+  website_url: string | null;
+  logo_url: string | null;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+};
+
+export type Certification = {
+  id: string;
+  issuer_id: string;
+  name: string;
+  slug: string;
+  code: string | null;
+  category: CertificationCategory;
+  official_url: string | null;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+};

@@ -12,14 +12,24 @@ export default function CloseGroupButton({ groupId }: { groupId: string }) {
 
   const [showConfirm, setShowConfirm] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [error, setError] = useState("");
 
   async function handleClose() {
     setClosing(true);
+    setError("");
 
-    await supabase
+    // .select() distinguishes a real write from an RLS-blocked no-op.
+    const { data, error: updateError } = await supabase
       .from("groups")
       .update({ status: "closed" })
-      .eq("id", groupId);
+      .eq("id", groupId)
+      .select("id");
+
+    if (updateError || !data?.length) {
+      setError(t("closeError"));
+      setClosing(false);
+      return;
+    }
 
     router.refresh();
   }
@@ -38,7 +48,7 @@ export default function CloseGroupButton({ groupId }: { groupId: string }) {
   return (
     <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">
       <p className="text-sm text-red-600 dark:text-red-400">
-        {t("closeGroupConfirm")}
+        {error || t("closeGroupConfirm")}
       </p>
       <div className="flex gap-2">
         <button

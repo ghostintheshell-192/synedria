@@ -42,7 +42,11 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 
 ## Key Decisions
 
-*No ADRs yet - will be added as development progresses.*
+- [ADR-001: Skill Tags as Free Text](reference/decisions/001-skill-tags-free-text.md) `[medium]` — Skills are entered as free text with case-insensitive matching and autocomplete, not a curated taxonomy, to avoid ongoing curation overhead.
+- [ADR-002: Groups Are Closed, Never Deleted](reference/decisions/002-group-soft-delete.md) `[high]` — Groups are closed (soft-deleted), never hard-deleted — pages, history, and member records are preserved; user erasure is handled separately by anonymization.
+- [ADR-003: Re-Application After Rejection Deferred to Post-MVP](reference/decisions/003-reapplication-deferred.md) `[medium]` — Re-application after a rejected join request is disallowed for MVP and deferred post-MVP; the messaging/cooldown/blacklist design is documented but not built.
+- [ADR-004: Public Profile Default](reference/decisions/004-public-profile-default.md) `[medium]` — `is_public_profile` defaults to `true` (member identities visible on public group pages), with no UI toggle exposed yet.
+- [ADR-005: Single Referent Per Group](reference/decisions/005-single-referent-per-group.md) `[high]` — A single referent per group is enforced by a unique partial index at the database level; no multi-referent flow exists.
 
 ## Project Tree
 
@@ -61,6 +65,9 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `page.tsx`
 
 ### src/app/[locale]/auth/callback
+- `route.ts`
+
+### src/app/[locale]/auth/confirm
 - `route.ts`
 
 ### src/app/[locale]/contact
@@ -105,10 +112,14 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `Dashboard.tsx`
 
 ### src/components/groups
+- `CertificationBadge.tsx`
+- `CertificationCombobox.tsx`
 - `CheckInForm.tsx`
+- `CloseGroupButton.tsx`
 - `GroupCard.tsx`
 - `GroupCreateForm.tsx`
 - `JoinRequestForm.tsx`
+- `LeaveGroupButton.tsx`
 - `PendingRequests.tsx`
 
 ### src/components/landing
@@ -117,6 +128,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/components/layout
 - `Footer.tsx`
 - `Header.tsx`
+- `LanguageSwitcher.tsx`
 - `MobileMenu.tsx`
 - `NotificationBadge.tsx`
 
@@ -134,7 +146,10 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `routing.ts`
 
 ### src/lib
+- `certifications.ts`
 - `dashboard.ts`
+- `groups.ts` — A group's displayed title is derived, never stored (FR-10a): the custom
+- `issuerMonogram.ts` — Fallback tile identity for a certification issuer that has no curated logo
 - `profile.ts`
 - `slug.ts`
 

@@ -24,6 +24,7 @@ export default function LeaveGroupButton({
 
   const [showConfirm, setShowConfirm] = useState(false);
   const [leaving, setLeaving] = useState(false);
+  const [error, setError] = useState("");
 
   // Referent cannot leave an open group if other members exist
   if (isReferent && !isLastMember && isOpen) {
@@ -36,12 +37,21 @@ export default function LeaveGroupButton({
 
   async function handleLeave() {
     setLeaving(true);
+    setError("");
 
-    await supabase
+    // .select() distinguishes a real write from an RLS-blocked no-op.
+    const { data, error: deleteError } = await supabase
       .from("group_members")
       .delete()
       .eq("group_id", groupId)
-      .eq("user_id", userId);
+      .eq("user_id", userId)
+      .select("group_id");
+
+    if (deleteError || !data?.length) {
+      setError(t("leaveError"));
+      setLeaving(false);
+      return;
+    }
 
     router.refresh();
   }
@@ -60,7 +70,7 @@ export default function LeaveGroupButton({
   return (
     <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">
       <p className="text-sm text-red-600 dark:text-red-400">
-        {isLastMember ? t("leaveAndCloseConfirm") : t("leaveConfirm")}
+        {error || (isLastMember ? t("leaveAndCloseConfirm") : t("leaveConfirm"))}
       </p>
       <div className="flex gap-2">
         <button

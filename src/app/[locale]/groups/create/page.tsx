@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { isProfileComplete } from "@/lib/profile";
 import type { Profile, UserSkill } from "@/types/database";
 import GroupCreateForm from "@/components/groups/GroupCreateForm";
+import { getActiveCertifications } from "@/lib/certifications";
 
 export async function generateMetadata({
   params,
@@ -34,10 +35,16 @@ export default async function CreateGroupPage({
     redirect(`/${locale}/login`);
   }
 
-  const [{ data: profile }, { data: skills }] = await Promise.all([
-    supabase.from("profiles").select("*").eq("id", user.id).single<Profile>(),
-    supabase.from("user_skills").select("*").eq("user_id", user.id).returns<UserSkill[]>(),
-  ]);
+  const [{ data: profile }, { data: skills }, certifications] =
+    await Promise.all([
+      supabase.from("profiles").select("*").eq("id", user.id).single<Profile>(),
+      supabase
+        .from("user_skills")
+        .select("*")
+        .eq("user_id", user.id)
+        .returns<UserSkill[]>(),
+      getActiveCertifications(supabase),
+    ]);
 
   if (!profile || !isProfileComplete(profile, skills ?? [])) {
     redirect(`/${locale}/profile`);
@@ -45,7 +52,7 @@ export default async function CreateGroupPage({
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">
-      <GroupCreateForm userId={user.id} />
+      <GroupCreateForm userId={user.id} certifications={certifications} />
     </div>
   );
 }

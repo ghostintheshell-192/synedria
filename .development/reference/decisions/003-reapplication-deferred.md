@@ -1,12 +1,9 @@
 # ADR-003: Re-Application After Rejection Deferred to Post-MVP
 
-## Status
-
-Accepted
-
-## Date
-
-2026-03-28
+**Date**: 2026-03-28
+**Status**: Accepted
+**Impact**: medium
+**Summary**: Re-application after a rejected join request is disallowed for MVP and deferred post-MVP; the messaging/cooldown/blacklist design is documented but not built.
 
 ## Context
 

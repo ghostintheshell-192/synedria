@@ -92,8 +92,8 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [README.md](tech-debt/README.md) (today)
-3. [INDEX.md](INDEX.md) (today)
+2. [INDEX.md](INDEX.md) (today)
+3. [README.md](tech-debt/README.md) (today)
 4. [oauth-identities-not-linked.md](tech-debt/oauth-identities-not-linked.md) (today)
 5. [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (today)
 6. [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (today)

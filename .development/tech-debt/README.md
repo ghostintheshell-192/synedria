@@ -40,10 +40,11 @@ moves the file to `../archive/completed/` with a date prefix.
 
 ## Current Issues by Priority
 
-*Auto-updated: 2026-07-20 21:19*
+*Auto-updated: 2026-07-20 21:21*
 
 **High Priority:**
 - `group-tag-model-single-and-coarse.md` - Group tag model is single + coarse (no curated multi-tags)
+- `oauth-identities-not-linked.md` - One person signing in with two OAuth providers becomes two users
 
 **Medium Priority:**
 - `test-coverage-certification-catalog.md` - No pgTAP coverage for the certification catalog (migration 00008)

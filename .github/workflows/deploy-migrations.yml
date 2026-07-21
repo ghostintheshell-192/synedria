@@ -20,9 +20,12 @@ jobs:
     name: Apply migrations to production
     if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    # Create this environment in repo settings with a required reviewer if you
-    # want a human gate before production schema changes.
-    environment: production
+    # Dedicated environment, deliberately not the `Production` one Vercel
+    # created for its own deploys: protection rules attach to the environment,
+    # so sharing it would make a reviewer gate on schema changes also gate
+    # every Vercel deploy, and vice versa. Add a required reviewer here in repo
+    # settings for a human gate before production schema changes.
+    environment: supabase-production
 
     steps:
       - name: Checkout the commit CI validated
@@ -43,6 +46,19 @@ jobs:
       # stack-specific knowledge lives in .development/automation/, not here.
       - name: Push migrations
         run: .development/automation/db-push.sh
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+          SUPABASE_PROJECT_REF: ${{ vars.SUPABASE_PROJECT_REF }}
+
+      # Deliberately after the push, not before: on any branch that is ahead of
+      # production, pending migrations are the normal state and a pre-check would
+      # cry wolf. What must never happen is the deploy *finishing* with a gap
+      # still open, so this asserts the push actually closed it. It also catches
+      # drift the other way — schema applied remotely that this repo cannot
+      # reproduce, which is how the 2026-07-20 outage started.
+      - name: Verify schema matches migrations
+        run: .development/automation/db-check.sh
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
           SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}

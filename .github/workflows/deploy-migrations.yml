@@ -20,9 +20,12 @@ jobs:
     name: Apply migrations to production
     if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    # Create this environment in repo settings with a required reviewer if you
-    # want a human gate before production schema changes.
-    environment: production
+    # Dedicated environment, deliberately not the `Production` one Vercel
+    # created for its own deploys: protection rules attach to the environment,
+    # so sharing it would make a reviewer gate on schema changes also gate
+    # every Vercel deploy, and vice versa. Add a required reviewer here in repo
+    # settings for a human gate before production schema changes.
+    environment: supabase-production
 
     steps:
       - name: Checkout the commit CI validated

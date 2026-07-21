@@ -1,6 +1,6 @@
 # INDEX - Synedria Development Documentation
 
-*Auto-generated: 2026-07-20 22:43*
+*Auto-generated: 2026-07-21 07:48*
 
 ---
 
@@ -19,8 +19,8 @@
 
 ### (root)/ (4 files)
 
-- [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-20) **RECENT**
-- [INDEX.md](INDEX.md) (4KB, 2026-07-20) **RECENT**
+- [ARCHITECTURE.md](ARCHITECTURE.md) (4KB, 2026-07-21) **RECENT**
+- [INDEX.md](INDEX.md) (4KB, 2026-07-21) **RECENT**
 - [CURRENT-STATUS.md](CURRENT-STATUS.md) (2KB, 2026-07-04)
 - [README.md](README.md) (2KB, 2026-03-25)
 
@@ -50,11 +50,12 @@
 - [08-check-in.md](specs/planned/08-check-in.md) (5KB, 2026-03-30)
 - [09-i18n.md](specs/planned/09-i18n.md) (5KB, 2026-03-30)
 
-### tech-debt/ (10 files)
+### tech-debt/ (11 files)
 
-- [group-edit-missing.md](tech-debt/group-edit-missing.md) (3KB, 2026-07-20) **RECENT**
-- [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (2KB, 2026-07-20) **RECENT**
-- [README.md](tech-debt/README.md) (2KB, 2026-07-20) **RECENT**
+- [README.md](tech-debt/README.md) (2KB, 2026-07-21) **RECENT**
+- [group-edit-missing.md](tech-debt/group-edit-missing.md) (3KB, 2026-07-21) **RECENT**
+- [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (2KB, 2026-07-21) **RECENT**
+- [production-schema-untracked.md](tech-debt/production-schema-untracked.md) (3KB, 2026-07-20) **RECENT**
 - [oauth-identities-not-linked.md](tech-debt/oauth-identities-not-linked.md) (3KB, 2026-07-20) **RECENT**
 - [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (1KB, 2026-07-19) **RECENT**
 - [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (3KB, 2026-07-19) **RECENT**
@@ -79,7 +80,7 @@
 
 ### archive/completed/ (1 files)
 
-- [2026-07-20_production-schema-untracked.md](archive/completed/2026-07-20_production-schema-untracked.md) (5KB, 2026-07-20) **RECENT**
+- [2026-07-20_production-schema-untracked.md](archive/completed/2026-07-20_production-schema-untracked.md) (5KB, 2026-07-21) **RECENT**
 
 ---
 
@@ -96,15 +97,15 @@
 ## Recently Modified (last 7 days)
 
 1. [ARCHITECTURE.md](ARCHITECTURE.md) (today)
-2. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
-3. [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (today)
-4. [2026-07-20_production-schema-untracked.md](archive/completed/2026-07-20_production-schema-untracked.md) (today)
-5. [INDEX.md](INDEX.md) (today)
-6. [README.md](tech-debt/README.md) (today)
-7. [oauth-identities-not-linked.md](tech-debt/oauth-identities-not-linked.md) (today)
-8. [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (today)
-9. [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (today)
-10. [group-tag-model-single-and-coarse.md](tech-debt/group-tag-model-single-and-coarse.md) (today)
+2. [INDEX.md](INDEX.md) (today)
+3. [2026-07-20_production-schema-untracked.md](archive/completed/2026-07-20_production-schema-untracked.md) (today)
+4. [README.md](tech-debt/README.md) (today)
+5. [group-edit-missing.md](tech-debt/group-edit-missing.md) (today)
+6. [untyped-supabase-client.md](tech-debt/untyped-supabase-client.md) (today)
+7. [production-schema-untracked.md](tech-debt/production-schema-untracked.md) (today)
+8. [oauth-identities-not-linked.md](tech-debt/oauth-identities-not-linked.md) (today)
+9. [10-certification-catalog.md](specs/implemented/10-certification-catalog.md) (1d ago)
+10. [certification-badge-prominent-layout.md](tech-debt/certification-badge-prominent-layout.md) (1d ago)
 
 ---
 

@@ -23,8 +23,10 @@ README_FILE = TECH_DEBT_DIR / "README.md"
 # Files to exclude
 EXCLUDE_FILES = {"README.md", "_TEMPLATE.md"}
 
-# Priority order for display
-PRIORITY_ORDER = ["high", "medium", "low"]
+# Priority order for display. Unknown values fall back to "low" further down, so
+# every level _TEMPLATE.md accepts must appear here or the most severe issues get
+# filed as the least severe ones.
+PRIORITY_ORDER = ["critical", "high", "medium", "low"]
 
 
 def parse_frontmatter(content: str) -> Dict[str, str]:

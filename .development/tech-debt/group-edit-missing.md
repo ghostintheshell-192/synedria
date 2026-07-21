@@ -41,10 +41,20 @@ Three pieces, each a twin of an existing creation-side piece:
 1. **Edit form** — like `GroupCreateForm`, pre-filled with current values
    (reuse the same fields, validation, title toggle, certification combobox).
 2. **Route/action** doing the `UPDATE groups` for the changed fields.
-3. **RLS UPDATE policy** allowing the update **only by the group's referent**.
-   Current RLS covers insert and the F2-hardened `group_members` writes, not
-   field updates on `groups` — verify and add the policy (with a pgTAP `rls_`
-   regression, per the test harness).
+3. **RLS hardening.** The policy assumed missing here **already exists**:
+   `"Referent can update group"` has been in place since `00001_initial_schema.sql`
+   (line 318), gated on a `group_members` referent row. The problem is the
+   opposite of the one stated — it is too permissive, not absent:
+   - no explicit `WITH CHECK`, so Postgres reuses `USING`
+   - no column-level restriction, and Postgres has none for `UPDATE`, so a
+     referent calling PostgREST directly can write `slug`, `created_by`,
+     `status` and `is_indexable` — whatever the edit form chooses to expose
+
+   So the work is to add a `WITH CHECK` and a `BEFORE UPDATE` trigger freezing
+   `slug` and `created_by`, with a pgTAP `rls_` regression per the test harness.
+   Client-side whitelisting alone would put the guarantee in the one place the
+   project's own principles say it must not live ("RLS policies, never bypassed
+   in application code").
 
 ## Notes
 

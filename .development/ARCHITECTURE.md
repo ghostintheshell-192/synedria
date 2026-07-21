@@ -82,6 +82,9 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 ### src/app/[locale]/groups/[slug]
 - `page.tsx`
 
+### src/app/[locale]/groups/[slug]/edit
+- `page.tsx`
+
 ### src/app/[locale]/groups/[slug]/join
 - `page.tsx`
 
@@ -118,9 +121,12 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `CloseGroupButton.tsx`
 - `GroupCard.tsx`
 - `GroupCreateForm.tsx`
+- `GroupEditForm.tsx`
+- `GroupFormFields.tsx`
 - `JoinRequestForm.tsx`
 - `LeaveGroupButton.tsx`
 - `PendingRequests.tsx`
+- `useGroupForm.ts`
 
 ### src/components/landing
 - `LandingPage.tsx`
@@ -160,6 +166,7 @@ Full consolidated schema with tables, enums, RLS policies, triggers, and relatio
 - `server.ts`
 
 ### src/types
+- `database.generated.ts`
 - `database.ts`
 
 ---

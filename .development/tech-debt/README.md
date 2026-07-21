@@ -40,12 +40,14 @@ moves the file to `../archive/completed/` with a date prefix.
 
 ## Current Issues by Priority
 
-*Auto-updated: 2026-07-20 21:36*
+*Auto-updated: 2026-07-21 08:12*
+
+**Critical Priority:**
+- `group-edit-missing.md` - No group-edit flow — referent cannot change a group after creation
 
 **High Priority:**
 - `group-tag-model-single-and-coarse.md` - Group tag model is single + coarse (no curated multi-tags)
 - `oauth-identities-not-linked.md` - One person signing in with two OAuth providers becomes two users
-- `production-schema-untracked.md` - Production schema is applied by hand and tracked nowhere
 
 **Medium Priority:**
 - `test-coverage-certification-catalog.md` - No pgTAP coverage for the certification catalog (migration 00008)
@@ -54,7 +56,6 @@ moves the file to `../archive/completed/` with a date prefix.
 
 **Low Priority:**
 - `certification-badge-prominent-layout.md` - Prominent certification badge takes a full row on the group page
-- `group-edit-missing.md` - No group-edit flow — referent cannot change a group after creation
 - `onboarding-prompt-copy.md` - Onboarding profile-completion copy needs improvement
 
 ## Integration with Reference Documentation

@@ -22,6 +22,12 @@ This ensures continuity between sessions.
 
 **NEVER work on main directly.**
 
+**Branch names: ALWAYS follow the convention above** (`feature/`, `fix/`, `docs/`,
+`experiment/` + short kebab-case task name, e.g. `docs/ai-agent-ideas`), also in
+cloud sessions. Never keep auto-generated names (e.g. `claude/<random-words>`):
+they say nothing about the work. If a session starts on such a name, create or
+switch to a conventional branch before the first commit.
+
 **Typical workflow:**
 
 ```bash

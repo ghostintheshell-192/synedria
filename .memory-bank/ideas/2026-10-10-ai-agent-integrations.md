@@ -44,8 +44,12 @@ groups healthier".
   existing suggestion flow, FR-13) or a read-only/sync feed the curator
   reviews. Before building, clarify who the real company-side actor is
   (issuers? employers? training providers?) and what they gain.
-- roadmap.sh: check for a public API/licensing first; may be better as a
-  roadmap → group objective import than a two-way integration.
+- roadmap.sh: no official public API or partner program found (checked
+  2026-10-10). Content lives as Markdown in the public GitHub repo
+  (`kamranahmedse/developer-roadmap`); a community MCP server wraps it, not
+  official. Reuse license NOT verified — read the repo license file before
+  copying any content. Likely best as a link/reference or "start from this
+  roadmap" hint on group creation, not a two-way integration.
 
 ## Minimal next step if picked up
 

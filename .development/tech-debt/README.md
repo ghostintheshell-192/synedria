@@ -40,7 +40,7 @@ moves the file to `../archive/completed/` with a date prefix.
 
 ## Current Issues by Priority
 
-*Auto-updated: 2026-07-21 08:12*
+*Auto-updated: 2026-10-10 06:58*
 
 **Critical Priority:**
 - `group-edit-missing.md` - No group-edit flow — referent cannot change a group after creation

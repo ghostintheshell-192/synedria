@@ -1,0 +1,41 @@
+name: Supabase keepalive
+
+# The hosted database runs on Supabase's free plan, which pauses a project after
+# 7 days without API traffic and schedules a paused project for deletion later
+# on. Synedria does not yet receive steady traffic, so without this the project
+# freezes between bursts of use (it nearly did on 2026-10-25).
+#
+# The ping goes through the deployed app rather than straight at Supabase: the
+# search page is rendered on the server and runs its queries through the
+# Supabase API on every request (it reads cookies and search params, so Next.js
+# never caches it). That counts as API activity for the inactivity timer, needs
+# no secret in this repository, and doubles as a smoke test of production:
+# a red run means either the app or the database is down.
+#
+# Twice a week leaves slack for GitHub delaying or skipping a scheduled run.
+# Note that GitHub disables scheduled workflows in a repository with no commits
+# for 60 days; the run summary on the Actions tab shows when that happens.
+
+on:
+  schedule:
+    - cron: '17 9 * * 1,4' # Monday and Thursday, 09:17 UTC
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    name: Hit the production search page
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Request the search page
+        # The query string is unique per run so no cache between here and the
+        # app can answer in its place. --fail turns any 4xx/5xx into a failed
+        # run; a paused Supabase project surfaces as a 500 from the page.
+        run: |
+          curl --silent --show-error --fail --location \
+            --max-time 60 --retry 3 --retry-delay 20 --retry-all-errors \
+            --output /dev/null --write-out 'HTTP %{http_code} in %{time_total}s\n' \
+            "https://synedria.vercel.app/it/search?keepalive=${GITHUB_RUN_ID}"
